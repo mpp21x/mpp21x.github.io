@@ -1,5 +1,5 @@
 ---
-title: 重構實戰 'GildedRose Factoring Kata '
+title: 重構訓練 'GildedRose Factoring Kata'
 date: 2020-04-05 19:39:24
 tags:
 - php
