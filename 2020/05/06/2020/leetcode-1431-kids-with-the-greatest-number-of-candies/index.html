@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="LeetCode 訓練第一篇(2) - Kids With the Greatest Number of Candies, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="LeetCode 訓練(2) -  Kids With the Greatest Number of Candies, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>LeetCode 訓練第一篇(2) - Kids With the Greatest Number of Candies | matt blog</title>
+    <title>LeetCode 訓練(2) -  Kids With the Greatest Number of Candies | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -251,13 +251,13 @@
 
 
 
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies.png')"> -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg')"> -->
 <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/bg.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode 訓練第一篇(2) - Kids With the Greatest Number of Candies</h1>
+                    <h1 class="description center-align post-title">LeetCode 訓練(2) -  Kids With the Greatest Number of Candies</h1>
                 </div>
             </div>
         </div>
@@ -411,14 +411,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode 訓練第一篇(2) - Kids With the Greatest Number of Candies">
+                    <img src="/medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode 訓練(2) -  Kids With the Greatest Number of Candies">
                 
 
-                <h1 id="leetcode-訓練第一篇2---kids-with-the-greatest-number-of-candies">LeetCode 訓練第一篇(2) - Kids With the Greatest Number of Candies</h1>
-<ul>
-<li><a href="https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/submissions/" target="_blank" rel="noopener">Two Sum 題目連結</a></li>
-<li>難度：<code>easy</code></li>
-<li>程式語言：<code>javascript</code></li>
+                <ul>
+<li>link：<a href="https://leetcode.com/problems/kids-with-the-greatest-number-of" target="_blank" rel="noopener">Kids With the Greatest Number of Candies</a></li>
+<li>difficulty：<code>easy</code></li>
+<li>language：<code>javascript</code></li>
 </ul>
 <h2 id="題目講解">題目講解</h2>
 <h3 id="原文">原文</h3>
@@ -447,46 +446,39 @@ Output: [true,false,true]</code></pre>
 <li><code>1 &lt;= extraCandies &lt;= 50</code></li>
 </ul>
 <h3 id="題目解釋">題目解釋</h3>
-<p>給予一個充滿整數的陣列 <code>nums</code> 以及一個指定的整數 <code>target</code>，我們必須找出在這個陣列中的某兩個數，此數總和必然是 <strong>指定的整數</strong>，並將其索引值放在一個陣列之後回傳出去。</p>
+<p>給予一個充滿整數的陣列 <code>candies</code> 以及一個指定的整數 <code>extraCandies</code>，我們需要取出 <code>candies</code> 中的每一個整數，再加上 <code>extraCandies</code> 之後，判斷其是否大於或等於 <code>candies</code> 中最大的那個數字，若是則為 <code>true</code> 否則為 <code>false</code>。</p>
+<p>再將每一個整數的運算結果放在一個陣列後回傳，也就是說必須回傳一個與 <code>candies</code> 同等長度以及皆為 boolean 值的陣列。</p>
 <h2 id="題目解析思路">題目解析思路</h2>
-<p>首先我們要知道，答案的兩個數總和（假設叫做 <code>a</code> 和 <code>b</code>，<code>a</code> 在 <code>b</code> 的前面！），跟 <code>target</code> 是一樣的，透過簡單的推理可得知：</p>
-<p><code>簡單的數學邏輯推理</code>：target = a + b，traget - a = b 或是 target - b = a。</p>
-<p>所以我們可以透過 <code>target</code> 減少 <code>a</code> 的結果，再搭配另一個數字來確認總和是否為 <code>target</code>，是的話就代表這個數字就是我們要找到的 <code>b</code>。</p>
-<p>由於要得到答案，流程必然經過這三個步驟，讓我們先給這三個步驟一個代稱，以便後續稱呼：</p>
-<ul>
-<li><code>遍歷步驟</code>：也就是一一取出 nums 的一個數字</li>
-<li><code>取得待確認值步驟</code>：取出 nums 的一個數字後扣掉 <code>target</code> 取得待確認值，只要這個待確認值存在於 <code>nums</code> 其中的另一個位置（不能是同一個位置），則此數則為 <code>a</code> 或 <code>b</code>。</li>
-<li><code>找出總和步驟</code>： 再來就是找出這個是這一題比較重要的環節，因為這個環節按照上面 <code>簡單的數學邏輯推理</code> 我們可以知道有兩種思路：
-<ul>
-<li><code>用加的來找出總和步驟</code></li>
-<li><code>用減的來找出總和步驟</code></li>
-</ul></li>
-</ul>
-<h3 id="用加的來找出總和步驟實作">用加的來找出總和步驟實作</h3>
-<p><code>用加的來找出總和步驟</code> ，最直覺的作法便是遍歷 <code>nums</code>，每個數字取出來扣掉 <code>target</code> 取得運算後的待確認值之後，在遍歷一次整個 <code>nums</code> 慢慢相加找出答案，但這樣子的做法，時間複雜度會變成 <code>O(n²)</code> 了。</p>
-<p>那麼有沒有更好的做法？有，也就是 <code>用減的來找出總和步驟</code></p>
-<h3 id="用減的來找出總和步驟實作">用減的來找出總和步驟實作</h3>
-<p>在每一次遍歷運算的時候，把待確認值放在一個額外新增的一個變數 <code>map</code>，將待確認值作為 <code>key</code>，Index 作為 <code>value</code> ，這樣只要每次運算完之後，都會將運算結果儲存到這個 <code>map</code> 裡面。</p>
-<p>這樣做的好處是時間複雜度會變成 <code>O(n)</code>了。</p>
-<p>當今天遍歷到答案 <code>a</code> 的時候，因為 <code>map</code> 裡面還沒有放到 <code>b</code>，所以 <code>a</code> 先被儲存至 <code>b</code> ，然後接下來一一遍歷直到 <code>b</code> 出現的時候，因為此時 <code>a</code> 已經存在於 <code>map</code> 了，所以直接使用 <code>map[taget - a]</code> 判斷是否存在，只要存在就幾乎找出答案了。</p>
-<p>不過答案要的是索引值所以不要忘了把回傳 <code>a</code> 和 <code>b</code> 在 <code>nums</code> 的索引值，而非其值。</p>
-<h3 id="實作程式碼">實作程式碼</h3>
+<p>這題大致可以幾個步驟（數字為代稱，不一定為實際順序）：</p>
+<ol type="1">
+<li><strong>遍歷取出數字</strong>：將 <code>candies</code> 一一取出。這一步驟讓時間複雜度至少會是 <code>O(n)</code>。</li>
+<li><strong>運算及比較</strong>： 加上 <code>extraCandies</code> 之後進行比較。</li>
+<li><strong>找出最大值</strong>： 找出 <code>candies</code> 最大的數值。</li>
+</ol>
+<p>這裡的 <strong>步驟 1</strong> 和 <strong>步驟 2</strong> ，在邏輯上必然有先後關聯的，可將步驟 1 和 步驟 2 可視為一體，而接下來則是思考 要先 <strong>步驟 3</strong> 或是 <strong>步驟 1 &amp; 2</strong>：</p>
+<p>若先執行 <strong>步驟 1 &amp; 2</strong> -&gt; <strong>步驟 3</strong>，這樣一邊遍歷取出元素 又得重複尋找出最大值，時間複雜度為 <code>O(n²)</code></p>
+<p>如果先 <strong>步驟 3</strong> -&gt; <strong>步驟 1 &amp; 2</strong>，一開始就找出最大數，時間複雜度為 <code>2n</code> 而已。</p>
+<h2 id="實作程式碼">實作程式碼</h2>
 <p>將上述過程轉化程式碼便是如下：</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">var</span> twoSum <span class="op">=</span> <span class="kw">function</span> (nums<span class="op">,</span> target) {</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="kw">let</span> map <span class="op">=</span> {}<span class="op">;</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> nums<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb4-4"><a href="#cb4-4"></a>        <span class="cf">if</span> (map[target <span class="op">-</span> nums[i]] <span class="op">&gt;</span> <span class="dv">-1</span>) {</span>
-<span id="cb4-5"><a href="#cb4-5"></a>            <span class="cf">return</span> [map[target <span class="op">-</span> nums[i]]<span class="op">,</span> i]<span class="op">;</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>        }</span>
-<span id="cb4-7"><a href="#cb4-7"></a>        map[nums[i]] <span class="op">=</span> i<span class="op">;</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>    }</span>
-<span id="cb4-9"><a href="#cb4-9"></a>}<span class="op">;</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="co">// 驗算</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="co">// console.log(twoSum([2, 7, 11, 15], 9));</span></span></code></pre></div>
-<h4 id="其他">其他</h4>
-<p>如果陣列數字無限大，可考慮將 <code>nums.length</code> 取出作為一個變數，詳細可參考連結 ：<a href="https://stackoverflow.com/questions/17989270/for-loop-performance-storing-array-length-in-a-variable" target="_blank" rel="noopener">For-loop performance: storing array length in a variable</a>。</p>
-<p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/1.twoSum" target="_blank" rel="noopener">點我連結</a>。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">var</span> kidsWithCandies <span class="op">=</span> <span class="kw">function</span> (candies<span class="op">,</span> extraCandies) {</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="co">// 3. 找出最大值</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="kw">const</span> maxNum <span class="op">=</span> candies<span class="op">.</span><span class="fu">reduce</span>((accumulator<span class="op">,</span> currentValue) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-4"><a href="#cb4-4"></a>        <span class="cf">return</span> currentValue <span class="op">&gt;</span> accumulator <span class="op">?</span> currentValue <span class="op">:</span> accumulator<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>    }<span class="op">,</span> candies[<span class="dv">0</span>])<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="kw">const</span> answer <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="kw">const</span> length <span class="op">=</span> candies<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>    <span class="co">// 1. 遍歷取出數字 以及 2. 運算及比較</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> length<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb4-12"><a href="#cb4-12"></a>        answer<span class="op">.</span><span class="fu">push</span>((candies[i] <span class="op">+</span> extraCandies) <span class="op">&gt;=</span> maxNum)<span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>    }</span>
+<span id="cb4-14"><a href="#cb4-14"></a></span>
+<span id="cb4-15"><a href="#cb4-15"></a>    <span class="cf">return</span> answer<span class="op">;</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>}<span class="op">;</span></span></code></pre></div>
+<h2 id="其他">其他</h2>
+<h3 id="github-紀錄">GitHub 紀錄</h3>
+<p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/1431.Kids_With_the_Greatest_Number_of_Candies" target="_blank" rel="noopener">點我連結</a>。</p>
 
             </div>
             <hr/>
@@ -547,37 +539,34 @@ Output: [true,false,true]</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/06/leetcode-1431-kids-with-the-greatest-number-of-candies/">
+                <a href="/2020/05/10/2020/leetcode-1282/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies.png" class="responsive-img" alt="LeetCode 訓練第一篇(2) - Kids With the Greatest Number of Candies">
+                        <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png" class="responsive-img" alt="LeetCode 訓練(3) - Group the People Given the Group Size They Belong To">
                         
-                        <span class="card-title">LeetCode 訓練第一篇(2) - Kids With the Greatest Number of Candies</span>
+                        <span class="card-title">LeetCode 訓練(3) - Group the People Given the Group Size They Belong To</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            LeetCode 訓練第一篇(2) - Kids With the Greatest Number of Candies
-
-Two Sum 題目連結
-難度：easy
-程式語言：javascript
+                            
+link：Group the People Given the Group Size They Belong To
+difficulty：medium
+language：javascript
 
 題目講解
-原文
-Given the ar
+There are n peopl
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -586,7 +575,6 @@ Given the ar
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -613,26 +601,25 @@ Given the ar
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/06/leetcode-1-two-sum/">
+                <a href="/2020/05/06/2020/leetcode-1-two-sum/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1-two-sum.png" class="responsive-img" alt="LeetCode 訓練第一篇(1) - Two Sum (JS/Easy)">
+                        <img src="/medias/page_images/leetcode-1-two-sum.png" class="responsive-img" alt="LeetCode 訓練(1) - Two Sum (JS/Easy)">
                         
-                        <span class="card-title">LeetCode 訓練第一篇(1) - Two Sum (JS/Easy)</span>
+                        <span class="card-title">LeetCode 訓練(1) - Two Sum (JS/Easy)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            LeetCode 訓練第一篇(1) - Two Sum (JS/Easy)
-
-Two Sum 題目連結
-難度：difficulty
+                            
+link：Two Sum
+difficulty：easy
 language：javascript
 
 題目講解
 原文
-Given an array of integer
+Given an array of integers, return indices of the two numbers
                         
                     </div>
                     <div class="publish-info">
@@ -660,6 +647,10 @@ Given an array of integer
                     
                     <a href="/tags/algorithm/">
                         <span class="chip bg-color">algorithm</span>
+                    </a>
+                    
+                    <a href="/tags/latex/">
+                        <span class="chip bg-color">latex</span>
                     </a>
                     
                 </div>

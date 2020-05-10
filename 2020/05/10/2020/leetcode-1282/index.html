@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="PHP Reflection, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="LeetCode 訓練(3) - Group the People Given the Group Size They Belong To, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>PHP Reflection | matt blog</title>
+    <title>LeetCode 訓練(3) - Group the People Given the Group Size They Belong To | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -251,13 +251,13 @@
 
 
 
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/php_sublime.jpg')"> -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png')"> -->
 <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/bg.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">PHP Reflection</h1>
+                    <h1 class="description center-align post-title">LeetCode 訓練(3) - Group the People Given the Group Size They Belong To</h1>
                 </div>
             </div>
         </div>
@@ -374,8 +374,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/php/">
-                                <span class="chip bg-color">php</span>
+                            <a href="/tags/leetcode/">
+                                <span class="chip bg-color">leetcode</span>
+                            </a>
+                        
+                            <a href="/tags/javascript/">
+                                <span class="chip bg-color">javascript</span>
+                            </a>
+                        
+                            <a href="/tags/algorithm/">
+                                <span class="chip bg-color">algorithm</span>
                             </a>
                         
                     </div>
@@ -403,123 +411,76 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/featureimages/php_sublime.jpg" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="PHP Reflection">
+                    <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode 訓練(3) - Group the People Given the Group Size They Belong To">
                 
 
-                <h5 id="摘要">摘要</h5>
-<ul>
-<li>Annotation 假註解，真程式碼</li>
-<li>何謂 Annotation &amp; Reflection</li>
-<li>實作 PHP Annotation</li>
+                <ul>
+<li>link：<a href="https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/" target="_blank" rel="noopener">Group the People Given the Group Size They Belong To</a></li>
+<li>difficulty：<code>medium</code></li>
+<li>language：<code>javascript</code></li>
 </ul>
-<h2 id="annotation-假註解真程式碼">Annotation 假註解，真程式碼</h2>
-<p>從 Doctrine 開始說起， Symfony 是我所接觸的第一個 PHP Framework，使用 Symfony 所整合的 PHP ORM Library Doctrine ，在 Doctrine 當中，曾經有一段程式碼是我當時作為一個新手工程師無法理解的，就是所謂的 Annotation，也就是下方註解當中的 <code>@ORM\Entity</code> 部分的程式碼。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">use</span> Doctrine\<span class="kw">ORM</span>\Mapping <span class="kw">as</span> <span class="kw">ORM</span><span class="ot">;</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>    </span>
-<span id="cb1-3"><a href="#cb1-3"></a>    <span class="co">/**</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co">     * </span><span class="an">@ORM\Entity</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co">     * </span><span class="an">@ORM\Table(name=&quot;products&quot;)</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co">     */</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>    <span class="kw">class</span> Product</span>
-<span id="cb1-8"><a href="#cb1-8"></a>    {</span>
-<span id="cb1-9"><a href="#cb1-9"></a>        <span class="co">/** </span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co">         * </span><span class="an">@ORM\Id</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co">         * </span><span class="an">@ORM\Column(type=&quot;integer&quot;)</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">         * </span><span class="an">@ORM\GeneratedValue</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="co">         */</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a>        <span class="kw">protected</span> <span class="kw">$id</span><span class="ot">;</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>        <span class="co">/** </span></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="co">         * </span><span class="an">@ORM\Column(type=&quot;string&quot;)</span><span class="co"> </span></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="co">         */</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a>        <span class="kw">protected</span> <span class="kw">$name</span><span class="ot">;</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a>    </span>
-<span id="cb1-20"><a href="#cb1-20"></a>        <span class="co">// .. (other code)</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a>    }</span></code></pre></div>
-<p>這是一個定義 <code>Entity</code> 的 PHP 程式碼， <code>Entity</code> 就如同 Laravel 裡面的 <code>Model</code> 一樣，被視為對照到資料庫的一個資料表的物件，然而一直使我不能明白的是，上述的註解為什麼是有 <strong>功能</strong> 的，而並非只是一個單純的註解，包含了 <code>@ORM\Entity</code> 、 <code>@ORM\Table(name="products")</code> 等等</p>
-<p>要是不設定這些參數的話，便無法使用 Doctrine ，換言之，這些註解並非是提供給開發者看的註解而已，而是實際影響程式運作的程式碼。</p>
-<h2 id="何謂-annotation-reflection">何謂 Annotation &amp; Reflection</h2>
-<blockquote>
-<p>我的解讀： Annotation 是一種語法設計，用以將註解的 PHPDoc，裡面所設置的 meta-data(通常是 class )自動代理與處理其指定的物件或其 property , method 的一種設計</p>
-</blockquote>
-<p>後來看到 Doctrine 官方說明後，了解到由於 PHP 本身並沒有提供 Annotation 的實作，所以 Doctrine 開發一個 Component(Library) 來實作這一部分，然而這不足以讓我明白 <strong>為什麼註解解變成了程式碼</strong>，到底是用了什麼魔法才使 PHP 可以執行到註解裡面的程式？，然而這個問題後來被擱在一旁，也就忘記繼續了解。</p>
-<p>一直到後來接觸 Laravel ，想要了解 Laravel 的 Dependency Injection 機制之後，才發現原來 PHP 有個叫做 <code>Reflection</code> 的 API 和相關物件可以使用，這便是 <strong>為什麼註解解變成了程式碼</strong> 的真正原因，這個原因就是：</p>
-<blockquote>
-<p>使用 PHP Reflection 便可以讀取到物件中的註解，從而實作 PHP Annotation</p>
-</blockquote>
-<p>這同時也是 Doctrine 和 Laravel 實作依賴注入所使用到的方法。</p>
-<h2 id="實作-php-annotation">實作 PHP Annotation</h2>
-<p>那麼，Reflection 又可以做什麼呢？Reflection 是一個可以在執行階段時，取得 以類別名稱為參數，並取得該類別自身的 property 和 Method 、甚至是註解的一種物件。</p>
-<p>這裡簡單實作一個例子，我們在一個類別 <code>Foo</code> 裡面的 private property 定義一個 Annotation ，並搭配使用 Annotation 將其實體化出來。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> Foo</span>
-<span id="cb2-2"><a href="#cb2-2"></a>{</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    <span class="co">/**</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">    * </span><span class="an">@MyAnnotation(myProperty=&quot;value&quot;)</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">    */</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a>    <span class="kw">private</span> <span class="kw">$bar</span><span class="ot">;</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>}</span>
-<span id="cb2-8"><a href="#cb2-8"></a>    </span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="kw">$reflectionClass</span> = <span class="kw">new</span> <span class="kw">ReflectionClass</span><span class="ot">(</span>Foo::<span class="kw">class</span><span class="ot">);</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="kw">$property</span> = <span class="kw">$reflectionClass</span>-&gt;getProperty<span class="ot">(</span><span class="st">&#39;bar&#39;</span><span class="ot">);</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="fu">var_dump</span><span class="ot">(</span><span class="kw">$property</span>-&gt;getDocComment<span class="ot">());</span></span></code></pre></div>
-<p>這裏 <code>var_dump</code> 出來所顯示的是一個字串，其值如下：</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">/**</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">* </span><span class="an">@MyAnnotation(myProperty=&quot;value&quot;)</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co">*/</span></span></code></pre></div>
-<p>再來是要解析這一段註解，這裏我們為方便，直接使用 Doctrine 的 Library <code>AnnotationReader</code> 來協助我們解析。</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">&lt;?</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">require</span> <span class="kw">__DIR__</span> . <span class="st">&#39;/vendor/autoload.php&#39;</span><span class="ot">;</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">use</span> Doctrine\Common\Annotations\AnnotationReader<span class="ot">;</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="kw">class</span> Foo</span>
-<span id="cb4-7"><a href="#cb4-7"></a>{</span>
-<span id="cb4-8"><a href="#cb4-8"></a>    <span class="co">/**</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="co">     * </span><span class="an">@MyAnnotation(myProperty=&quot;value&quot;)</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co">     */</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>    <span class="kw">private</span> <span class="kw">$bar</span><span class="ot">;</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a>}</span>
-<span id="cb4-13"><a href="#cb4-13"></a></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co">/**</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="co"> * </span><span class="an">@Annotation</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="co"> */</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="kw">final</span> <span class="kw">class</span> MyAnnotation</span>
-<span id="cb4-18"><a href="#cb4-18"></a>{</span>
-<span id="cb4-19"><a href="#cb4-19"></a>    <span class="kw">public</span> <span class="kw">$myProperty</span><span class="ot">;</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a>}</span>
-<span id="cb4-21"><a href="#cb4-21"></a></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="kw">$reflectionClass</span> = <span class="kw">new</span> <span class="kw">ReflectionClass</span><span class="ot">(</span>Foo::<span class="kw">class</span><span class="ot">);</span></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="kw">$property</span> = <span class="kw">$reflectionClass</span>-&gt;getProperty<span class="ot">(</span><span class="st">&#39;bar&#39;</span><span class="ot">);</span></span>
-<span id="cb4-24"><a href="#cb4-24"></a></span>
-<span id="cb4-25"><a href="#cb4-25"></a><span class="fu">var_dump</span><span class="ot">(</span><span class="kw">$property</span>-&gt;getDocComment<span class="ot">());</span></span>
-<span id="cb4-26"><a href="#cb4-26"></a><span class="kw">$reader</span> = <span class="kw">new</span> AnnotationReader<span class="ot">();</span></span>
-<span id="cb4-27"><a href="#cb4-27"></a></span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="kw">$myAnnotation</span> = <span class="kw">$reader</span>-&gt;getPropertyAnnotation<span class="ot">(</span></span>
-<span id="cb4-29"><a href="#cb4-29"></a>    <span class="kw">$property</span><span class="ot">,</span></span>
-<span id="cb4-30"><a href="#cb4-30"></a>    MyAnnotation::<span class="kw">class</span></span>
-<span id="cb4-31"><a href="#cb4-31"></a><span class="ot">);</span></span>
-<span id="cb4-32"><a href="#cb4-32"></a></span>
-<span id="cb4-33"><a href="#cb4-33"></a><span class="fu">var_dump</span><span class="ot">(</span><span class="kw">$myAnnotation</span><span class="ot">);</span></span></code></pre></div>
-<p>這段程式碼的流程主要是這樣</p>
+<h2 id="題目講解">題目講解</h2>
+<p>There are n people whose IDs go from 0 to n - 1 and each person belongs exactly to one group. Given the array groupSizes of length n telling the group size each person belongs to, return the groups there are and the people's IDs each group includes.</p>
+<p>You can return any solution in any order and the same applies for IDs. Also, it is guaranteed that there exists at least one solution.</p>
+<p>Example 1:</p>
+<pre><code>Input: groupSizes = [3,3,3,3,3,1,3]
+Output: [[5],[0,1,2],[3,4,6]]
+Explanation: 
+Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].</code></pre>
+<p>Example 2:</p>
+<pre><code>Input: groupSizes = [2,1,3,3,3,2]
+Output: [[1],[0,5],[2,3,4]]</code></pre>
+<p>Constraints:</p>
 <ul>
-<li>建立 ReflectionClass 物件，並指向 <code>Foo</code> 這個物件宣告所在的位置。</li>
-<li>然後利用 ReflectionClass 讀取指定名稱的屬性 <code>bar</code> ，還可以取出 <code>bar</code> 的 PHP Doc</li>
-<li>印出 <code>bar</code> 的 Doc</li>
-<li>再搭配 Doctrine 的 <code>AnnotationReader</code> ，呼叫 <code>getPropertyAnnotation</code> 去讀取屬性並且將此屬性的 PHP Doc 與其指向的類別和指定 property value 設定好之後，實體化出來。</li>
-<li>印出 <code>$myAnnotation</code></li>
+<li><code>groupSizes.length == n</code></li>
+<li><code>1 &lt;= n &lt;= 500</code></li>
+<li><code>1 &lt;= groupSizes[i] &lt;= n</code></li>
 </ul>
-<h5 id="補充">補充：</h5>
-<p>在 Reflection 的幫助下便可實作到以下幾個設計</p>
-<ul>
-<li>PHP Annotation</li>
-<li>Dependency Injection</li>
-<li>Aspect Oriented Programming(AOP)：<a href="https://hyperf.wiki/#/zh-cn/aop" target="_blank" rel="noopener">可參考 Hyperf Framework 的 AOP</a></li>
-</ul>
-<p>或許有了 Reflection 可能還可以做到更多功能，本篇並非要完全理解 Reflection ，而是理解如何實作 Annotation 以及 Laravel 的 DI 為目的而已</p>
-<h5 id="參考文獻">參考文獻</h5>
-<ul>
-<li><a href="https://php-annotations.readthedocs.io/en/latest/UsingAnnotations.html" target="_blank" rel="noopener">Understanding annotations</a></li>
-<li><a href="https://www.doctrine-project.org/projects/doctrine-annotations/en/1.6/index.html" target="_blank" rel="noopener">Doctrine Annotation</a></li>
-</ul>
+<h3 id="題目解釋">題目解釋</h3>
+<p>給予一個充滿整數的陣列 <code>groupSizes</code>，這個陣列每一個整數都代表一個人其所屬的群組人數，而我們要做的便是給予每一個人 ID (從 0 到 <code>n-1</code>)，以及按任何順序歸類在同一個群組。</p>
+<p>總之，最後要回傳一個二維陣列，陣列中的每一個陣列元素代表其群組，裡面必須包含每個人的 ID。</p>
+<h2 id="題目解析思路">題目解析思路</h2>
+<p>我們要做的有以下幾個步驟：</p>
+<ol type="1">
+<li><strong>遍歷取出數字</strong>： <code>for</code> 遍歷 <code>groupSizes</code>，取出 <code>groupSize</code></li>
+<li><strong>將 ID 放至群組</strong>：將 For 迴圈的 <code>index</code> 作為每個人的 ID，放到各自所屬的一個變數 <code>tempGroup</code></li>
+<li><strong>暫存尚未湊滿 groupSize 的 group</strong>：在上述的步驟 2 當中，變數 <code>tempGroup</code> 若尚未湊滿其應有的 <code>groupSize</code>，便不應該將其放至 <code>ans</code>，這時可以先準備一個 <code>tempGroups</code> 暫存這些 <code>tempGroup</code>，之後每次新增人數時以及將 <code>tempGroup</code> 放入 <code>ans</code> ，也優先從這裡取出。</li>
+<li><strong>將群組放在最後欲回傳的變數</strong>：確認 <code>tempGroup</code> 人數是否湊滿，湊滿的話，便將其集合到一個陣列變數 <code>ans</code> 最後將此二維陣列回傳即可。</li>
+</ol>
+<h2 id="實作程式碼">實作程式碼</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">/**</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number</span><span class="co">[]} groupSizes</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co"> * </span><span class="an">@return</span><span class="co"> {number[][]}</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"> */</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="kw">var</span> groupThePeople <span class="op">=</span> <span class="kw">function</span> (groupSizes) {</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="kw">const</span> sizesLength <span class="op">=</span> groupSizes<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>    <span class="kw">const</span> tempGroups <span class="op">=</span> {}<span class="op">;</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="kw">const</span> ans <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a>    <span class="co">// 1. 遍歷取出數字</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> sizesLength<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb3-13"><a href="#cb3-13"></a>        <span class="kw">let</span> groupSize <span class="op">=</span> groupSizes[i]<span class="op">;</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>        <span class="kw">let</span> tempGroup <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>        <span class="co">// 3. 暫存尚未湊滿 groupSize 的 group</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a>        <span class="cf">if</span> (tempGroups<span class="op">.</span><span class="fu">hasOwnProperty</span>(groupSize)) {</span>
+<span id="cb3-17"><a href="#cb3-17"></a>            tempGroup <span class="op">=</span> tempGroups[groupSize]<span class="op">;</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>        }</span>
+<span id="cb3-19"><a href="#cb3-19"></a>        <span class="co">// 2. 將 ID 放至群組</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a>        tempGroup<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a>        tempGroups[groupSize] <span class="op">=</span> tempGroup<span class="op">;</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a>        <span class="co">// 4. 將群組放在最後欲回傳的變數</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a>        <span class="cf">if</span> (tempGroup<span class="op">.</span><span class="at">length</span> <span class="op">===</span> groupSize) {</span>
+<span id="cb3-24"><a href="#cb3-24"></a>            ans<span class="op">.</span><span class="fu">push</span>(tempGroup)<span class="op">;</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a>            <span class="kw">delete</span> tempGroups[groupSize]<span class="op">;</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a>        }</span>
+<span id="cb3-27"><a href="#cb3-27"></a>    }</span>
+<span id="cb3-28"><a href="#cb3-28"></a></span>
+<span id="cb3-29"><a href="#cb3-29"></a>    <span class="cf">return</span> ans<span class="op">;</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a>}<span class="op">;</span></span></code></pre></div>
+<h2 id="其他">其他</h2>
+<h3 id="github-紀錄">GitHub 紀錄</h3>
+<p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/1282.Group-the-People-Given-the-Group-Size-They-Belong-To" target="_blank" rel="noopener">點我連結</a>。</p>
 
             </div>
             <hr/>
@@ -533,8 +494,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/php/">
-                                    <span class="chip bg-color">php</span>
+                                <a href="/tags/leetcode/">
+                                    <span class="chip bg-color">leetcode</span>
+                                </a>
+                            
+                                <a href="/tags/javascript/">
+                                    <span class="chip bg-color">javascript</span>
+                                </a>
+                            
+                                <a href="/tags/algorithm/">
+                                    <span class="chip bg-color">algorithm</span>
                                 </a>
                             
                         </div>
@@ -572,86 +541,34 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/05/gildedrose-factoring-kata/">
+                <a href="/2020/05/10/2020/leetcode-1282/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/working_effectively_with_legacy_code.jpeg" class="responsive-img" alt="GildedRose Factoring Kata ">
+                        <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png" class="responsive-img" alt="LeetCode 訓練(3) - Group the People Given the Group Size They Belong To">
                         
-                        <span class="card-title">GildedRose Factoring Kata </span>
+                        <span class="card-title">LeetCode 訓練(3) - Group the People Given the Group Size They Belong To</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            這篇逐步介紹自己練習重構與 TDD 開發 Legacy Code Kata 的解題思路，題目是社群 Domain Driven Design(DDD Taiwan) 所舉辦的讀書會 Legacy Code 讀書會 3rd (Ch 8, 9)
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-05
-                        </span>
-                        <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Matt lee
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/php/">
-                        <span class="chip bg-color">php</span>
-                    </a>
-                    
-                    <a href="/tags/refactoring/">
-                        <span class="chip bg-color">refactoring</span>
-                    </a>
-                    
-                    <a href="/tags/kata/">
-                        <span class="chip bg-color">kata</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/03/24/php-reflection/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/featureimages/php_sublime.jpg" class="responsive-img" alt="PHP Reflection">
-                        
-                        <span class="card-title">PHP Reflection</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            摘要
+link：Group the People Given the Group Size They Belong To
+difficulty：medium
+language：javascript
 
-Annotation 假註解，真程式碼
-何謂 Annotation &amp; Reflection
-實作 PHP Annotation
-
-Annotation 假註解，真程式碼
-從 Doctrine 開始說起， Symfony 是
+題目講解
+There are n peopl
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
                             </span>
                         <span class="publish-author">
                             
@@ -665,8 +582,75 @@ Annotation 假註解，真程式碼
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/php/">
-                        <span class="chip bg-color">php</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
+                    </a>
+                    
+                    <a href="/tags/algorithm/">
+                        <span class="chip bg-color">algorithm</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/06/2020/leetcode-1431-kids-with-the-greatest-number-of-candies/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg" class="responsive-img" alt="LeetCode 訓練(2) -  Kids With the Greatest Number of Candies">
+                        
+                        <span class="card-title">LeetCode 訓練(2) -  Kids With the Greatest Number of Candies</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+link：Kids With the Greatest Number of Candies
+difficulty：easy
+language：javascript
+
+題目講解
+原文
+Given the array candies and 
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Matt lee
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
+                    </a>
+                    
+                    <a href="/tags/algorithm/">
+                        <span class="chip bg-color">algorithm</span>
                     </a>
                     
                 </div>

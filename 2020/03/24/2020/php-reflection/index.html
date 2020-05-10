@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="LeetCode 訓練第一篇(1) - Two Sum (JS/Easy), matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="PHP Reflection, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>LeetCode 訓練第一篇(1) - Two Sum (JS/Easy) | matt blog</title>
+    <title>PHP Reflection | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -251,13 +251,13 @@
 
 
 
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/leetcode-1-two-sum.png')"> -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/php_sublime.jpg')"> -->
 <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/bg.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode 訓練第一篇(1) - Two Sum (JS/Easy)</h1>
+                    <h1 class="description center-align post-title">PHP Reflection</h1>
                 </div>
             </div>
         </div>
@@ -374,16 +374,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode/">
-                                <span class="chip bg-color">leetcode</span>
-                            </a>
-                        
-                            <a href="/tags/javascript/">
-                                <span class="chip bg-color">javascript</span>
-                            </a>
-                        
-                            <a href="/tags/algorithm/">
-                                <span class="chip bg-color">algorithm</span>
+                            <a href="/tags/php/">
+                                <span class="chip bg-color">php</span>
                             </a>
                         
                     </div>
@@ -411,93 +403,122 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/leetcode-1-two-sum.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode 訓練第一篇(1) - Two Sum (JS/Easy)">
+                    <img src="/medias/featureimages/php_sublime.jpg" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="PHP Reflection">
                 
 
-                <h1 id="leetcode-訓練第一篇1---two-sum-jseasy">LeetCode 訓練第一篇(1) - Two Sum (JS/Easy)</h1>
+                <h5 id="摘要">摘要</h5>
 <ul>
-<li><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">Two Sum 題目連結</a></li>
-<li>難度：<code>difficulty</code></li>
-<li>language：<code>javascript</code></li>
+<li>Annotation 假註解，真程式碼</li>
+<li>何謂 Annotation &amp; Reflection</li>
+<li>實作 PHP Annotation</li>
 </ul>
-<h2 id="題目講解">題目講解</h2>
-<h3 id="原文">原文</h3>
-<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
-<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
-<p>Example:</p>
-<pre><code>Given nums = [2, 7, 11, 15], target = 9,
-
-Because nums[0] + nums[1] = 2 + 7 = 9,
-return [0, 1].</code></pre>
-<h3 id="題目解釋">題目解釋</h3>
-<p>給予一個數列 <code>nums</code> 以及一個指定的整數 <code>target</code>，我們必須找出在這個陣列中的某兩個數，其總和 必然與 <code>target</code> 相等，並將此二數的索引值放在一個陣列之後回傳出去。</p>
-<p>另外，在陣列中，必然只有兩個數的總和跟 <strong>指定的整數</strong> 一樣，同時這兩個數必然是不同的數，不能為同一個數。</p>
-<p>舉例來說：</p>
-<p><code>nums</code> 為 <code>[2, 7, 11, 15]</code>，而 <code>target</code> 為 <code>9</code>，因為 <code>nums[0]</code> 以及 <code>nums[1]</code> 總和為 <code>9</code> 跟 <code>target</code> 一樣，所以答案就是 <code>[0, 1]</code>。</p>
-<h2 id="題目解析思路">題目解析思路</h2>
-<h3 id="線索-1-target">線索 1 <code>Target</code></h3>
-<p>首先我們要知道，答案的兩個數總和（假設叫做 <code>a</code> 和 <code>b</code>），跟 <code>target</code> 是一樣的，透過簡單的推理可得知：</p>
-<pre><code>target = a + b
-traget - a = b 
-target - b = a </code></pre>
-<p>我們可以透過 <code>target</code> 減去 <code>nums</code> 任一的數字，來得到另一個餘數，倘若此二數皆存在於 <code>nums</code> ，那就是我們想要找的答案 <code>a</code> 與 <code>b</code>。</p>
-<p>所以答案必然是透過 <code>target</code> 進行加減的運算可得出。</p>
-<h3 id="線索-2-流程">線索 2 流程</h3>
-<p>由於要得到答案，流程必然經過這三個步驟，讓我們先給這三個步驟一個代稱，以便後續稱呼：</p>
-<ol type="1">
-<li><p><strong>遍歷步驟</strong>：也就是一一取出 nums 的每一個數字。</p></li>
-<li><p><strong>取得待確認值步驟</strong>：取出 nums 的一個數字後，使用 <code>target</code> 減去此數的餘數，再來確認是否存在於 <code>nums</code>，即可。</p></li>
-<li><p><strong>確認餘數是否存在於 nums </strong>： 再來就是使用餘數，來確認是否存在於 <code>nums</code> ，且不能為同一 index，這個是這一題比較重要的環節，目前想到有兩種思路：</p>
-<p>3.1. <strong>遍歷搜尋</strong> 針對 <code>nums</code> 目前所運算到的位置之後的陣列，使用 <code>indexOf</code> 的方式來找出答案</p>
-<p>3.2 <strong>暫存map搜尋</strong> 將每次運算暫存於自定義的變數 <code>map</code>，搜尋時也一律從 <code>map</code> 當中搜尋。</p></li>
-</ol>
-<p>再來針對我們的 3.1 和 3.2 這兩種搜尋做解釋。</p>
-<h4 id="遍歷搜尋">3-1 遍歷搜尋</h4>
-<p>最直覺的作法便是這個了，只要用餘數去搜尋是否存在於當前所遍歷的位置之後的任一數，即可找到答案，但這樣子的做法，時間複雜度會近似於 <code>O(n²)</code> 了。</p>
-<h4 id="暫存map搜尋">3.2 暫存map搜尋</h4>
-<p>在每一次遍歷運算的時候，把待確認值放在一個額外新增的一個變數 <code>map</code>，將待確認值作為 <code>key</code>，Index 作為 <code>value</code> ，這樣只要每次運算完之後，都會將運算結果儲存到這個 <code>map</code> 裡面。</p>
-<p>當今天運算到 <code>b</code> 的時候，由於 <code>a</code> 已經被存入到 <code>map</code>，此時就能輕易找出答案並回傳了，而時間複雜度會變成 <code>O(n)</code>了。</p>
-<p>另外也不要忘了要回傳 <code>a</code> 和 <code>b</code> 在 <code>nums</code> 的索引值。</p>
-<h3 id="實作程式碼">實作程式碼</h3>
-<p>將上述過程轉化程式碼便是如下：</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">var</span> twoSum <span class="op">=</span> <span class="kw">function</span> (nums<span class="op">,</span> target) {</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="kw">let</span> map <span class="op">=</span> {}<span class="op">;</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> nums<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb3-4"><a href="#cb3-4"></a>        <span class="cf">if</span> (map[target <span class="op">-</span> nums[i]] <span class="op">&gt;</span> <span class="dv">-1</span>) {</span>
-<span id="cb3-5"><a href="#cb3-5"></a>            <span class="cf">return</span> [map[target <span class="op">-</span> nums[i]]<span class="op">,</span> i]<span class="op">;</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>        }</span>
-<span id="cb3-7"><a href="#cb3-7"></a>        map[nums[i]] <span class="op">=</span> i<span class="op">;</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a>    }</span>
-<span id="cb3-9"><a href="#cb3-9"></a>}<span class="op">;</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="co">// 驗算</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">// console.log(twoSum([2, 7, 11, 15], 9));</span></span></code></pre></div>
-<h2 id="其他">其他</h2>
-<h3 id="關於-遍歷搜尋-的時間複雜度運算">關於 遍歷搜尋 的時間複雜度運算</h3>
-<h4 id="on²-是怎麼算出來的"><code>O(n²)</code> 是怎麼算出來的？</h4>
-<p>假設 <code>nums</code> 長度為 3：用此搜尋在需要花到最多時間的情境下，其步驟為：</p>
+<h2 id="annotation-假註解真程式碼">Annotation 假註解，真程式碼</h2>
+<p>從 Doctrine 開始說起， Symfony 是我所接觸的第一個 PHP Framework，使用 Symfony 所整合的 PHP ORM Library Doctrine ，在 Doctrine 當中，曾經有一段程式碼是我當時作為一個新手工程師無法理解的，就是所謂的 Annotation，也就是下方註解當中的 <code>@ORM\Entity</code> 部分的程式碼。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">use</span> Doctrine\<span class="kw">ORM</span>\Mapping <span class="kw">as</span> <span class="kw">ORM</span><span class="ot">;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>    </span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="co">/**</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">     * </span><span class="an">@ORM\Entity</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">     * </span><span class="an">@ORM\Table(name=&quot;products&quot;)</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">     */</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="kw">class</span> Product</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    {</span>
+<span id="cb1-9"><a href="#cb1-9"></a>        <span class="co">/** </span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co">         * </span><span class="an">@ORM\Id</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">         * </span><span class="an">@ORM\Column(type=&quot;integer&quot;)</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">         * </span><span class="an">@ORM\GeneratedValue</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co">         */</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>        <span class="kw">protected</span> <span class="kw">$id</span><span class="ot">;</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>        <span class="co">/** </span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="co">         * </span><span class="an">@ORM\Column(type=&quot;string&quot;)</span><span class="co"> </span></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="co">         */</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>        <span class="kw">protected</span> <span class="kw">$name</span><span class="ot">;</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>    </span>
+<span id="cb1-20"><a href="#cb1-20"></a>        <span class="co">// .. (other code)</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a>    }</span></code></pre></div>
+<p>這是一個定義 <code>Entity</code> 的 PHP 程式碼， <code>Entity</code> 就如同 Laravel 裡面的 <code>Model</code> 一樣，被視為對照到資料庫的一個資料表的物件，然而一直使我不能明白的是，上述的註解為什麼是有 <strong>功能</strong> 的，而並非只是一個單純的註解，包含了 <code>@ORM\Entity</code> 、 <code>@ORM\Table(name="products")</code> 等等</p>
+<p>要是不設定這些參數的話，便無法使用 Doctrine ，換言之，這些註解並非是提供給開發者看的註解而已，而是實際影響程式運作的程式碼。</p>
+<h2 id="何謂-annotation-reflection">何謂 Annotation &amp; Reflection</h2>
+<blockquote>
+<p>我的解讀： Annotation 是一種語法設計，用以將註解的 PHPDoc，裡面所設置的 meta-data(通常是 class )自動代理與處理其指定的物件或其 property , method 的一種設計</p>
+</blockquote>
+<p>後來看到 Doctrine 官方說明後，了解到由於 PHP 本身並沒有提供 Annotation 的實作，所以 Doctrine 開發一個 Component(Library) 來實作這一部分，然而這不足以讓我明白 <strong>為什麼註解解變成了程式碼</strong>，到底是用了什麼魔法才使 PHP 可以執行到註解裡面的程式？，然而這個問題後來被擱在一旁，也就忘記繼續了解。</p>
+<p>一直到後來接觸 Laravel ，想要了解 Laravel 的 Dependency Injection 機制之後，才發現原來 PHP 有個叫做 <code>Reflection</code> 的 API 和相關物件可以使用，這便是 <strong>為什麼註解解變成了程式碼</strong> 的真正原因，這個原因就是：</p>
+<blockquote>
+<p>使用 PHP Reflection 便可以讀取到物件中的註解，從而實作 PHP Annotation</p>
+</blockquote>
+<p>這同時也是 Doctrine 和 Laravel 實作依賴注入所使用到的方法。</p>
+<h2 id="實作-php-annotation">實作 PHP Annotation</h2>
+<p>那麼，Reflection 又可以做什麼呢？Reflection 是一個可以在執行階段時，取得 以類別名稱為參數，並取得該類別自身的 property 和 Method 、甚至是註解的一種物件。</p>
+<p>這裡簡單實作一個例子，我們在一個類別 <code>Foo</code> 裡面的 private property 定義一個 Annotation ，並搭配使用 Annotation 將其實體化出來。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> Foo</span>
+<span id="cb2-2"><a href="#cb2-2"></a>{</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="co">/**</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">    * </span><span class="an">@MyAnnotation(myProperty=&quot;value&quot;)</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">    */</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="kw">private</span> <span class="kw">$bar</span><span class="ot">;</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>}</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    </span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="kw">$reflectionClass</span> = <span class="kw">new</span> <span class="kw">ReflectionClass</span><span class="ot">(</span>Foo::<span class="kw">class</span><span class="ot">);</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="kw">$property</span> = <span class="kw">$reflectionClass</span>-&gt;getProperty<span class="ot">(</span><span class="st">&#39;bar&#39;</span><span class="ot">);</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="fu">var_dump</span><span class="ot">(</span><span class="kw">$property</span>-&gt;getDocComment<span class="ot">());</span></span></code></pre></div>
+<p>這裏 <code>var_dump</code> 出來所顯示的是一個字串，其值如下：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">/**</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="co">* </span><span class="an">@MyAnnotation(myProperty=&quot;value&quot;)</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">*/</span></span></code></pre></div>
+<p>再來是要解析這一段註解，這裏我們為方便，直接使用 Doctrine 的 Library <code>AnnotationReader</code> 來協助我們解析。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">&lt;?</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">require</span> <span class="kw">__DIR__</span> . <span class="st">&#39;/vendor/autoload.php&#39;</span><span class="ot">;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">use</span> Doctrine\Common\Annotations\AnnotationReader<span class="ot">;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="kw">class</span> Foo</span>
+<span id="cb4-7"><a href="#cb4-7"></a>{</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="co">/**</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">     * </span><span class="an">@MyAnnotation(myProperty=&quot;value&quot;)</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co">     */</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="kw">private</span> <span class="kw">$bar</span><span class="ot">;</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>}</span>
+<span id="cb4-13"><a href="#cb4-13"></a></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="co">/**</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co"> * </span><span class="an">@Annotation</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="co"> */</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="kw">final</span> <span class="kw">class</span> MyAnnotation</span>
+<span id="cb4-18"><a href="#cb4-18"></a>{</span>
+<span id="cb4-19"><a href="#cb4-19"></a>    <span class="kw">public</span> <span class="kw">$myProperty</span><span class="ot">;</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a>}</span>
+<span id="cb4-21"><a href="#cb4-21"></a></span>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="kw">$reflectionClass</span> = <span class="kw">new</span> <span class="kw">ReflectionClass</span><span class="ot">(</span>Foo::<span class="kw">class</span><span class="ot">);</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a><span class="kw">$property</span> = <span class="kw">$reflectionClass</span>-&gt;getProperty<span class="ot">(</span><span class="st">&#39;bar&#39;</span><span class="ot">);</span></span>
+<span id="cb4-24"><a href="#cb4-24"></a></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="fu">var_dump</span><span class="ot">(</span><span class="kw">$property</span>-&gt;getDocComment<span class="ot">());</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a><span class="kw">$reader</span> = <span class="kw">new</span> AnnotationReader<span class="ot">();</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="kw">$myAnnotation</span> = <span class="kw">$reader</span>-&gt;getPropertyAnnotation<span class="ot">(</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a>    <span class="kw">$property</span><span class="ot">,</span></span>
+<span id="cb4-30"><a href="#cb4-30"></a>    MyAnnotation::<span class="kw">class</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="ot">);</span></span>
+<span id="cb4-32"><a href="#cb4-32"></a></span>
+<span id="cb4-33"><a href="#cb4-33"></a><span class="fu">var_dump</span><span class="ot">(</span><span class="kw">$myAnnotation</span><span class="ot">);</span></span></code></pre></div>
+<p>這段程式碼的流程主要是這樣</p>
 <ul>
-<li>取出第 1 個數字 ，比較第 2 個數字，比較第 3 個數字： 3 步驟。</li>
-<li>取出第 2 個數字 ，比較第 3 個數字： 2 步驟</li>
+<li>建立 ReflectionClass 物件，並指向 <code>Foo</code> 這個物件宣告所在的位置。</li>
+<li>然後利用 ReflectionClass 讀取指定名稱的屬性 <code>bar</code> ，還可以取出 <code>bar</code> 的 PHP Doc</li>
+<li>印出 <code>bar</code> 的 Doc</li>
+<li>再搭配 Doctrine 的 <code>AnnotationReader</code> ，呼叫 <code>getPropertyAnnotation</code> 去讀取屬性並且將此屬性的 PHP Doc 與其指向的類別和指定 property value 設定好之後，實體化出來。</li>
+<li>印出 <code>$myAnnotation</code></li>
 </ul>
-<pre><code>1:2,3
-2:3</code></pre>
-<p>不難發現是一個等差數列，用數學符號表示即為：</p>
+<h5 id="補充">補充：</h5>
+<p>在 Reflection 的幫助下便可實作到以下幾個設計</p>
 <ul>
-<li><code>n</code> 為項數(也就是 <code>nums</code> 的長度)</li>
-<li><span class="math inline">\(a\mathop{}\nolimits_{1}\)</span> 為首項</li>
-<li><span class="math inline">\(a\mathop{}\nolimits_{n}\)</span> 為末項</li>
-<li><span class="math inline">\(S\mathop{}\nolimits_{n}\)</span> 代表總耗費步驟</li>
+<li>PHP Annotation</li>
+<li>Dependency Injection</li>
+<li>Aspect Oriented Programming(AOP)：<a href="https://hyperf.wiki/#/zh-cn/aop" target="_blank" rel="noopener">可參考 Hyperf Framework 的 AOP</a></li>
 </ul>
-<p><span class="math inline">\(S\mathop{}\nolimits_{n}=\frac{n \left( a\mathop{}\nolimits_{1}+a\mathop{}\nolimits_{n} \right) }{2} - 1\)</span></p>
-<p>不難發現以上公式當中，次方最高的便是 <span class="math inline">\(n \left( a\mathop{}\nolimits_{1}+a\mathop{}\nolimits_{n} \right)\)</span> ，這個函式幾乎等同 <code>O(n²)</code> 了</p>
-<p>此次練習被收錄在我的 GitHub <a href="">點我連結</a>。</p>
-<h3 id="參考連結">參考連結：</h3>
+<p>或許有了 Reflection 可能還可以做到更多功能，本篇並非要完全理解 Reflection ，而是理解如何實作 Annotation 以及 Laravel 的 DI 為目的而已</p>
+<h5 id="參考文獻">參考文獻</h5>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/105986034" target="_blank" rel="noopener">在 Hexo 博客中写出好看的Latex 公式</a>
-<ul>
-<li>為了用出 LaTex 公式，花了我四個小時多....</li>
-</ul></li>
+<li><a href="https://php-annotations.readthedocs.io/en/latest/UsingAnnotations.html" target="_blank" rel="noopener">Understanding annotations</a></li>
+<li><a href="https://www.doctrine-project.org/projects/doctrine-annotations/en/1.6/index.html" target="_blank" rel="noopener">Doctrine Annotation</a></li>
 </ul>
 
             </div>
@@ -512,16 +533,8 @@ target - b = a </code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode/">
-                                    <span class="chip bg-color">leetcode</span>
-                                </a>
-                            
-                                <a href="/tags/javascript/">
-                                    <span class="chip bg-color">javascript</span>
-                                </a>
-                            
-                                <a href="/tags/algorithm/">
-                                    <span class="chip bg-color">algorithm</span>
+                                <a href="/tags/php/">
+                                    <span class="chip bg-color">php</span>
                                 </a>
                             
                         </div>
@@ -563,72 +576,12 @@ target - b = a </code></pre>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/06/leetcode-1431-kids-with-the-greatest-number-of-candies/">
+                <a href="/2020/04/05/2020/gildedrose-factoring-kata/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies.png" class="responsive-img" alt="LeetCode 訓練第一篇(2) - Kids With the Greatest Number of Candies">
+                        <img src="/medias/featureimages/working_effectively_with_legacy_code.jpeg" class="responsive-img" alt="重構實戰 'GildedRose Factoring Kata '">
                         
-                        <span class="card-title">LeetCode 訓練第一篇(2) - Kids With the Greatest Number of Candies</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            LeetCode 訓練第一篇(2) - Kids With the Greatest Number of Candies
-
-Two Sum 題目連結
-難度：easy
-程式語言：javascript
-
-題目講解
-原文
-Given the ar
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Matt lee
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
-                    </a>
-                    
-                    <a href="/tags/javascript/">
-                        <span class="chip bg-color">javascript</span>
-                    </a>
-                    
-                    <a href="/tags/algorithm/">
-                        <span class="chip bg-color">algorithm</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/04/05/gildedrose-factoring-kata/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/featureimages/working_effectively_with_legacy_code.jpeg" class="responsive-img" alt="GildedRose Factoring Kata ">
-                        
-                        <span class="card-title">GildedRose Factoring Kata </span>
+                        <span class="card-title">重構實戰 'GildedRose Factoring Kata '</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -638,9 +591,9 @@ Given the ar
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-05
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-05
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -662,6 +615,58 @@ Given the ar
                     
                     <a href="/tags/kata/">
                         <span class="chip bg-color">kata</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/03/24/2020/php-reflection/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/php_sublime.jpg" class="responsive-img" alt="PHP Reflection">
+                        
+                        <span class="card-title">PHP Reflection</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            摘要
+
+Annotation 假註解，真程式碼
+何謂 Annotation &amp; Reflection
+實作 PHP Annotation
+
+Annotation 假註解，真程式碼
+從 Doctrine 開始說起， Symfony 是
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Matt lee
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/php/">
+                        <span class="chip bg-color">php</span>
                     </a>
                     
                 </div>
