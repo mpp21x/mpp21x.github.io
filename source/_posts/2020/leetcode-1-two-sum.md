@@ -6,7 +6,7 @@ tags:
 - javascript
 - algorithm
 - latex
-img: /medias/page_images/leetcode-1-two-sum.png
+img: /medias/page_images/leetcode-1-two-sum_js.png
 ---
 * link：[Two Sum](https://leetcode.com/problems/two-sum/)
 * difficulty：`easy`

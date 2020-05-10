@@ -7,7 +7,7 @@ tags:
 - algorithm
 img: /medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg
 ---
-* link：[Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of)
+* link：[Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)
 * difficulty：`easy`
 * language：`javascript`
 
