@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="LeetCode 訓練(1) - Two Sum (JS/Easy), matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="LeetCode 訓練(3) - Group the People Given the Group Size They Belong To, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>LeetCode 訓練(1) - Two Sum (JS/Easy) | matt blog</title>
+    <title>LeetCode 訓練(3) - Group the People Given the Group Size They Belong To | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -251,13 +251,13 @@
 
 
 
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/leetcode-1-two-sum_js.png')"> -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/0.jpg')"> -->
 <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/bg.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode 訓練(1) - Two Sum (JS/Easy)</h1>
+                    <h1 class="description center-align post-title">LeetCode 訓練(3) - Group the People Given the Group Size They Belong To</h1>
                 </div>
             </div>
         </div>
@@ -386,10 +386,6 @@
                                 <span class="chip bg-color">algorithm</span>
                             </a>
                         
-                            <a href="/tags/latex/">
-                                <span class="chip bg-color">latex</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -415,96 +411,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/leetcode-1-two-sum_js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode 訓練(1) - Two Sum (JS/Easy)">
+
                 
-
-                <ul>
-<li>link：<a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">Two Sum</a></li>
-<li>difficulty：<code>easy</code></li>
-<li>language：<code>javascript</code></li>
-</ul>
-<h2 id="題目講解">題目講解</h2>
-<h3 id="原文">原文</h3>
-<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
-<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
-<p>Example:</p>
-<pre><code>Given nums = [2, 7, 11, 15], target = 9,
-
-Because nums[0] + nums[1] = 2 + 7 = 9,
-return [0, 1].</code></pre>
-<h3 id="題目解釋">題目解釋</h3>
-<p>給予一個數列 <code>nums</code> 以及一個指定的整數 <code>target</code>，我們必須找出在這個陣列中的某兩個數，其總和 必然與 <code>target</code> 相等，並將此二數的索引值放在一個陣列之後回傳出去。</p>
-<p>另外，在陣列中，必然只有兩個數的總和跟 <strong>指定的整數</strong> 一樣，同時這兩個數必然是不同的數，不能為同一個數。</p>
-<p>舉例來說：</p>
-<p><code>nums</code> 為 <code>[2, 7, 11, 15]</code>，而 <code>target</code> 為 <code>9</code>，因為 <code>nums[0]</code> 以及 <code>nums[1]</code> 總和為 <code>9</code> 跟 <code>target</code> 一樣，所以答案就是 <code>[0, 1]</code>。</p>
-<h2 id="題目解析思路">題目解析思路</h2>
-<h3 id="線索-1-target">線索 1 <code>Target</code></h3>
-<p>首先我們知道，答案的兩個數總和（假設叫做 <code>a</code> 和 <code>b</code>），與 <code>target</code> 同等，透過簡單的推理可得知：</p>
-<pre><code>target = a + b
-traget - a = b 
-target - b = a </code></pre>
-<p>我們可以透過 <code>target</code> 減去 <code>nums</code> 任一的數字，來得到另一個餘數，倘若此二數皆存在於 <code>nums</code> ，那就是我們想要找的答案 <code>a</code> 與 <code>b</code>。</p>
-<p>所以答案必然是透過 <code>target</code> 進行加減的運算可得出。</p>
-<h3 id="線索-2-流程">線索 2 流程</h3>
-<p>由於要得到答案，流程必然經過這幾個步驟，讓我們先給這三個步驟一個代稱，以便後續稱呼：</p>
-<ol type="1">
-<li><p><strong>遍歷步驟</strong>：也就是一一取出 nums 的每一個數字，這一步驟讓時間複雜度至少會是 <code>O(n)</code>。</p></li>
-<li><p><strong>取得待確認值步驟</strong>：取出 nums 的一個數字後，使用 <code>target</code> 減去此數的餘數，再來確認是否存在於 <code>nums</code>，即可。</p></li>
-<li><p><strong>確認餘數是否存在於 nums </strong>： 再來就是使用餘數，來確認是否存在於 <code>nums</code> ，且不能為同一 index，這個是這一題比較重要的環節，目前想到有兩種思路：</p>
-<p>3.1. <strong>遍歷搜尋</strong> 針對 <code>nums</code> 目前所運算到的位置之後的陣列，使用 <code>indexOf</code> 的方式來找出答案</p>
-<p>3.2 <strong>暫存 map 搜尋</strong> 將每次運算暫存於自定義的變數 <code>map</code>，搜尋時也一律從 <code>map</code> 當中搜尋。</p></li>
-</ol>
-<p>再來針對我們的 3.1 和 3.2 這兩種搜尋做解釋。</p>
-<ul>
-<li><p>3-1. 遍歷搜尋 最直覺的作法便是這個了，只要用餘數去搜尋是否存在於當前所遍歷的位置，之後剩餘的數，即可找到答案，但這樣子的做法，時間複雜度會近似於 <code>O(n²)</code> 了。</p></li>
-<li><p>3.2. 暫存 map 搜尋</p></li>
-</ul>
-<p>每一次遍歷運算的時候，把待確認值放在一個變數 <code>map</code>，將待確認值作為 <code>key</code>，而 Index 作為 <code>value</code> ，每次運算完之後，都將運算結果儲存到這個 <code>map</code> 裡面。</p>
-<p>當今天運算到 <code>b</code> 的時候，由於 <code>a</code> 已經被存入到 <code>map</code>，<code>map[target - nums[index]]</code> 就可以輕易找出答案並回傳了，時間複雜度也是 <code>O(n)</code>了。</p>
-<p>當然，最後不忘了要回傳的是 <code>a</code> 和 <code>b</code> 在 <code>nums</code> 的索引值。</p>
-<h2 id="實作程式碼">實作程式碼</h2>
-<p>很明顯的，最好的做法是使用 <strong>暫存 map 搜尋</strong>，接下來要做的，便是將上述過程轉化程式碼便是如下：</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">var</span> twoSum <span class="op">=</span> <span class="kw">function</span>(nums<span class="op">,</span> target) {</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="kw">let</span> map <span class="op">=</span> {}<span class="op">;</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>    <span class="cf">for</span> (<span class="kw">let</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">&lt;</span>nums<span class="op">.</span><span class="at">length</span><span class="op">;</span>i<span class="op">++</span>) {</span>
-<span id="cb3-4"><a href="#cb3-4"></a>        <span class="cf">if</span>(map[target <span class="op">-</span> nums[i]] <span class="op">&gt;</span> <span class="dv">-1</span>){</span>
-<span id="cb3-5"><a href="#cb3-5"></a>            <span class="cf">return</span> [map[target <span class="op">-</span> nums[i]]<span class="op">,</span> i]<span class="op">;</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>        }</span>
-<span id="cb3-7"><a href="#cb3-7"></a>        map[nums[i]] <span class="op">=</span> i<span class="op">;</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a>    }</span>
-<span id="cb3-9"><a href="#cb3-9"></a>}<span class="op">;</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co">// 驗算</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="co">// console.log(twoSum([2, 7, 11, 15], 9));</span></span></code></pre></div>
-<h2 id="其他">其他</h2>
-<h3 id="github-紀錄">GitHub 紀錄</h3>
-<p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/1.twoSum" target="_blank" rel="noopener">點我連結</a>。</p>
-<h3 id="nums-的-length">nums 的 length</h3>
-<p>如果 <code>nums</code> 長度很大，可考慮把 <code>length</code> 塞給一個變數，避免每次都要運算陣列長度</p>
-<h3 id="關於-3.1-遍歷搜尋-的時間複雜度運算的-on²-是怎麼算出來的">關於 <strong>3.1 遍歷搜尋</strong> 的時間複雜度運算的 <code>O(n²)</code> 是怎麼算出來的？</h3>
-<p>假設 <code>nums</code> 長度為 3：用此搜尋在需要花到最多時間的情境下，其步驟為：</p>
-<ul>
-<li>取出第 1 個數字 ，比較第 2 個數字，比較第 3 個數字： 花了 3 次操作。</li>
-<li>取出第 2 個數字 ，比較第 3 個數字： 用了 2 次操作</li>
-<li>總共 5 次操作</li>
-</ul>
-<pre><code>1:2,3
-2:3</code></pre>
-<p>不難發現出這 5 次操作與參數 n 的關係可以用一個類似等差數列可以求得，用數學符號表示即為：</p>
-<ul>
-<li><code>n</code> 為項數(也就是 <code>nums</code> 的長度)</li>
-<li><span class="math inline">\(a\mathop{}\nolimits_{1}\)</span> 為首項：固定為 1。</li>
-<li><span class="math inline">\(a\mathop{}\nolimits_{n}\)</span> 為末項：代表 <code>nums</code> 長度，如果 <code>nums = [1,2,3]</code> 的話，則為 3。</li>
-<li><span class="math inline">\(S\mathop{}\nolimits_{n}\)</span> 代表總耗費步驟：以 <code>nums = [1,2,3]</code> 為例的話，則是 5。</li>
-</ul>
-<p><span class="math inline">\(S\mathop{}\nolimits_{n}=\frac{n \left( a\mathop{}\nolimits_{1}+a\mathop{}\nolimits_{n} \right) }{2} - 1\)</span></p>
-<p>不難發現以上公式當中，次方(或平方)最高的便是 <span class="math inline">\(n \left( a\mathop{}\nolimits_{1}+a\mathop{}\nolimits_{n} \right)\)</span> ，這個函式幾乎等同 <code>O(n²)</code> 了</p>
-<h3 id="參考連結">參考連結：</h3>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/105986034" target="_blank" rel="noopener">在 Hexo 博客中写出好看的Latex 公式</a>
-<ul>
-<li>為了要在 Hexo 用出 LaTex 公式，花了我四個小時多，找了許多篇文章設定，這篇是我覺得設定起來最好的了。</li>
-</ul></li>
-</ul>
 
             </div>
             <hr/>
@@ -528,10 +436,6 @@ target - b = a </code></pre>
                             
                                 <a href="/tags/algorithm/">
                                     <span class="chip bg-color">algorithm</span>
-                                </a>
-                            
-                                <a href="/tags/latex/">
-                                    <span class="chip bg-color">latex</span>
                                 </a>
                             
                         </div>
@@ -573,30 +477,29 @@ target - b = a </code></pre>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/06/2020/leetcode-1431-kids-with-the-greatest-number-of-candies/">
+                <a href="/2020/05/10/2020/leetcode-1282/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg" class="responsive-img" alt="LeetCode 訓練(2) -  Kids With the Greatest Number of Candies">
+                        <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png" class="responsive-img" alt="LeetCode 訓練(3) - Group the People Given the Group Size They Belong To">
                         
-                        <span class="card-title">LeetCode 訓練(2) -  Kids With the Greatest Number of Candies</span>
+                        <span class="card-title">LeetCode 訓練(3) - Group the People Given the Group Size They Belong To</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-link：Kids With the Greatest Number of Candies
-difficulty：easy
+link：Group the People Given the Group Size They Belong To
+difficulty：medium
 language：javascript
 
 題目講解
-原文
-Given the array candies and 
+There are n peopl
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
                         </span>
                         <span class="publish-author">
                             
@@ -632,23 +535,30 @@ Given the array candies and
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/05/2020/gildedrose-factoring-kata/">
+                <a href="/2020/05/06/2020/leetcode-1431-kids-with-the-greatest-number-of-candies/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/working_effectively_with_legacy_code.jpeg" class="responsive-img" alt="重構實戰 'GildedRose Factoring Kata '">
+                        <img src="/medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg" class="responsive-img" alt="LeetCode 訓練(2) -  Kids With the Greatest Number of Candies">
                         
-                        <span class="card-title">重構實戰 'GildedRose Factoring Kata '</span>
+                        <span class="card-title">LeetCode 訓練(2) -  Kids With the Greatest Number of Candies</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            這篇逐步介紹自己練習重構與 TDD 開發 Legacy Code Kata 的解題思路，題目是社群 Domain Driven Design(DDD Taiwan) 所舉辦的讀書會 Legacy Code 讀書會 3rd (Ch 8, 9)
+                            
+link：Kids With the Greatest Number of Candies
+difficulty：easy
+language：javascript
+
+題目講解
+原文
+Given the array candies and 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
                             </span>
                         <span class="publish-author">
                             
@@ -661,16 +571,16 @@ Given the array candies and
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/php/">
-                        <span class="chip bg-color">php</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
                     </a>
                     
-                    <a href="/tags/refactoring/">
-                        <span class="chip bg-color">refactoring</span>
+                    <a href="/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
                     </a>
                     
-                    <a href="/tags/kata/">
-                        <span class="chip bg-color">kata</span>
+                    <a href="/tags/algorithm/">
+                        <span class="chip bg-color">algorithm</span>
                     </a>
                     
                 </div>
