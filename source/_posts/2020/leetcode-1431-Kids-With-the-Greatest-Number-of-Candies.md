@@ -1,5 +1,5 @@
 ---
-title: LeetCode 訓練(2) -  Kids With the Greatest Number of Candies
+title: LeetCode - Kids With the Greatest Number of Candies (js/easy)
 date: 2020-05-06 09:46:42
 tags: 
 - leetcode
@@ -59,7 +59,7 @@ Constraints:
 
 再將每一個整數的運算結果放在一個陣列後回傳，也就是說必須回傳一個與 `candies` 同等長度以及皆為 boolean 值的陣列。
 
-## 題目解析思路
+## 解題思路
 
 這題大致可以幾個步驟（數字為代稱，不一定為實際順序）：
 

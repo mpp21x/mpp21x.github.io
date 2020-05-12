@@ -1,5 +1,5 @@
 ---
-title: LeetCode 訓練(3) - Group the People Given the Group Size They Belong To
+title: LeetCode - Group the People Given the Group Size They Belong To (js/medium)
 date: 2020-05-10 14:37:44
 tags:
 - leetcode
@@ -46,9 +46,9 @@ Constraints:
 總之，最後要回傳一個二維陣列，陣列中的每一個陣列元素代表其群組，裡面必須包含每個人的 ID。
 
 
-## 題目解析思路
+## 解題思路
 
-我們要做的有以下幾個步驟：
+我們要做的有以下幾個步驟（數字為代稱，不一定為實際順序）：
 
  1. **遍歷取出數字**： `for` 遍歷 `groupSizes`，取出 `groupSize` 
  2. **將 ID 放至群組**：將 For 迴圈的 `index` 作為每個人的 ID，放到各自所屬的一個變數 `tempGroup`

@@ -46,7 +46,7 @@ relative_link: false
 future: true
 highlight:
   enable: false
-  line_number: true
+  line_number: false
   auto_detect: false
   tab_replace: ''
   wrap: true
@@ -55,8 +55,9 @@ highlight:
 prism_plugin:
   mode: 'preprocess'    # realtime/preprocess
   theme: 'tomorrow'
-  line_number: false    # default false
+  line_number: true    # default false
   custom_css:
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -120,10 +121,15 @@ permalink_pinyin:
 
 
 math:
-#  engine: 'mathjax' # or 'katex'
+  engine: 'mathjax' # or 'katex'
   enable: true
   mathjax:
+#    enable: false
     src: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML
+#  katex:
+#    enable: true
+      # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
+#    copy_tex: false
 
 
 

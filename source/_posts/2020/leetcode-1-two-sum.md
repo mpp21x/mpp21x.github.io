@@ -1,5 +1,5 @@
 ---
-title: LeetCode 訓練(1) - Two Sum (JS/Easy)
+title: LeetCode - Two Sum (js/medium)
 date: 2020-05-06 01:18:47
 tags:
 - leetcode
@@ -16,11 +16,11 @@ img: /medias/page_images/leetcode-1-two-sum_js.png
 
 ### 原文
 
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+Given a binary tree, return the sum of values of its deepest leaves.
+ 
 
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
+Example 1:
 
-Example:
 
 ```
 Given nums = [2, 7, 11, 15], target = 9,
@@ -39,7 +39,7 @@ return [0, 1].
 
 `nums` 為 `[2, 7, 11, 15]`，而 `target` 為 `9`，因為 `nums[0]` 以及 `nums[1]` 總和為 `9` 跟 `target` 一樣，所以答案就是 `[0, 1]`。
 
-## 題目解析思路
+## 解題思路
 
 ### 線索 1 `Target` 
 
@@ -57,7 +57,7 @@ target - b = a
 
 ### 線索 2 流程
 
-由於要得到答案，流程必然經過這幾個步驟，讓我們先給這三個步驟一個代稱，以便後續稱呼：
+由於要得到答案，流程必然經過這幾個步驟（數字為代稱，不一定為實際順序）：
 
 1. **遍歷步驟**：也就是一一取出 nums 的每一個數字，這一步驟讓時間複雜度至少會是 `O(n)`。
 2. **取得待確認值步驟**：取出 nums 的一個數字後，使用 `target` 減去此數的餘數，再來確認是否存在於 `nums`，即可。
@@ -133,10 +133,46 @@ $S\mathop{}\nolimits_{n}=\frac{n \left( a\mathop{}\nolimits_{1}+a\mathop{}\nolim
 不難發現以上公式當中，次方(或平方)最高的便是 $n \left( a\mathop{}\nolimits_{1}+a\mathop{}\nolimits_{n} \right)$ ，這個函式幾乎等同 `O(n²)` 了
 
 
-### 參考連結：
+### 關於 LaTex：
+
+為了要在 Hexo 用出 LaTex 公式，花了我四個小時多，找了許多篇文章設定...
 
 * [在 Hexo 博客中写出好看的Latex 公式](https://zhuanlan.zhihu.com/p/105986034)
-    * 為了要在 Hexo 用出 LaTex 公式，花了我四個小時多，找了許多篇文章設定，這篇是我覺得設定起來最好的了。
+    * 更換渲染引擎即可完成，但這會導致所有的 prismjs 的程式碼渲染失去對應的語言顏色，只好作罷。
+    
+找到另一個方法，[在此](https://blog.yusanshi.com/2020-01-28-enable-latex-for-hexo/)，只需要安裝以下指令：
 
+```
+npm install hexo-renderer-mathjax --save
+```      
 
+然後再搭配以下兩篇服用即可：
 
+* [关于 hexo-renderer-kramed 插件导致语法高亮失效的问题](https://github.com/blinkfox/hexo-theme-matery/issues/23)
+* [Hexo下mathjax的转义问题](http://shomy.top/2016/10/22/hexo-markdown-mathjax/)
+
+總結就是，需要修改 `nodes_modules/marked/lib/marked.js` 的兩個地方，主要就是把 `\\` 移除即可：
+
+#### escape
+
+```
+escape: /^\\([\\`*{}\[\]()# +\-.!_>])/,
+```
+
+改成
+
+```	
+escape: /^\\([`*{}\[\]()# +\-.!_>])/,
+```
+
+#### em
+
+```
+em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+```
+
+改成
+
+```	
+em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+```
