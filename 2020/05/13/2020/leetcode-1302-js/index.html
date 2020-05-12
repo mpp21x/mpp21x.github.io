@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Deepest Leaves Sum (js/medium), matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="LeetCode - Deepest Leaves Sum (js/medium), matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>Deepest Leaves Sum (js/medium) | matt blog</title>
+    <title>LeetCode - Deepest Leaves Sum (js/medium) | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -258,7 +258,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Deepest Leaves Sum (js/medium)</h1>
+                    <h1 class="description center-align post-title">LeetCode - Deepest Leaves Sum (js/medium)</h1>
                 </div>
             </div>
         </div>
@@ -412,7 +412,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/leetcode-1302-js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="Deepest Leaves Sum (js/medium)">
+                    <img src="/medias/page_images/leetcode-1302-js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode - Deepest Leaves Sum (js/medium)">
                 
 
                 <ul>
@@ -446,15 +446,15 @@ Output: 15</code></pre><p>Constraints:</p>
 <p>詳細的遍歷 Binary Tree 的步驟如下（數字為代稱，不一定為實際順序）：</p>
 <ol>
 <li><strong>保存統計同階層的總數</strong>：為了將同層（同深度）的每個節點數字加總，也就是滿足此題的答案，我們可以使用一個名為 <code>depthSum</code> 的 Array 來儲存，其屬性如下：<ul>
-<li>key(嚴格來說是 <code>array</code> 的 index，並非是作為 <code>object</code> 的 key)：代表 <strong>階層深度</strong>。</li>
+<li>key (嚴格來說是 <code>array</code> 的 index，並非是作為 <code>object</code> 的 key)：代表 <strong>階層深度</strong>。</li>
 <li>value：代表 <strong>同階層的數字加總</strong>。    </li>
 </ul>
 </li>
 <li><strong>取得當前階層的層數</strong>：一開始可以先初始化一個變數 <code>depth</code> 為 0 代表。</li>
 <li><strong>加總數字到 <code>depthSum[depth]</code></strong>： 取得當前節點的 value，然後加總到前面所提的 <code>depthSum</code>，記得用 <code>depth</code> 作為 Index。</li>
-<li>使用 recursive 來迭代進入每一個節點分支，由於每一個節點又有左邊以及右邊，所以至少呼叫兩次，並且再進去時先把 <code>depth + 1</code>。 </li>
+<li><strong>遍歷節點</strong> 使用 recursive 來迭代進入每一個節點分支，由於每一個節點又有左邊以及右邊，所以至少呼叫兩次，並且再進去時先把 <code>depth + 1</code>。 </li>
 </ol>
-<p>透過用 recursive 的方式又有兩種，以上這兩種作法我都實作過，就放在實作程式碼了：</p>
+<p>透過用 recursive 的方式又有兩種，以上這兩種作法我都實作過，就放在以下的實作程式碼了：</p>
 <ul>
 <li>使用 <code>deepestLeavesSum</code> 本身做遞迴。</li>
 <li>在 <code>deepestLeavesSum</code> 內部新增一個 function ，並且用其作為遞迴。</li>
@@ -501,7 +501,8 @@ Output: 15</code></pre><p>Constraints:</p>
 <h2 id="How-to-verify-algorithm"><a href="#How-to-verify-algorithm" class="headerlink" title="How to verify algorithm"></a>How to verify algorithm</h2><p>首先我自己先設計一個 Binary Tree 如下：</p>
 <p><img src="verify.jpg" alt=""></p>
 <p>合計為 <code>6 + 9 + 13 + 15 = 43</code>，所以最後答案必然一定要為 <code>43</code>。</p>
-<p>再來就是設計一個 Binary Tree，剛好前一陣子在拜讀 <em>Loiane Groner</em> 的 <code>learning javascript data structures and algorithms</code>，學到 ES5 來實作 Binary Tree。</p>
+<p>再來就是設計一個 Binary Tree，剛好前一陣子在拜讀 <em>Loiane Groner</em> 的 <code>learning javascript data structures and algorithms</code>，學到 ES5 如何實作 Binary Tree。</p>
+<p>細節就不多講了。</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">BinarySearchTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">const</span> Node <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>val <span class="token operator">=</span> key<span class="token punctuation">;</span>
@@ -611,9 +612,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <a href="/2020/05/13/2020/leetcode-1302-js/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1302-js.png" class="responsive-img" alt="Deepest Leaves Sum (js/medium)">
+                        <img src="/medias/page_images/leetcode-1302-js.png" class="responsive-img" alt="LeetCode - Deepest Leaves Sum (js/medium)">
                         
-                        <span class="card-title">Deepest Leaves Sum (js/medium)</span>
+                        <span class="card-title">LeetCode - Deepest Leaves Sum (js/medium)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -969,7 +970,24 @@ $(function () {
     
     
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -987,8 +1005,6 @@ $(function () {
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-    
-
 </body>
 
 </html>

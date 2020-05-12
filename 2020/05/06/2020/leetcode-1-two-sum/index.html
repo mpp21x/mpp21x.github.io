@@ -489,7 +489,7 @@ target - b = a </code></pre><p>我們可以透過 <code>target</code> 減去 <co
 </ul>
 <p>$S\mathop{}\nolimits_{n}=\frac{n \left( a\mathop{}\nolimits_{1}+a\mathop{}\nolimits_{n} \right) }{2} - 1$</p>
 <p>不難發現以上公式當中，次方(或平方)最高的便是 $n \left( a\mathop{}\nolimits_{1}+a\mathop{}\nolimits_{n} \right)$ ，這個函式幾乎等同 <code>O(n²)</code> 了</p>
-<h3 id="參考連結："><a href="#參考連結：" class="headerlink" title="參考連結："></a>參考連結：</h3><p>為了要在 Hexo 用出 LaTex 公式，花了我四個小時多，找了許多篇文章設定…</p>
+<h3 id="關於-LaTex："><a href="#關於-LaTex：" class="headerlink" title="關於 LaTex："></a>關於 LaTex：</h3><p>為了要在 Hexo 用出 LaTex 公式，花了我四個小時多，找了許多篇文章設定…</p>
 <ul>
 <li><a href="https://zhuanlan.zhihu.com/p/105986034" target="_blank" rel="noopener">在 Hexo 博客中写出好看的Latex 公式</a><ul>
 <li>更換渲染引擎即可完成，但這會導致所有的 prismjs 的程式碼渲染失去對應的語言顏色，只好作罷。</li>
@@ -927,7 +927,24 @@ $(function () {
     
     
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -945,8 +962,6 @@ $(function () {
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-    
-
 </body>
 
 </html>
