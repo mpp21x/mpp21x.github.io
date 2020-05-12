@@ -40,7 +40,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <body>
@@ -406,39 +407,36 @@
                     <img src="/medias/featureimages/php_sublime.jpg" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="PHP Reflection">
                 
 
-                <h5 id="摘要">摘要</h5>
-<ul>
+                <h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><ul>
 <li>Annotation 假註解，真程式碼</li>
 <li>何謂 Annotation &amp; Reflection</li>
 <li>實作 PHP Annotation</li>
 </ul>
-<h2 id="annotation-假註解真程式碼">Annotation 假註解，真程式碼</h2>
-<p>從 Doctrine 開始說起， Symfony 是我所接觸的第一個 PHP Framework，使用 Symfony 所整合的 PHP ORM Library Doctrine ，在 Doctrine 當中，曾經有一段程式碼是我當時作為一個新手工程師無法理解的，就是所謂的 Annotation，也就是下方註解當中的 <code>@ORM\Entity</code> 部分的程式碼。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">use</span> Doctrine\<span class="kw">ORM</span>\Mapping <span class="kw">as</span> <span class="kw">ORM</span><span class="ot">;</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>    </span>
-<span id="cb1-3"><a href="#cb1-3"></a>    <span class="co">/**</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co">     * </span><span class="an">@ORM\Entity</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co">     * </span><span class="an">@ORM\Table(name=&quot;products&quot;)</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co">     */</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>    <span class="kw">class</span> Product</span>
-<span id="cb1-8"><a href="#cb1-8"></a>    {</span>
-<span id="cb1-9"><a href="#cb1-9"></a>        <span class="co">/** </span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co">         * </span><span class="an">@ORM\Id</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co">         * </span><span class="an">@ORM\Column(type=&quot;integer&quot;)</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">         * </span><span class="an">@ORM\GeneratedValue</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="co">         */</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a>        <span class="kw">protected</span> <span class="kw">$id</span><span class="ot">;</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>        <span class="co">/** </span></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="co">         * </span><span class="an">@ORM\Column(type=&quot;string&quot;)</span><span class="co"> </span></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="co">         */</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a>        <span class="kw">protected</span> <span class="kw">$name</span><span class="ot">;</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a>    </span>
-<span id="cb1-20"><a href="#cb1-20"></a>        <span class="co">// .. (other code)</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a>    }</span></code></pre></div>
-<p>這是一個定義 <code>Entity</code> 的 PHP 程式碼， <code>Entity</code> 就如同 Laravel 裡面的 <code>Model</code> 一樣，被視為對照到資料庫的一個資料表的物件，然而一直使我不能明白的是，上述的註解為什麼是有 <strong>功能</strong> 的，而並非只是一個單純的註解，包含了 <code>@ORM\Entity</code> 、 <code>@ORM\Table(name="products")</code> 等等</p>
+<h2 id="Annotation-假註解，真程式碼"><a href="#Annotation-假註解，真程式碼" class="headerlink" title="Annotation 假註解，真程式碼"></a>Annotation 假註解，真程式碼</h2><p>從 Doctrine 開始說起， Symfony 是我所接觸的第一個 PHP Framework，使用 Symfony  所整合的 PHP ORM Library Doctrine ，在  Doctrine 當中，曾經有一段程式碼是我當時作為一個新手工程師無法理解的，就是所謂的 Annotation，也就是下方註解當中的 <code>@ORM\Entity</code> 部分的程式碼。</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">use</span> <span class="token package">Doctrine<span class="token punctuation">\</span>ORM<span class="token punctuation">\</span>Mapping</span> <span class="token keyword">as</span> <span class="token constant">ORM</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * @ORM\Entity
+     * @ORM\Table(name="products")
+     */</span>
+    <span class="token keyword">class</span> <span class="token class-name">Product</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/** 
+         * @ORM\Id
+         * @ORM\Column(type="integer")
+         * @ORM\GeneratedValue
+         */</span>
+        <span class="token keyword">protected</span> <span class="token variable">$id</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/** 
+         * @ORM\Column(type="string") 
+         */</span>
+        <span class="token keyword">protected</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// .. (other code)</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>這是一個定義 <code>Entity</code> 的 PHP 程式碼， <code>Entity</code> 就如同 Laravel 裡面的 <code>Model</code> 一樣，被視為對照到資料庫的一個資料表的物件，然而一直使我不能明白的是，上述的註解為什麼是有 <strong>功能</strong> 的，而並非只是一個單純的註解，包含了 <code>@ORM\Entity</code> 、 <code>@ORM\Table(name=&quot;products&quot;)</code> 等等</p>
 <p>要是不設定這些參數的話，便無法使用 Doctrine ，換言之，這些註解並非是提供給開發者看的註解而已，而是實際影響程式運作的程式碼。</p>
-<h2 id="何謂-annotation-reflection">何謂 Annotation &amp; Reflection</h2>
-<blockquote>
+<h2 id="何謂-Annotation-amp-Reflection"><a href="#何謂-Annotation-amp-Reflection" class="headerlink" title="何謂 Annotation &amp; Reflection"></a>何謂 Annotation &amp; Reflection</h2><blockquote>
 <p>我的解讀： Annotation 是一種語法設計，用以將註解的 PHPDoc，裡面所設置的 meta-data(通常是 class )自動代理與處理其指定的物件或其 property , method 的一種設計</p>
 </blockquote>
 <p>後來看到 Doctrine 官方說明後，了解到由於 PHP 本身並沒有提供 Annotation 的實作，所以 Doctrine 開發一個 Component(Library) 來實作這一部分，然而這不足以讓我明白 <strong>為什麼註解解變成了程式碼</strong>，到底是用了什麼魔法才使 PHP 可以執行到註解裡面的程式？，然而這個問題後來被擱在一旁，也就忘記繼續了解。</p>
@@ -447,58 +445,57 @@
 <p>使用 PHP Reflection 便可以讀取到物件中的註解，從而實作 PHP Annotation</p>
 </blockquote>
 <p>這同時也是 Doctrine 和 Laravel 實作依賴注入所使用到的方法。</p>
-<h2 id="實作-php-annotation">實作 PHP Annotation</h2>
-<p>那麼，Reflection 又可以做什麼呢？Reflection 是一個可以在執行階段時，取得 以類別名稱為參數，並取得該類別自身的 property 和 Method 、甚至是註解的一種物件。</p>
+<h2 id="實作-PHP-Annotation"><a href="#實作-PHP-Annotation" class="headerlink" title="實作 PHP Annotation"></a>實作 PHP Annotation</h2><p>那麼，Reflection 又可以做什麼呢？Reflection 是一個可以在執行階段時，取得 以類別名稱為參數，並取得該類別自身的 property 和 Method 、甚至是註解的一種物件。</p>
 <p>這裡簡單實作一個例子，我們在一個類別 <code>Foo</code> 裡面的 private property 定義一個 Annotation ，並搭配使用 Annotation 將其實體化出來。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> Foo</span>
-<span id="cb2-2"><a href="#cb2-2"></a>{</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    <span class="co">/**</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">    * </span><span class="an">@MyAnnotation(myProperty=&quot;value&quot;)</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">    */</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a>    <span class="kw">private</span> <span class="kw">$bar</span><span class="ot">;</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>}</span>
-<span id="cb2-8"><a href="#cb2-8"></a>    </span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="kw">$reflectionClass</span> = <span class="kw">new</span> <span class="kw">ReflectionClass</span><span class="ot">(</span>Foo::<span class="kw">class</span><span class="ot">);</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="kw">$property</span> = <span class="kw">$reflectionClass</span>-&gt;getProperty<span class="ot">(</span><span class="st">&#39;bar&#39;</span><span class="ot">);</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="fu">var_dump</span><span class="ot">(</span><span class="kw">$property</span>-&gt;getDocComment<span class="ot">());</span></span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">class</span> <span class="token class-name">Foo</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/**
+    * @MyAnnotation(myProperty="value")
+    */</span>
+    <span class="token keyword">private</span> <span class="token variable">$bar</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$reflectionClass</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReflectionClass</span><span class="token punctuation">(</span>Foo<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$property</span> <span class="token operator">=</span> <span class="token variable">$reflectionClass</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token string">'bar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$property</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getDocComment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>這裏 <code>var_dump</code> 出來所顯示的是一個字串，其值如下：</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">/**</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">* </span><span class="an">@MyAnnotation(myProperty=&quot;value&quot;)</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co">*/</span></span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">/**
+* @MyAnnotation(myProperty="value")
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>再來是要解析這一段註解，這裏我們為方便，直接使用 Doctrine 的 Library <code>AnnotationReader</code> 來協助我們解析。</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">&lt;?</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">require</span> <span class="kw">__DIR__</span> . <span class="st">&#39;/vendor/autoload.php&#39;</span><span class="ot">;</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">use</span> Doctrine\Common\Annotations\AnnotationReader<span class="ot">;</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="kw">class</span> Foo</span>
-<span id="cb4-7"><a href="#cb4-7"></a>{</span>
-<span id="cb4-8"><a href="#cb4-8"></a>    <span class="co">/**</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="co">     * </span><span class="an">@MyAnnotation(myProperty=&quot;value&quot;)</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co">     */</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>    <span class="kw">private</span> <span class="kw">$bar</span><span class="ot">;</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a>}</span>
-<span id="cb4-13"><a href="#cb4-13"></a></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co">/**</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="co"> * </span><span class="an">@Annotation</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="co"> */</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="kw">final</span> <span class="kw">class</span> MyAnnotation</span>
-<span id="cb4-18"><a href="#cb4-18"></a>{</span>
-<span id="cb4-19"><a href="#cb4-19"></a>    <span class="kw">public</span> <span class="kw">$myProperty</span><span class="ot">;</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a>}</span>
-<span id="cb4-21"><a href="#cb4-21"></a></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="kw">$reflectionClass</span> = <span class="kw">new</span> <span class="kw">ReflectionClass</span><span class="ot">(</span>Foo::<span class="kw">class</span><span class="ot">);</span></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="kw">$property</span> = <span class="kw">$reflectionClass</span>-&gt;getProperty<span class="ot">(</span><span class="st">&#39;bar&#39;</span><span class="ot">);</span></span>
-<span id="cb4-24"><a href="#cb4-24"></a></span>
-<span id="cb4-25"><a href="#cb4-25"></a><span class="fu">var_dump</span><span class="ot">(</span><span class="kw">$property</span>-&gt;getDocComment<span class="ot">());</span></span>
-<span id="cb4-26"><a href="#cb4-26"></a><span class="kw">$reader</span> = <span class="kw">new</span> AnnotationReader<span class="ot">();</span></span>
-<span id="cb4-27"><a href="#cb4-27"></a></span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="kw">$myAnnotation</span> = <span class="kw">$reader</span>-&gt;getPropertyAnnotation<span class="ot">(</span></span>
-<span id="cb4-29"><a href="#cb4-29"></a>    <span class="kw">$property</span><span class="ot">,</span></span>
-<span id="cb4-30"><a href="#cb4-30"></a>    MyAnnotation::<span class="kw">class</span></span>
-<span id="cb4-31"><a href="#cb4-31"></a><span class="ot">);</span></span>
-<span id="cb4-32"><a href="#cb4-32"></a></span>
-<span id="cb4-33"><a href="#cb4-33"></a><span class="fu">var_dump</span><span class="ot">(</span><span class="kw">$myAnnotation</span><span class="ot">);</span></span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?</span>
+<span class="token keyword">require</span> <span class="token constant">__DIR__</span> <span class="token punctuation">.</span> <span class="token string">'/vendor/autoload.php'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Doctrine<span class="token punctuation">\</span>Common<span class="token punctuation">\</span>Annotations<span class="token punctuation">\</span>AnnotationReader</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Foo</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/**
+     * @MyAnnotation(myProperty="value")
+     */</span>
+    <span class="token keyword">private</span> <span class="token variable">$bar</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/**
+ * @Annotation
+ */</span>
+<span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">MyAnnotation</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$myProperty</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$reflectionClass</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReflectionClass</span><span class="token punctuation">(</span>Foo<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$property</span> <span class="token operator">=</span> <span class="token variable">$reflectionClass</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token string">'bar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$property</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getDocComment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$reader</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AnnotationReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$myAnnotation</span> <span class="token operator">=</span> <span class="token variable">$reader</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getPropertyAnnotation</span><span class="token punctuation">(</span>
+    <span class="token variable">$property</span><span class="token punctuation">,</span>
+    MyAnnotation<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$myAnnotation</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>這段程式碼的流程主要是這樣</p>
 <ul>
 <li>建立 ReflectionClass 物件，並指向 <code>Foo</code> 這個物件宣告所在的位置。</li>
@@ -507,16 +504,14 @@
 <li>再搭配 Doctrine 的 <code>AnnotationReader</code> ，呼叫 <code>getPropertyAnnotation</code> 去讀取屬性並且將此屬性的 PHP Doc 與其指向的類別和指定 property value 設定好之後，實體化出來。</li>
 <li>印出 <code>$myAnnotation</code></li>
 </ul>
-<h5 id="補充">補充：</h5>
-<p>在 Reflection 的幫助下便可實作到以下幾個設計</p>
+<h5 id="補充："><a href="#補充：" class="headerlink" title="補充："></a>補充：</h5><p>在 Reflection 的幫助下便可實作到以下幾個設計</p>
 <ul>
 <li>PHP Annotation</li>
 <li>Dependency Injection</li>
 <li>Aspect Oriented Programming(AOP)：<a href="https://hyperf.wiki/#/zh-cn/aop" target="_blank" rel="noopener">可參考 Hyperf Framework 的 AOP</a></li>
 </ul>
 <p>或許有了 Reflection 可能還可以做到更多功能，本篇並非要完全理解 Reflection ，而是理解如何實作 Annotation 以及 Laravel 的 DI 為目的而已</p>
-<h5 id="參考文獻">參考文獻</h5>
-<ul>
+<h5 id="參考文獻"><a href="#參考文獻" class="headerlink" title="參考文獻"></a>參考文獻</h5><ul>
 <li><a href="https://php-annotations.readthedocs.io/en/latest/UsingAnnotations.html" target="_blank" rel="noopener">Understanding annotations</a></li>
 <li><a href="https://www.doctrine-project.org/projects/doctrine-annotations/en/1.6/index.html" target="_blank" rel="noopener">Doctrine Annotation</a></li>
 </ul>
@@ -579,9 +574,9 @@
                 <a href="/2020/04/05/2020/gildedrose-factoring-kata/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/working_effectively_with_legacy_code.jpeg" class="responsive-img" alt="重構實戰 'GildedRose Factoring Kata '">
+                        <img src="/medias/featureimages/working_effectively_with_legacy_code.jpeg" class="responsive-img" alt="重構訓練 'GildedRose Factoring Kata'">
                         
-                        <span class="card-title">重構實戰 'GildedRose Factoring Kata '</span>
+                        <span class="card-title">重構訓練 'GildedRose Factoring Kata'</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -640,13 +635,11 @@
                     <div class="summary block-with-text">
                         
                             摘要
-
 Annotation 假註解，真程式碼
 何謂 Annotation &amp; Reflection
 實作 PHP Annotation
 
-Annotation 假註解，真程式碼
-從 Doctrine 開始說起， Symfony 是
+Annotation 假註解，真程式碼從 Doctrine 開始說起， Symfony 是我所
                         
                     </div>
                     <div class="publish-info">

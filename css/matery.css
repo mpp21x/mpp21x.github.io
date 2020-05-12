@@ -2143,3 +2143,7 @@ footer .copy-right {
 .MathJax span {
     font-size: 1.6rem ;
 }
+
+pre[class*="language-"].line-numbers > code > span {
+    font-size: 1.35rem;
+}

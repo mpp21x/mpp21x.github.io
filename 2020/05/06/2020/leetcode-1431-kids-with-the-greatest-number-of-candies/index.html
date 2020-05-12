@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="LeetCode 訓練(2) -  Kids With the Greatest Number of Candies, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="LeetCode - Kids With the Greatest Number of Candies (js/easy), matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>LeetCode 訓練(2) -  Kids With the Greatest Number of Candies | matt blog</title>
+    <title>LeetCode - Kids With the Greatest Number of Candies (js/easy) | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -40,7 +40,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <body>
@@ -257,7 +258,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode 訓練(2) -  Kids With the Greatest Number of Candies</h1>
+                    <h1 class="description center-align post-title">LeetCode - Kids With the Greatest Number of Candies (js/easy)</h1>
                 </div>
             </div>
         </div>
@@ -411,7 +412,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode 訓練(2) -  Kids With the Greatest Number of Candies">
+                    <img src="/medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode - Kids With the Greatest Number of Candies (js/easy)">
                 
 
                 <ul>
@@ -419,9 +420,7 @@
 <li>difficulty：<code>easy</code></li>
 <li>language：<code>javascript</code></li>
 </ul>
-<h2 id="題目講解">題目講解</h2>
-<h3 id="原文">原文</h3>
-<p>Given the array candies and the integer extraCandies, where candies[i] represents the number of candies that the ith kid has.</p>
+<h2 id="題目講解"><a href="#題目講解" class="headerlink" title="題目講解"></a>題目講解</h2><h3 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h3><p>Given the array candies and the integer extraCandies, where candies[i] represents the number of candies that the ith kid has.</p>
 <p>For each kid check if there is a way to distribute extraCandies among the kids such that he or she can have the greatest number of candies among them. Notice that multiple kids can have the greatest number of candies.</p>
 <p>Example 1:</p>
 <pre><code>Input: candies = [2,3,5,1,3], extraCandies = 3
@@ -431,26 +430,21 @@ Kid 1 has 2 candies and if he or she receives all extra candies (3) will have 5 
 Kid 2 has 3 candies and if he or she receives at least 2 extra candies will have the greatest number of candies among the kids. 
 Kid 3 has 5 candies and this is already the greatest number of candies among the kids. 
 Kid 4 has 1 candy and even if he or she receives all extra candies will only have 4 candies. 
-Kid 5 has 3 candies and if he or she receives at least 2 extra candies will have the greatest number of candies among the kids. </code></pre>
-<p>Example 2:</p>
+Kid 5 has 3 candies and if he or she receives at least 2 extra candies will have the greatest number of candies among the kids. </code></pre><p>Example 2:</p>
 <pre><code>Input: candies = [4,2,1,1,2], extraCandies = 1
 Output: [true,false,false,false,false] 
-Explanation: There is only 1 extra candy, therefore only kid 1 will have the greatest number of candies among the kids regardless of who takes the extra candy.</code></pre>
-<p>Example 3:</p>
+Explanation: There is only 1 extra candy, therefore only kid 1 will have the greatest number of candies among the kids regardless of who takes the extra candy.</code></pre><p>Example 3:</p>
 <pre><code>Input: candies = [12,1,12], extraCandies = 10
-Output: [true,false,true]</code></pre>
-<p>Constraints:</p>
+Output: [true,false,true]</code></pre><p>Constraints:</p>
 <ul>
 <li><code>2 &lt;= candies.length &lt;= 100</code></li>
 <li><code>1 &lt;= candies[i] &lt;= 100</code></li>
 <li><code>1 &lt;= extraCandies &lt;= 50</code></li>
 </ul>
-<h3 id="題目解釋">題目解釋</h3>
-<p>給予一個充滿整數的陣列 <code>candies</code> 以及一個指定的整數 <code>extraCandies</code>，我們需要取出 <code>candies</code> 中的每一個整數，再加上 <code>extraCandies</code> 之後，判斷其是否大於或等於 <code>candies</code> 中最大的那個數字，若是則為 <code>true</code> 否則為 <code>false</code>。</p>
+<h3 id="題目解釋"><a href="#題目解釋" class="headerlink" title="題目解釋"></a>題目解釋</h3><p>給予一個充滿整數的陣列 <code>candies</code> 以及一個指定的整數 <code>extraCandies</code>，我們需要取出 <code>candies</code> 中的每一個整數，再加上 <code>extraCandies</code> 之後，判斷其是否大於或等於  <code>candies</code> 中最大的那個數字，若是則為 <code>true</code> 否則為 <code>false</code>。</p>
 <p>再將每一個整數的運算結果放在一個陣列後回傳，也就是說必須回傳一個與 <code>candies</code> 同等長度以及皆為 boolean 值的陣列。</p>
-<h2 id="題目解析思路">題目解析思路</h2>
-<p>這題大致可以幾個步驟（數字為代稱，不一定為實際順序）：</p>
-<ol type="1">
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>這題大致可以幾個步驟（數字為代稱，不一定為實際順序）：</p>
+<ol>
 <li><strong>遍歷取出數字</strong>：將 <code>candies</code> 一一取出。這一步驟讓時間複雜度至少會是 <code>O(n)</code>。</li>
 <li><strong>運算及比較</strong>： 加上 <code>extraCandies</code> 之後進行比較。</li>
 <li><strong>找出最大值</strong>： 找出 <code>candies</code> 最大的數值。</li>
@@ -458,27 +452,25 @@ Output: [true,false,true]</code></pre>
 <p>這裡的 <strong>步驟 1</strong> 和 <strong>步驟 2</strong> ，在邏輯上必然有先後關聯的，可將步驟 1 和 步驟 2 可視為一體，而接下來則是思考 要先 <strong>步驟 3</strong> 或是 <strong>步驟 1 &amp; 2</strong>：</p>
 <p>若先執行 <strong>步驟 1 &amp; 2</strong> -&gt; <strong>步驟 3</strong>，這樣一邊遍歷取出元素 又得重複尋找出最大值，時間複雜度為 <code>O(n²)</code></p>
 <p>如果先 <strong>步驟 3</strong> -&gt; <strong>步驟 1 &amp; 2</strong>，一開始就找出最大數，時間複雜度為 <code>2n</code> 而已。</p>
-<h2 id="實作程式碼">實作程式碼</h2>
-<p>將上述過程轉化程式碼便是如下：</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">var</span> kidsWithCandies <span class="op">=</span> <span class="kw">function</span> (candies<span class="op">,</span> extraCandies) {</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="co">// 3. 找出最大值</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="kw">const</span> maxNum <span class="op">=</span> candies<span class="op">.</span><span class="fu">reduce</span>((accumulator<span class="op">,</span> currentValue) <span class="kw">=&gt;</span> {</span>
-<span id="cb4-4"><a href="#cb4-4"></a>        <span class="cf">return</span> currentValue <span class="op">&gt;</span> accumulator <span class="op">?</span> currentValue <span class="op">:</span> accumulator<span class="op">;</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>    }<span class="op">,</span> candies[<span class="dv">0</span>])<span class="op">;</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a>    <span class="kw">const</span> answer <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a></span>
-<span id="cb4-9"><a href="#cb4-9"></a>    <span class="kw">const</span> length <span class="op">=</span> candies<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a>    <span class="co">// 1. 遍歷取出數字 以及 2. 運算及比較</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> length<span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb4-12"><a href="#cb4-12"></a>        answer<span class="op">.</span><span class="fu">push</span>((candies[i] <span class="op">+</span> extraCandies) <span class="op">&gt;=</span> maxNum)<span class="op">;</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a>    }</span>
-<span id="cb4-14"><a href="#cb4-14"></a></span>
-<span id="cb4-15"><a href="#cb4-15"></a>    <span class="cf">return</span> answer<span class="op">;</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a>}<span class="op">;</span></span></code></pre></div>
-<h2 id="其他">其他</h2>
-<h3 id="github-紀錄">GitHub 紀錄</h3>
-<p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/1431.Kids_With_the_Greatest_Number_of_Candies" target="_blank" rel="noopener">點我連結</a>。</p>
+<h2 id="實作程式碼"><a href="#實作程式碼" class="headerlink" title="實作程式碼"></a>實作程式碼</h2><p>將上述過程轉化程式碼便是如下：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> kidsWithCandies <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>candies<span class="token punctuation">,</span> extraCandies<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 3. 找出最大值</span>
+    <span class="token keyword">const</span> maxNum <span class="token operator">=</span> candies<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>accumulator<span class="token punctuation">,</span> currentValue<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> currentValue <span class="token operator">></span> accumulator <span class="token operator">?</span> currentValue <span class="token punctuation">:</span> accumulator<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> candies<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> answer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> length <span class="token operator">=</span> candies<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 1. 遍歷取出數字 以及 2. 運算及比較</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        answer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">(</span>candies<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> extraCandies<span class="token punctuation">)</span> <span class="token operator">>=</span> maxNum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> answer<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="GitHub-紀錄"><a href="#GitHub-紀錄" class="headerlink" title="GitHub 紀錄"></a>GitHub 紀錄</h3><p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/1431.Kids_With_the_Greatest_Number_of_Candies" target="_blank" rel="noopener">點我連結</a>。 </p>
 
             </div>
             <hr/>
@@ -546,9 +538,9 @@ Output: [true,false,true]</code></pre>
                 <a href="/2020/05/10/2020/leetcode-1282/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png" class="responsive-img" alt="LeetCode 訓練(3) - Group the People Given the Group Size They Belong To">
+                        <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png" class="responsive-img" alt="LeetCode - Group the People Given the Group Size They Belong To (js/medium)">
                         
-                        <span class="card-title">LeetCode 訓練(3) - Group the People Given the Group Size They Belong To</span>
+                        <span class="card-title">LeetCode - Group the People Given the Group Size They Belong To (js/medium)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -559,8 +551,7 @@ link：Group the People Given the Group Size They Belong To
 difficulty：medium
 language：javascript
 
-題目講解
-There are n peopl
+題目講解There are n people
                         
                     </div>
                     <div class="publish-info">
@@ -604,9 +595,9 @@ There are n peopl
                 <a href="/2020/05/06/2020/leetcode-1-two-sum/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1-two-sum_js.png" class="responsive-img" alt="LeetCode 訓練(1) - Two Sum (JS/Easy)">
+                        <img src="/medias/page_images/leetcode-1-two-sum_js.png" class="responsive-img" alt="LeetCode - Two Sum (js/medium)">
                         
-                        <span class="card-title">LeetCode 訓練(1) - Two Sum (JS/Easy)</span>
+                        <span class="card-title">LeetCode - Two Sum (js/medium)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -617,9 +608,7 @@ link：Two Sum
 difficulty：easy
 language：javascript
 
-題目講解
-原文
-Given an array of integers, return indices of the two numbers
+題目講解原文Given a binary tree, return the sum of values of its deepest le
                         
                     </div>
                     <div class="publish-info">

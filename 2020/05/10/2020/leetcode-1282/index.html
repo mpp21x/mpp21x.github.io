@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="LeetCode 訓練(3) - Group the People Given the Group Size They Belong To, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="LeetCode - Group the People Given the Group Size They Belong To (js/medium), matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>LeetCode 訓練(3) - Group the People Given the Group Size They Belong To | matt blog</title>
+    <title>LeetCode - Group the People Given the Group Size They Belong To (js/medium) | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -40,7 +40,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <body>
@@ -257,7 +258,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode 訓練(3) - Group the People Given the Group Size They Belong To</h1>
+                    <h1 class="description center-align post-title">LeetCode - Group the People Given the Group Size They Belong To (js/medium)</h1>
                 </div>
             </div>
         </div>
@@ -411,7 +412,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode 訓練(3) - Group the People Given the Group Size They Belong To">
+                    <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode - Group the People Given the Group Size They Belong To (js/medium)">
                 
 
                 <ul>
@@ -419,68 +420,60 @@
 <li>difficulty：<code>medium</code></li>
 <li>language：<code>javascript</code></li>
 </ul>
-<h2 id="題目講解">題目講解</h2>
-<p>There are n people whose IDs go from 0 to n - 1 and each person belongs exactly to one group. Given the array groupSizes of length n telling the group size each person belongs to, return the groups there are and the people's IDs each group includes.</p>
-<p>You can return any solution in any order and the same applies for IDs. Also, it is guaranteed that there exists at least one solution.</p>
+<h2 id="題目講解"><a href="#題目講解" class="headerlink" title="題目講解"></a>題目講解</h2><p>There are n people whose IDs go from 0 to n - 1 and each person belongs exactly to one group. Given the array groupSizes of length n telling the group size each person belongs to, return the groups there are and the people’s IDs each group includes.</p>
+<p>You can return any solution in any order and the same applies for IDs. Also, it is guaranteed that there exists at least one solution. </p>
 <p>Example 1:</p>
 <pre><code>Input: groupSizes = [3,3,3,3,3,1,3]
 Output: [[5],[0,1,2],[3,4,6]]
 Explanation: 
-Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].</code></pre>
-<p>Example 2:</p>
+Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].</code></pre><p>Example 2:</p>
 <pre><code>Input: groupSizes = [2,1,3,3,3,2]
-Output: [[1],[0,5],[2,3,4]]</code></pre>
-<p>Constraints:</p>
+Output: [[1],[0,5],[2,3,4]]</code></pre><p>Constraints:</p>
 <ul>
 <li><code>groupSizes.length == n</code></li>
 <li><code>1 &lt;= n &lt;= 500</code></li>
 <li><code>1 &lt;= groupSizes[i] &lt;= n</code></li>
 </ul>
-<h3 id="題目解釋">題目解釋</h3>
-<p>給予一個充滿整數的陣列 <code>groupSizes</code>，這個陣列每一個整數都代表一個人其所屬的群組人數，而我們要做的便是給予每一個人 ID (從 0 到 <code>n-1</code>)，以及按任何順序歸類在同一個群組。</p>
+<h3 id="題目解釋"><a href="#題目解釋" class="headerlink" title="題目解釋"></a>題目解釋</h3><p>給予一個充滿整數的陣列 <code>groupSizes</code>，這個陣列每一個整數都代表一個人其所屬的群組人數，而我們要做的便是給予每一個人 ID (從 0 到 <code>n-1</code>)，以及按任何順序歸類在同一個群組。</p>
 <p>總之，最後要回傳一個二維陣列，陣列中的每一個陣列元素代表其群組，裡面必須包含每個人的 ID。</p>
-<h2 id="題目解析思路">題目解析思路</h2>
-<p>我們要做的有以下幾個步驟：</p>
-<ol type="1">
-<li><strong>遍歷取出數字</strong>： <code>for</code> 遍歷 <code>groupSizes</code>，取出 <code>groupSize</code></li>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>我們要做的有以下幾個步驟（數字為代稱，不一定為實際順序）：</p>
+<ol>
+<li><strong>遍歷取出數字</strong>： <code>for</code> 遍歷 <code>groupSizes</code>，取出 <code>groupSize</code> </li>
 <li><strong>將 ID 放至群組</strong>：將 For 迴圈的 <code>index</code> 作為每個人的 ID，放到各自所屬的一個變數 <code>tempGroup</code></li>
 <li><strong>暫存尚未湊滿 groupSize 的 group</strong>：在上述的步驟 2 當中，變數 <code>tempGroup</code> 若尚未湊滿其應有的 <code>groupSize</code>，便不應該將其放至 <code>ans</code>，這時可以先準備一個 <code>tempGroups</code> 暫存這些 <code>tempGroup</code>，之後每次新增人數時以及將 <code>tempGroup</code> 放入 <code>ans</code> ，也優先從這裡取出。</li>
 <li><strong>將群組放在最後欲回傳的變數</strong>：確認 <code>tempGroup</code> 人數是否湊滿，湊滿的話，便將其集合到一個陣列變數 <code>ans</code> 最後將此二維陣列回傳即可。</li>
 </ol>
-<h2 id="實作程式碼">實作程式碼</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">/**</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number</span><span class="co">[]} groupSizes</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co"> * </span><span class="an">@return</span><span class="co"> {number[][]}</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co"> */</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="kw">var</span> groupThePeople <span class="op">=</span> <span class="kw">function</span> (groupSizes) {</span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a>    <span class="kw">const</span> sizesLength <span class="op">=</span> groupSizes<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a>    <span class="kw">const</span> tempGroups <span class="op">=</span> {}<span class="op">;</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a>    <span class="kw">const</span> ans <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a></span>
-<span id="cb3-11"><a href="#cb3-11"></a>    <span class="co">// 1. 遍歷取出數字</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> sizesLength<span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb3-13"><a href="#cb3-13"></a>        <span class="kw">let</span> groupSize <span class="op">=</span> groupSizes[i]<span class="op">;</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a>        <span class="kw">let</span> tempGroup <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a>        <span class="co">// 3. 暫存尚未湊滿 groupSize 的 group</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a>        <span class="cf">if</span> (tempGroups<span class="op">.</span><span class="fu">hasOwnProperty</span>(groupSize)) {</span>
-<span id="cb3-17"><a href="#cb3-17"></a>            tempGroup <span class="op">=</span> tempGroups[groupSize]<span class="op">;</span></span>
-<span id="cb3-18"><a href="#cb3-18"></a>        }</span>
-<span id="cb3-19"><a href="#cb3-19"></a>        <span class="co">// 2. 將 ID 放至群組</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a>        tempGroup<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a>        tempGroups[groupSize] <span class="op">=</span> tempGroup<span class="op">;</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a>        <span class="co">// 4. 將群組放在最後欲回傳的變數</span></span>
-<span id="cb3-23"><a href="#cb3-23"></a>        <span class="cf">if</span> (tempGroup<span class="op">.</span><span class="at">length</span> <span class="op">===</span> groupSize) {</span>
-<span id="cb3-24"><a href="#cb3-24"></a>            ans<span class="op">.</span><span class="fu">push</span>(tempGroup)<span class="op">;</span></span>
-<span id="cb3-25"><a href="#cb3-25"></a>            <span class="kw">delete</span> tempGroups[groupSize]<span class="op">;</span></span>
-<span id="cb3-26"><a href="#cb3-26"></a>        }</span>
-<span id="cb3-27"><a href="#cb3-27"></a>    }</span>
-<span id="cb3-28"><a href="#cb3-28"></a></span>
-<span id="cb3-29"><a href="#cb3-29"></a>    <span class="cf">return</span> ans<span class="op">;</span></span>
-<span id="cb3-30"><a href="#cb3-30"></a>}<span class="op">;</span></span></code></pre></div>
-<h2 id="其他">其他</h2>
-<h3 id="github-紀錄">GitHub 紀錄</h3>
-<p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/1282.Group-the-People-Given-the-Group-Size-They-Belong-To" target="_blank" rel="noopener">點我連結</a>。</p>
+<h2 id="實作程式碼"><a href="#實作程式碼" class="headerlink" title="實作程式碼"></a>實作程式碼</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/**
+ * @param {number[]} groupSizes
+ * @return {number[][]}
+ */</span>
+<span class="token keyword">var</span> groupThePeople <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>groupSizes<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">const</span> sizesLength <span class="token operator">=</span> groupSizes<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> tempGroups <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 1. 遍歷取出數字</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> sizesLength<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> groupSize <span class="token operator">=</span> groupSizes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> tempGroup <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 3. 暫存尚未湊滿 groupSize 的 group</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>tempGroups<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>groupSize<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            tempGroup <span class="token operator">=</span> tempGroups<span class="token punctuation">[</span>groupSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// 2. 將 ID 放至群組</span>
+        tempGroup<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        tempGroups<span class="token punctuation">[</span>groupSize<span class="token punctuation">]</span> <span class="token operator">=</span> tempGroup<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 4. 將群組放在最後欲回傳的變數</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>tempGroup<span class="token punctuation">.</span>length <span class="token operator">===</span> groupSize<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ans<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>tempGroup<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">delete</span> tempGroups<span class="token punctuation">[</span>groupSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="GitHub-紀錄"><a href="#GitHub-紀錄" class="headerlink" title="GitHub 紀錄"></a>GitHub 紀錄</h3><p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/1282.Group-the-People-Given-the-Group-Size-They-Belong-To" target="_blank" rel="noopener">點我連結</a>。</p>
 
             </div>
             <hr/>
@@ -548,9 +541,9 @@ Output: [[1],[0,5],[2,3,4]]</code></pre>
                 <a href="/2020/05/11/2020/leetcode-796.rotate-string/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-796-rotate-string.png" class="responsive-img" alt="LeetCode 訓練(4) - Rotate String">
+                        <img src="/medias/page_images/leetcode-796-rotate-string.png" class="responsive-img" alt="LeetCode - Rotate String (js/medium)">
                         
-                        <span class="card-title">LeetCode 訓練(4) - Rotate String</span>
+                        <span class="card-title">LeetCode - Rotate String (js/medium)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -561,10 +554,8 @@ link：Rotate String
 difficulty：easy
 language：javascript
 
-題目講解
-原文
-We are given two strings, A and B.
-A shift on A consist
+題目講解原文We are given two strings, A and B.
+A shift on A consists 
                         
                     </div>
                     <div class="publish-info">
@@ -608,9 +599,9 @@ A shift on A consist
                 <a href="/2020/05/06/2020/leetcode-1431-kids-with-the-greatest-number-of-candies/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg" class="responsive-img" alt="LeetCode 訓練(2) -  Kids With the Greatest Number of Candies">
+                        <img src="/medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg" class="responsive-img" alt="LeetCode - Kids With the Greatest Number of Candies (js/easy)">
                         
-                        <span class="card-title">LeetCode 訓練(2) -  Kids With the Greatest Number of Candies</span>
+                        <span class="card-title">LeetCode - Kids With the Greatest Number of Candies (js/easy)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -621,9 +612,7 @@ link：Kids With the Greatest Number of Candies
 difficulty：easy
 language：javascript
 
-題目講解
-原文
-Given the array candies and 
+題目講解原文Given the array candies and th
                         
                     </div>
                     <div class="publish-info">

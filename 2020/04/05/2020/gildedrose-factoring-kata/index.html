@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="重構實戰 &#39;GildedRose Factoring Kata &#39;, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="重構訓練 &#39;GildedRose Factoring Kata&#39;, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>重構實戰 &#39;GildedRose Factoring Kata &#39; | matt blog</title>
+    <title>重構訓練 &#39;GildedRose Factoring Kata&#39; | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -40,7 +40,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <body>
@@ -257,7 +258,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">重構實戰 &#39;GildedRose Factoring Kata &#39;</h1>
+                    <h1 class="description center-align post-title">重構訓練 &#39;GildedRose Factoring Kata&#39;</h1>
                 </div>
             </div>
         </div>
@@ -411,35 +412,29 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/featureimages/working_effectively_with_legacy_code.jpeg" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="重構實戰 'GildedRose Factoring Kata '">
+                    <img src="/medias/featureimages/working_effectively_with_legacy_code.jpeg" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="重構訓練 'GildedRose Factoring Kata'">
                 
 
                 <p>這篇逐步介紹自己練習重構與 TDD 開發 Legacy Code Kata 的解題思路，題目是社群 <em>Domain Driven Design(DDD Taiwan)</em> 所舉辦的讀書會 Legacy Code 讀書會 3rd (Ch 8, 9) 所分享的重構練習題目。</p>
-<p><strong>GildedRose Refactoring Kata</strong></p>
+<p> <strong>GildedRose Refactoring Kata</strong></p>
 <p>另外感謝這次的講者 <em>Blues</em> 與社群用心的準備，自己蠻喜歡這次的題目，這次重構時決定嘗試做一次筆記，對自己還是很有收穫的，未來如果自己舉辦公司讀書會的話，將本題作為練習題也是非常適合。</p>
 <ul>
 <li><a href="https://github.com/emilybache/GildedRose-Refactoring-Kata" target="_blank" rel="noopener">GildedRose Refactoring Kata 題目程式碼來源</a></li>
 <li><a href="https://hackmd.io/Lx84B9vHQ5irqcVhb7ebPQ?both" target="_blank" rel="noopener">講者 Blues 的題目介紹</a></li>
 <li><a href="https://github.com/mpp21x/PHP-GildedRose-Refactoring-Kata" target="_blank" rel="noopener">本文的程式碼 Repository</a></li>
 </ul>
-<h5 id="legacy-code-重構前後">legacy code 重構前後</h5>
-<figure>
-<img src="compare_refactoring.png" alt="" /><figcaption>重構前後比較</figcaption>
-</figure>
-<h3 id="開發流程">開發流程</h3>
-<ul>
+<h5 id="legacy-code-重構前後"><a href="#legacy-code-重構前後" class="headerlink" title="legacy code 重構前後"></a>legacy code 重構前後</h5><p><img src="compare_refactoring.png" alt="重構前後比較"></p>
+<h3 id="開發流程"><a href="#開發流程" class="headerlink" title="開發流程"></a>開發流程</h3><ul>
 <li>按照預期完成的測試案例項目撰寫程式碼</li>
 <li>重構 legacy code</li>
 <li>TDD 新增新的需求</li>
 <li>(補充)修正測試案例五漏洞</li>
 </ul>
-<h2 id="題目描述">題目描述</h2>
-<p>嗨，歡迎來到鍍金玫瑰團隊。如您所知，我們是一家小旅館，位於一線城市的黃金地段，旅館老闆是艾里森(Allison)。我們只銷售高級商品。不過每件商品都有一個銷售剩餘天數。</p>
+<h2 id="題目描述"><a href="#題目描述" class="headerlink" title="題目描述"></a>題目描述</h2><p>嗨，歡迎來到鍍金玫瑰團隊。如您所知，我們是一家小旅館，位於一線城市的黃金地段，旅館老闆是艾里森(Allison)。我們只銷售高級商品。不過每件商品都有一個銷售剩餘天數。</p>
 <p>隨著時間的推移，商品的品質會不斷下降。</p>
 <p>我們擁有一個可以更新庫存訊息的系統。有位名叫 River 的開發人員開發了這個系統，之後就離開了。</p>
 <p>你的任務是將新功能添加到該系統中，以便我們可以開始銷售新種類的商品。</p>
-<h3 id="題目原始需求">題目原始需求</h3>
-<ol type="1">
+<h3 id="題目原始需求"><a href="#題目原始需求" class="headerlink" title="題目原始需求"></a>題目原始需求</h3><ol>
 <li>所有商品(item)都有一個銷售剩餘天數(SellIn)值，表示該商品必須在該值所代表的天數內銷售出去。</li>
 <li>所有商品都有一個品質(Quality)值，表明該商品當前的品質。</li>
 <li>每天結束時，系統會降低每個商品的上述兩個值。</li>
@@ -452,39 +447,43 @@
 <li>(新需求)：魔法(Conjured)商品每日品質下降速度是正常商品的2倍</li>
 </ol>
 <p>在擁有系統的需求之後，首先要做的便是將消化此需求，並轉為實務開發的測試案例，有了測試案例之後，即可依照測試案例開始來撰寫測試的程式碼。</p>
-<h3 id="預期完成的測試案例項目">預期完成的測試案例項目</h3>
-<ol type="1">
+<h3 id="預期完成的測試案例項目"><a href="#預期完成的測試案例項目" class="headerlink" title="預期完成的測試案例項目"></a>預期完成的測試案例項目</h3><ol>
 <li>原需求 3：確保一般的商品在每天結束後 ( 也就是 <code>updateQuality</code> 的 method 呼叫之後 )，系統會降低 <code>sellIn</code> 和 <code>quality</code> 兩種屬性，降低的程度由原程式碼所決定。</li>
 <li>原需求 5：確保 <code>item</code> 的 <code>quality</code> 從不為負數</li>
 <li>原需求 4 ：確保 <code>item</code> 的<code>sellIn</code> 為零時，若 <code>quality</code> 還不等於零，其下降速度是原本的兩倍</li>
 <li>原需求 6：商品 Aged Brie 的物件 <code>item</code>，經過 <code>updateQuality</code> 呼叫之後，其 <code>quality</code> 不減反增，即使在 <code>sellIn</code> 歸零也是</li>
 <li>原需求 7 ： 確保 <code>item</code> 的 <code>quality</code> 從來不超過 50</li>
 <li>原需求 8：商品 Sulfuras 的物件 <code>item</code> ，其 <code>sellIn</code> 和 <code>quality</code> 初始化後，永久不變</li>
-<li>原需求 9：商品 Backstage passes 的物件 <code>item</code> 須滿足下列條件：
-<ol type="1">
+<li>原需求 9：商品 Backstage passes 的物件 <code>item</code> 須滿足下列條件：<ol>
 <li>當 <code>sellIn</code> 為 9 到 5 的時候，<code>updateQuality</code> 一次提升 <code>quality</code> 2</li>
 <li>當 <code>sellIn</code> 為 4 到 1 的時候，<code>updateQuality</code> 一次提升 <code>quality</code> 3</li>
 <li>當 <code>sellIn</code> 為 0，<code>quality</code> 將直接歸零</li>
-</ol></li>
+</ol>
+</li>
 <li>原需求 10 ：新增一個 Conjured 商品，<code>updateQuality</code> 所下降的值為正常商品的兩倍</li>
 </ol>
-<p>這裡想補充幾點： * 上述的需求中，如果有較描述模糊的地帶，這裏傾向先自己推理與腦補，實務上最好還是跟 PM 或客戶確認需求，避免雙方預期需求上的認知差異。 * 程式碼所使用的商品名稱來源是：<code>fixtures/texttest_fixture.php</code> 以及 <code>src/GildedRose</code>，例如： * 商品名稱：<code>Backstage</code>，在程式碼實際上名稱為 <code>Backstage passes to a TAFKAL80ETC concert</code> * 撰寫測試案例的流程，盡可能地將有關聯性的測試案例安排在一起先行撰寫，使後續撰寫測試程式碼時，也可避免出現不必要的修改。</p>
-<h2 id="按照預期完成的測試案例項目撰寫程式碼">按照預期完成的測試案例項目撰寫程式碼</h2>
-<h3 id="測試案例一">測試案例一</h3>
+<p>這裡想補充幾點：</p>
 <ul>
+<li>上述的需求中，如果有較描述模糊的地帶，這裏傾向先自己推理與腦補，實務上最好還是跟 PM 或客戶確認需求，避免雙方預期需求上的認知差異。</li>
+<li>程式碼所使用的商品名稱來源是：<code>fixtures/texttest_fixture.php</code> 以及 <code>src/GildedRose</code>，例如：<ul>
+<li>商品名稱：<code>Backstage</code>，在程式碼實際上名稱為 <code>Backstage passes to a TAFKAL80ETC concert</code></li>
+</ul>
+</li>
+<li>撰寫測試案例的流程，盡可能地將有關聯性的測試案例安排在一起先行撰寫，使後續撰寫測試程式碼時，也可避免出現不必要的修改。</li>
+</ul>
+<h2 id="按照預期完成的測試案例項目撰寫程式碼"><a href="#按照預期完成的測試案例項目撰寫程式碼" class="headerlink" title="按照預期完成的測試案例項目撰寫程式碼"></a>按照預期完成的測試案例項目撰寫程式碼</h2><h3 id="測試案例一"><a href="#測試案例一" class="headerlink" title="測試案例一"></a>測試案例一</h3><ul>
 <li>需求：確保一般的商品在每天結束後 ( 也就是 <code>updateQuality</code> 的 method 呼叫之後 )，系統會降低 <code>sellIn</code> 和 <code>quality</code> 兩種屬性，降低的程度由原程式碼所決定。</li>
 </ul>
 <p>既然我們已經擁有明確的測試案例以及需求了，接下來便是按照需求逐步完成測試，開啟預設的測試檔 <code>GildedRoseTest</code>，會看到下面這個 method：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">public</span> <span class="kw">function</span> testFoo<span class="ot">()</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>{</span>
-<span id="cb1-3"><a href="#cb1-3"></a>    <span class="kw">$items</span> = <span class="ot">[</span><span class="kw">new</span> Item<span class="ot">(</span><span class="st">&quot;foo&quot;</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">)];</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>    <span class="kw">$gildedRose</span> = <span class="kw">new</span> GildedRose<span class="ot">(</span><span class="kw">$items</span><span class="ot">);</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>    <span class="kw">$gildedRose</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="kw">$this</span>-&gt;assertEquals<span class="ot">(</span><span class="st">&quot;fixme&quot;</span><span class="ot">,</span> <span class="kw">$items</span><span class="ot">[</span><span class="dv">0</span><span class="ot">]</span>-&gt;name<span class="ot">);</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testFoo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$items</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">Item</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$gildedRose</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GildedRose</span><span class="token punctuation">(</span><span class="token variable">$items</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$gildedRose</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token string">"fixme"</span><span class="token punctuation">,</span> <span class="token variable">$items</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>接下來先進行基本的撰寫測試與重構，這裡開始描述實際撰寫測試的流程：</p>
-<h5 id="實際撰寫測試的流程">實際撰寫測試的流程</h5>
-<ul>
+<h5 id="實際撰寫測試的流程"><a href="#實際撰寫測試的流程" class="headerlink" title="實際撰寫測試的流程"></a>實際撰寫測試的流程</h5><ul>
 <li>修改 <code>testFoo</code> method 名稱為 <code>testNormalProductUpdateQuality</code> 方便理解這個測試案例的情境。</li>
 <li>執行測試，發現紅燈： <code>Failed asserting that two strings are identical</code></li>
 <li>修改 <code>item</code> 的 <code>quality</code> 以及 <code>sellIn</code> 為 1 ，滿足測試。</li>
@@ -494,118 +493,115 @@
 <li>執行測試，綠燈。</li>
 </ul>
 <p>最後完成如下：</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">public</span> <span class="kw">function</span> testNormalProductUpdateQuality<span class="ot">()</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>{</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    <span class="kw">$item</span> = <span class="kw">new</span> Item<span class="ot">(</span><span class="st">&quot;foo&quot;</span><span class="ot">,</span> <span class="dv">1</span><span class="ot">,</span> <span class="dv">1</span><span class="ot">);</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>    <span class="kw">$items</span> = <span class="ot">[</span><span class="kw">$item</span><span class="ot">];</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a>    <span class="kw">$gildedRose</span> = <span class="kw">new</span> GildedRose<span class="ot">(</span><span class="kw">$items</span><span class="ot">);</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a>    <span class="kw">$gildedRose</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>    <span class="kw">$this</span>-&gt;assertSame<span class="ot">(</span><span class="st">&quot;foo&quot;</span><span class="ot">,</span> <span class="kw">$item</span>-&gt;name<span class="ot">);</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a>    <span class="kw">$this</span>-&gt;assertSame<span class="ot">(</span><span class="dv">0</span><span class="ot">,</span> <span class="kw">$item</span>-&gt;sellIn<span class="ot">);</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>    <span class="kw">$this</span>-&gt;assertSame<span class="ot">(</span><span class="dv">0</span><span class="ot">,</span> <span class="kw">$item</span>-&gt;quality<span class="ot">);</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testNormalProductUpdateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$item</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Item</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$items</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token variable">$item</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$gildedRose</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GildedRose</span><span class="token punctuation">(</span><span class="token variable">$items</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$gildedRose</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">assertSame</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">assertSame</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">sellIn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">assertSame</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">quality</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>再來便是重構測試程式碼的流程，首先重構 <code>GildedRoseTest</code>：</p>
 <ul>
-<li>extract <code>new Item("foo", 0, 0)</code> 到 property，確保 IDE 可以取得存取的變數來源是什麼型別。</li>
+<li>extract <code>new Item(&quot;foo&quot;, 0, 0)</code> 到 property，確保 IDE 可以取得存取的變數來源是什麼型別。</li>
 <li>重構使用到 <code>item</code> 物件的程式碼。</li>
 <li>extract 測試目標的 <code>item</code> 到 <code>GildedRoseTest</code> 上，以便滿足後續測試時需要將參數一一帶入至測試的 method</li>
 <li>extract 測試方法 <code>shouldBe</code> ，減少之後重複的程式碼</li>
 <li>補足 PHPDoc 或是強型別 ，確保 IDE(PHPStorm) 知道每一個物件的型別為何。</li>
 </ul>
 <p>最後完成如下：</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">class</span> GildedRoseTest <span class="kw">extends</span> TestCase</span>
-<span id="cb3-3"><a href="#cb3-3"></a>{</span>
-<span id="cb3-4"><a href="#cb3-4"></a>    <span class="co">/** </span><span class="an">@var</span><span class="co"> </span><span class="do">Item</span><span class="co"> */</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>    <span class="kw">private</span> <span class="kw">$item</span><span class="ot">;</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a>    <span class="kw">public</span> <span class="kw">function</span> testNormalProductUpdateQuality<span class="ot">()</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a>    {</span>
-<span id="cb3-9"><a href="#cb3-9"></a>        <span class="kw">$this</span>-&gt;item = <span class="kw">new</span> Item<span class="ot">(</span><span class="st">&quot;foo&quot;</span><span class="ot">,</span> <span class="dv">1</span><span class="ot">,</span> <span class="dv">1</span><span class="ot">);</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a>        <span class="kw">$items</span> = <span class="ot">[</span><span class="kw">$this</span>-&gt;item<span class="ot">];</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a>        <span class="kw">$gildedRose</span> = <span class="kw">new</span> GildedRose<span class="ot">(</span><span class="kw">$items</span><span class="ot">);</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a>        <span class="kw">$gildedRose</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a>        <span class="kw">$this</span>-&gt;assertSame<span class="ot">(</span><span class="st">&quot;foo&quot;</span><span class="ot">,</span> <span class="kw">$this</span>-&gt;item-&gt;name<span class="ot">);</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a>        <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="dv">0</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">);</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a>    }</span>
-<span id="cb3-16"><a href="#cb3-16"></a></span>
-<span id="cb3-17"><a href="#cb3-17"></a>    <span class="kw">protected</span> <span class="kw">function</span> shouldBe<span class="ot">(</span><span class="kw">int</span> <span class="kw">$sellIn</span><span class="ot">,</span> <span class="kw">int</span> <span class="kw">$quality</span><span class="ot">)</span>: <span class="kw">void</span></span>
-<span id="cb3-18"><a href="#cb3-18"></a>    {</span>
-<span id="cb3-19"><a href="#cb3-19"></a>        <span class="kw">$this</span>-&gt;assertSame<span class="ot">(</span><span class="kw">$sellIn</span><span class="ot">,</span> <span class="kw">$this</span>-&gt;item-&gt;sellIn<span class="ot">);</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a>        <span class="kw">$this</span>-&gt;assertSame<span class="ot">(</span><span class="kw">$quality</span><span class="ot">,</span> <span class="kw">$this</span>-&gt;item-&gt;quality<span class="ot">);</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a>    }</span>
-<span id="cb3-22"><a href="#cb3-22"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">class</span> <span class="token class-name">GildedRoseTest</span> <span class="token keyword">extends</span> <span class="token class-name">TestCase</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/** @var Item */</span>
+    <span class="token keyword">private</span> <span class="token variable">$item</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testNormalProductUpdateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">item</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Item</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$items</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">item</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token variable">$gildedRose</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GildedRose</span><span class="token punctuation">(</span><span class="token variable">$items</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$gildedRose</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">assertSame</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">shouldBe</span><span class="token punctuation">(</span>int <span class="token variable">$sellIn</span><span class="token punctuation">,</span> int <span class="token variable">$quality</span><span class="token punctuation">)</span><span class="token punctuation">:</span> void
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">assertSame</span><span class="token punctuation">(</span><span class="token variable">$sellIn</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">sellIn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">assertSame</span><span class="token punctuation">(</span><span class="token variable">$quality</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">quality</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在重構完之後，再次執行測試，確認綠燈後便完成第一個測試案例，準備提交。</p>
 <p><a href="https://github.com/mpp21x/PHP-GildedRoseRefactoringKata/commit/c3b0b14aec30b414bea0cfc961e23b6198a961ae" target="_blank" rel="noopener">git 測試案例一提交記錄</a></p>
-<h3 id="測試案例二">測試案例二</h3>
-<ul>
+<h3 id="測試案例二"><a href="#測試案例二" class="headerlink" title="測試案例二"></a>測試案例二</h3><ul>
 <li>需求：確保 <code>item</code> 的 <code>quality</code> 從不為負數</li>
 </ul>
-<h5 id="實際撰寫測試的流程-1">實際撰寫測試的流程</h5>
-<ul>
+<h5 id="實際撰寫測試的流程-1"><a href="#實際撰寫測試的流程-1" class="headerlink" title="實際撰寫測試的流程"></a>實際撰寫測試的流程</h5><ul>
 <li>新增測試 method <code>testProductQualityOrSellInIsNeverBeLessThenZero</code></li>
 <li>複製 測試案例一 的程式碼，並將 <code>sellIn</code> 以及 <code>quality</code> 改為 0，預期這兩個屬性在 <code>updateQuality</code> 之後，仍然為 0</li>
 <li>執行測試，發現紅燈： <code>Failed asserting that -1 is identical to 0</code>，這是 <code>quality</code> 的錯誤。</li>
 <li>修正 <code>GildedRose</code> 物件的程式碼滿足測試，修改的程式碼如下：</li>
 </ul>
-<p><img src="test_case_2.png" /></p>
+<p><img src="test_case_2.png" alt=""></p>
 <ul>
 <li>執行測試，綠燈，完成如下：</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb4-1"><a href="#cb4-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">public</span> <span class="kw">function</span> testProductQualityOrSellInIsNeverBeLessThenZero<span class="ot">()</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>{</span>
-<span id="cb4-4"><a href="#cb4-4"></a>    <span class="kw">$this</span>-&gt;item = <span class="kw">new</span> Item<span class="ot">(</span><span class="st">&quot;foo&quot;</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">);</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>    <span class="kw">$items</span> = <span class="ot">[</span><span class="kw">$this</span>-&gt;item<span class="ot">];</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>    <span class="kw">$gildedRose</span> = <span class="kw">new</span> GildedRose<span class="ot">(</span><span class="kw">$items</span><span class="ot">);</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>    <span class="kw">$gildedRose</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>    <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="dv">0</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">);</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testProductQualityOrSellInIsNeverBeLessThenZero</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">item</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Item</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$items</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">item</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$gildedRose</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GildedRose</span><span class="token punctuation">(</span><span class="token variable">$items</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$gildedRose</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>開始重構測試程式碼</p>
 <ul>
 <li>在 <code>GildedRose</code> 的屬性 <code>items</code> 新增 PHPDoc ，使 PHPStorm 可以讀取來源：</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">/** </span><span class="an">@var</span><span class="co"> </span><span class="do">Item[]</span><span class="co"> */</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">private</span> <span class="kw">$items</span> = <span class="ot">[];</span></span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">/** @var Item[] */</span>
+<span class="token keyword">private</span> <span class="token variable">$items</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>extract 建立 <code>GildedRose</code> 的那一段程式碼 extract 到一個新的 method 為 <code>updateQuality</code>，常用的程式碼以便之後重複使用：</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb6-1"><a href="#cb6-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">protected</span> <span class="kw">function</span> updateQuality<span class="ot">()</span>: <span class="kw">void</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>{</span>
-<span id="cb6-4"><a href="#cb6-4"></a>    <span class="kw">$items</span> = <span class="ot">[</span><span class="kw">$this</span>-&gt;item<span class="ot">];</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>    <span class="kw">$gildedRose</span> = <span class="kw">new</span> GildedRose<span class="ot">(</span><span class="kw">$items</span><span class="ot">);</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a>    <span class="kw">$gildedRose</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> void
+<span class="token punctuation">{</span>
+    <span class="token variable">$items</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">item</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$gildedRose</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GildedRose</span><span class="token punctuation">(</span><span class="token variable">$items</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$gildedRose</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>extract 建立 <code>Item</code> 的邏輯下面這一個 method，一樣是為了使常用的程式碼能重複使用 ：</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1"></a></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">protected</span> <span class="kw">function</span> createItem<span class="ot">(</span><span class="kw">string</span> <span class="kw">$name</span><span class="ot">,</span> <span class="kw">int</span> <span class="kw">$sellIn</span><span class="ot">,</span> <span class="kw">int</span> <span class="kw">$quality</span><span class="ot">)</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a>{</span>
-<span id="cb7-4"><a href="#cb7-4"></a>    <span class="kw">$this</span>-&gt;item = <span class="kw">new</span> Item<span class="ot">(</span><span class="kw">$name</span><span class="ot">,</span> <span class="kw">$sellIn</span><span class="ot">,</span> <span class="kw">$quality</span><span class="ot">);</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">createItem</span><span class="token punctuation">(</span>string <span class="token variable">$name</span><span class="token punctuation">,</span> int <span class="token variable">$sellIn</span><span class="token punctuation">,</span> int <span class="token variable">$quality</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">item</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Item</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token variable">$sellIn</span><span class="token punctuation">,</span> <span class="token variable">$quality</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>執行測試，綠燈，完成的程式碼如下：</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1"></a></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">public</span> <span class="kw">function</span> testNormalProductUpdateQuality<span class="ot">()</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>{</span>
-<span id="cb8-4"><a href="#cb8-4"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;foo&quot;</span><span class="ot">,</span> <span class="dv">1</span><span class="ot">,</span> <span class="dv">1</span><span class="ot">);</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a>    <span class="kw">$this</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a>    <span class="kw">$this</span>-&gt;assertSame<span class="ot">(</span><span class="st">&quot;foo&quot;</span><span class="ot">,</span> <span class="kw">$this</span>-&gt;item-&gt;name<span class="ot">);</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a>    <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="dv">0</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">);</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a>}</span>
-<span id="cb8-9"><a href="#cb8-9"></a></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="kw">public</span> <span class="kw">function</span> testProductQualityOrSellInIsNeverBeLessThenZero<span class="ot">()</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a>{</span>
-<span id="cb8-12"><a href="#cb8-12"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;foo&quot;</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">);</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a>    <span class="kw">$this</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a>    <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="dv">0</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">);</span></span>
-<span id="cb8-15"><a href="#cb8-15"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testNormalProductUpdateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">assertSame</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testProductQualityOrSellInIsNeverBeLessThenZero</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a href="https://github.com/mpp21x/PHP-GildedRoseRefactoringKata/commit/5df69be2967dbf713c3243f995ab65e57e202530" target="_blank" rel="noopener">git 測試案例二提交記錄</a></p>
-<h3 id="測試案例三">測試案例三</h3>
-<ul>
+<h3 id="測試案例三"><a href="#測試案例三" class="headerlink" title="測試案例三"></a>測試案例三</h3><ul>
 <li>需求：確保 <code>item</code> 的<code>sellIn</code> 為零時，若 <code>quality</code> 還不等於零，其下降速度是原本的兩倍</li>
 </ul>
 <p>實際撰寫測試的流程</p>
@@ -616,20 +612,19 @@
 <li>執行測試，發現紅燈： <code>Failed asserting that 1 is identical to 0.</code>，看來原本的設計是沒有撰寫這一部分邏輯</li>
 <li>補足需求：<code>sellIn</code> 為零時，若 <code>quality</code> 還不等於零，其下降速度是原本的兩倍，修改 <code>GildedRose</code> 程式碼如下：</li>
 </ul>
-<p><img src="test_case_3.png" /></p>
+<p><img src="test_case_3.png" alt=""></p>
 <ul>
 <li>執行測試，綠燈</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1"></a></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">public</span> <span class="kw">function</span> testProductQualityDecreaseDoubleWhenSellInIsZero<span class="ot">()</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>{</span>
-<span id="cb9-4"><a href="#cb9-4"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;foo&quot;</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">2</span><span class="ot">);</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a>    <span class="kw">$this</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a>    <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="dv">0</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">);</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testProductQualityDecreaseDoubleWhenSellInIsZero</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a href="https://github.com/mpp21x/PHP-GildedRoseRefactoringKata/commit/2ce47df88a4507855a287856deac3f16086ff979" target="_blank" rel="noopener">git 測試案例三提交記錄</a></p>
-<h3 id="測試案例四">測試案例四</h3>
-<ul>
+<h3 id="測試案例四"><a href="#測試案例四" class="headerlink" title="測試案例四"></a>測試案例四</h3><ul>
 <li>需求：商品 Aged Brie 的物件 <code>item</code>，經過 <code>updateQuality</code> 呼叫之後，其 <code>quality</code> 不減反增，即使在 <code>sellIn</code> 歸零也是</li>
 </ul>
 <p>實際撰寫測試的流程</p>
@@ -639,16 +634,15 @@
 <li>撰寫測試，預期在 <code>updateQuality</code> 之後， <code>quality</code> 為 3</li>
 <li>執行測試，綠燈</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb10-1"><a href="#cb10-1"></a></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">public</span> <span class="kw">function</span> testAgedBrieUpdateQualityIsAlwaysIncrease<span class="ot">()</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a>{</span>
-<span id="cb10-4"><a href="#cb10-4"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;Aged Brie&quot;</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">2</span><span class="ot">);</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>    <span class="kw">$this</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>    <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="dv">0</span><span class="ot">,</span> <span class="dv">3</span><span class="ot">);</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testAgedBrieUpdateQualityIsAlwaysIncrease</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"Aged Brie"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a href="https://github.com/mpp21x/PHP-GildedRoseRefactoringKata/commit/9a9c984395adf1dd03c248133a9cdbbeab90f6c7" target="_blank" rel="noopener">git 測試案例四提交記錄</a></p>
-<h3 id="測試案例五">測試案例五</h3>
-<ul>
+<h3 id="測試案例五"><a href="#測試案例五" class="headerlink" title="測試案例五"></a>測試案例五</h3><ul>
 <li>需求： 確保 <code>item</code> 的 <code>quality</code> 從來不超過 50</li>
 </ul>
 <p>這一個案例想補充一下，按理來說應該可以測試兩個地方：</p>
@@ -662,15 +656,15 @@
 <li>新增一個 <code>InvalidItemQualityException</code> Exception 物件在 <code>src</code> 目錄</li>
 <li>修改 <code>Item</code> 物件的 <code>__construct</code> method 如下</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">function</span> <span class="fu">__construct</span><span class="ot">(</span><span class="kw">$name</span><span class="ot">,</span> <span class="kw">$sellIn</span><span class="ot">,</span> <span class="kw">$quality</span><span class="ot">)</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>{</span>
-<span id="cb11-3"><a href="#cb11-3"></a>    <span class="kw">if</span><span class="ot">(</span><span class="kw">$quality</span> &gt; <span class="dv">50</span><span class="ot">)</span>{</span>
-<span id="cb11-4"><a href="#cb11-4"></a>        <span class="kw">throw</span> <span class="kw">new</span> InvalidItemQualityException<span class="ot">();</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a>    }</span>
-<span id="cb11-6"><a href="#cb11-6"></a>    <span class="kw">$this</span>-&gt;name = <span class="kw">$name</span><span class="ot">;</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a>    <span class="kw">$this</span>-&gt;sellIn = <span class="kw">$sellIn</span><span class="ot">;</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a>    <span class="kw">$this</span>-&gt;quality = <span class="kw">$quality</span><span class="ot">;</span></span>
-<span id="cb11-9"><a href="#cb11-9"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token variable">$sellIn</span><span class="token punctuation">,</span> <span class="token variable">$quality</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$quality</span> <span class="token operator">></span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">InvalidItemQualityException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span> <span class="token operator">=</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">sellIn</span> <span class="token operator">=</span> <span class="token variable">$sellIn</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">quality</span> <span class="token operator">=</span> <span class="token variable">$quality</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>新增測試 method <code>testProductQualityNeverGreaterThen_51</code></li>
 <li>建立一個 <code>quality</code> 為 51 的 <code>Item</code>，並且預期拋出一個 <code>InvalidItemQualityException</code> 的 Exception</li>
@@ -679,19 +673,18 @@
 <li>撰寫測試，預期在 <code>updateQuality</code> 之後， <code>quality</code> 仍然為 50</li>
 <li>執行測試，綠燈</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb12-1"><a href="#cb12-1"></a></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="kw">public</span> <span class="kw">function</span> testProductQualityNeverGreaterThen_51<span class="ot">()</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>{</span>
-<span id="cb12-4"><a href="#cb12-4"></a>    <span class="kw">$this</span>-&gt;expectException<span class="ot">(</span>InvalidItemQualityException::<span class="kw">class</span><span class="ot">);</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;foo&quot;</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">51</span><span class="ot">);</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a></span>
-<span id="cb12-7"><a href="#cb12-7"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;Aged Brie&quot;</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">50</span><span class="ot">);</span></span>
-<span id="cb12-8"><a href="#cb12-8"></a>    <span class="kw">$this</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb12-9"><a href="#cb12-9"></a>    <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="dv">0</span><span class="ot">,</span> <span class="dv">50</span><span class="ot">);</span></span>
-<span id="cb12-10"><a href="#cb12-10"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testProductQualityNeverGreaterThen_51</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">expectException</span><span class="token punctuation">(</span>InvalidItemQualityException<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">51</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"Aged Brie"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a href="https://github.com/mpp21x/PHP-GildedRoseRefactoringKata/commit/76b9003a8befd6d9de922111d43a1bd0c9bb9537" target="_blank" rel="noopener">git 測試案例五提交記錄</a></p>
-<h3 id="測試案例六">測試案例六</h3>
-<ul>
+<h3 id="測試案例六"><a href="#測試案例六" class="headerlink" title="測試案例六"></a>測試案例六</h3><ul>
 <li>需求：魔法槌商品的物件 <code>item</code> ，其 <code>sellIn</code> 和 <code>quality</code> 初始化後，永久不變</li>
 </ul>
 <p>實際撰寫測試的流程：</p>
@@ -701,153 +694,154 @@
 <li>撰寫測試，預期在 <code>updateQuality</code> 之後， <code>sellIn</code> 和 <code>quality</code> 仍然為 3</li>
 <li>執行測試，綠燈</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb13-1"><a href="#cb13-1"></a></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="kw">public</span> <span class="kw">function</span> testSulfurasSellInQuality<span class="ot">()</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a>{</span>
-<span id="cb13-4"><a href="#cb13-4"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;Sulfuras, Hand of Ragnaros&quot;</span><span class="ot">,</span> <span class="dv">3</span><span class="ot">,</span> <span class="dv">3</span><span class="ot">);</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>    <span class="kw">$this</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a>    <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="dv">3</span><span class="ot">,</span> <span class="dv">3</span><span class="ot">);</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testSulfurasSellInQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"Sulfuras, Hand of Ragnaros"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a href="https://github.com/mpp21x/PHP-GildedRoseRefactoringKata/commit/7d1b82d0632bf68471ef5f39c5bb5b20d94937b9" target="_blank" rel="noopener">git 測試案例六提交記錄</a></p>
-<h3 id="測試案例七">測試案例七</h3>
-<ul>
-<li>需求：商品 Backstage passes 的物件 <code>item</code> 須滿足下列條件：
-<ul>
+<h3 id="測試案例七"><a href="#測試案例七" class="headerlink" title="測試案例七"></a>測試案例七</h3><ul>
+<li>需求：商品 Backstage passes 的物件 <code>item</code> 須滿足下列條件：<ul>
 <li>當 <code>sellIn</code> 為 <code>9</code> 到 <code>6</code> 的時候，<code>updateQuality</code> 一次提升 <code>quality</code> 2</li>
 <li>當 <code>sellIn</code> 為 <code>5</code> 到 <code>1</code> 的時候，<code>updateQuality</code> 一次提升 <code>quality</code> 3</li>
 <li>當 <code>sellIn</code> 為 <code>0</code>，<code>quality</code> 將直接歸零</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <p>這邊標題雖然打測試案例七，但實際上是增加 3 個測試案例，皆是針對 <code>Backstage</code> 商品的。</p>
-<p>實際撰寫測試的流程： #### 測試案例七之一 ： 當 <code>sellIn</code> 為 <code>9</code> 到 <code>6</code> 的時候，<code>updateQuality</code> 一次提升 <code>quality</code> 2 - 新增測試 method <code>testBackstagePassesQualityWhenSellInIsLessThanTenDay</code> - 建立一個名稱為 <code>Sulfuras, Hand of Ragnaros</code> 的 <code>Item</code>， <code>sellIn</code> 為 9 和 <code>quality</code> 為 0 - 測試在 <code>sellIn</code> 為 9 ~ 6 的時候，每次 <code>updateQuality</code> 都會新增 2 - 執行測試，綠燈</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb14-1"><a href="#cb14-1"></a></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">public</span> <span class="kw">function</span> testBackstagePassesQualityWhenSellInIsLessThanTenDay<span class="ot">()</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>{</span>
-<span id="cb14-4"><a href="#cb14-4"></a>    <span class="kw">$expectedSellIn</span> = <span class="dv">10</span><span class="ot">;</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;Backstage passes to a TAFKAL80ETC concert&quot;</span><span class="ot">,</span> <span class="kw">$expectedSellIn</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">);</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a>    <span class="kw">$exceptedQuality</span> = <span class="dv">2</span><span class="ot">;</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a></span>
-<span id="cb14-8"><a href="#cb14-8"></a>    <span class="kw">$exceptedSellIns</span> = <span class="fu">range</span><span class="ot">(</span><span class="kw">$expectedSellIn</span><span class="ot">,</span> <span class="dv">6</span><span class="ot">);</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a>    <span class="kw">foreach</span> <span class="ot">(</span><span class="kw">$exceptedSellIns</span> <span class="kw">as</span> <span class="kw">$expectedSellIn</span><span class="ot">)</span> {</span>
-<span id="cb14-10"><a href="#cb14-10"></a>        <span class="kw">$this</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb14-11"><a href="#cb14-11"></a>        <span class="kw">$expectedSellIn</span>--<span class="ot">;</span></span>
-<span id="cb14-12"><a href="#cb14-12"></a>        <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="kw">$expectedSellIn</span><span class="ot">,</span> <span class="kw">$exceptedQuality</span><span class="ot">);</span></span>
-<span id="cb14-13"><a href="#cb14-13"></a>        <span class="kw">$exceptedQuality</span> += <span class="dv">2</span><span class="ot">;</span></span>
-<span id="cb14-14"><a href="#cb14-14"></a>    }</span>
-<span id="cb14-15"><a href="#cb14-15"></a>}</span></code></pre></div>
+<p>實際撰寫測試的流程：</p>
+<h4 id="測試案例七之一-：-當-sellIn-為-9-到-6-的時候，updateQuality-一次提升-quality-2"><a href="#測試案例七之一-：-當-sellIn-為-9-到-6-的時候，updateQuality-一次提升-quality-2" class="headerlink" title="測試案例七之一 ： 當 sellIn 為 9 到 6 的時候，updateQuality 一次提升 quality 2"></a>測試案例七之一 ： 當 <code>sellIn</code> 為 <code>9</code> 到 <code>6</code> 的時候，<code>updateQuality</code> 一次提升 <code>quality</code> 2</h4><ul>
+<li>新增測試 method <code>testBackstagePassesQualityWhenSellInIsLessThanTenDay</code></li>
+<li>建立一個名稱為 <code>Sulfuras, Hand of Ragnaros</code> 的 <code>Item</code>， <code>sellIn</code> 為 9 和 <code>quality</code> 為 0</li>
+<li>測試在 <code>sellIn</code> 為 9 ~ 6 的時候，每次 <code>updateQuality</code> 都會新增 2</li>
+<li>執行測試，綠燈</li>
+</ul>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testBackstagePassesQualityWhenSellInIsLessThanTenDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$expectedSellIn</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"Backstage passes to a TAFKAL80ETC concert"</span><span class="token punctuation">,</span> <span class="token variable">$expectedSellIn</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$exceptedQuality</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$exceptedSellIns</span> <span class="token operator">=</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token variable">$expectedSellIn</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$exceptedSellIns</span> <span class="token keyword">as</span> <span class="token variable">$expectedSellIn</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$expectedSellIn</span><span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token variable">$expectedSellIn</span><span class="token punctuation">,</span> <span class="token variable">$exceptedQuality</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$exceptedQuality</span> <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a href="https://github.com/mpp21x/PHP-GildedRoseRefactoringKata/commit/e777742aaf09f33fde73464791f9f0cbcbbfdef0" target="_blank" rel="noopener">git 測試案例七之一提交記錄</a></p>
-<h4 id="測試案例七之二-當-sellin-為-5-到-1-的時候updatequality-一次提升-quality-3">測試案例七之二 ： 當 <code>sellIn</code> 為 <code>5</code> 到 <code>1</code> 的時候，<code>updateQuality</code> 一次提升 <code>quality</code> 3</h4>
-<ul>
-<li>新增測試 method <code>testBackstagePassesQualityWhenSellInIsLessThanFiveDay</code>，可以直接複製上一個 測試 。</li>
+<h4 id="測試案例七之二-：-當-sellIn-為-5-到-1-的時候，updateQuality-一次提升-quality-3"><a href="#測試案例七之二-：-當-sellIn-為-5-到-1-的時候，updateQuality-一次提升-quality-3" class="headerlink" title="測試案例七之二 ： 當 sellIn 為 5 到 1 的時候，updateQuality 一次提升 quality 3"></a>測試案例七之二 ： 當 <code>sellIn</code> 為 <code>5</code> 到 <code>1</code> 的時候，<code>updateQuality</code> 一次提升 <code>quality</code> 3</h4><ul>
+<li>新增測試 method <code>testBackstagePassesQualityWhenSellInIsLessThanFiveDay</code>，可以直接複製上一個 測試  。</li>
 <li>測試在 <code>sellIn</code> 為 5 ~ 1 的時候，每次 <code>updateQuality</code> 都會新增 3</li>
 <li>執行測試，綠燈</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb15-1"><a href="#cb15-1"></a></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="kw">public</span> <span class="kw">function</span> testBackstagePassesQualityWhenSellInIsLessThanFiveDay<span class="ot">()</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a>{</span>
-<span id="cb15-4"><a href="#cb15-4"></a>    <span class="kw">$expectedSellIn</span> = <span class="dv">5</span><span class="ot">;</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;Backstage passes to a TAFKAL80ETC concert&quot;</span><span class="ot">,</span> <span class="kw">$expectedSellIn</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">);</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a>    <span class="kw">$exceptedQuality</span> = <span class="dv">3</span><span class="ot">;</span></span>
-<span id="cb15-7"><a href="#cb15-7"></a></span>
-<span id="cb15-8"><a href="#cb15-8"></a>    <span class="kw">$exceptedSellIns</span> = <span class="fu">range</span><span class="ot">(</span><span class="kw">$expectedSellIn</span><span class="ot">,</span> <span class="dv">2</span><span class="ot">);</span></span>
-<span id="cb15-9"><a href="#cb15-9"></a>    <span class="kw">foreach</span> <span class="ot">(</span><span class="kw">$exceptedSellIns</span> <span class="kw">as</span> <span class="kw">$expectedSellIn</span><span class="ot">)</span> {</span>
-<span id="cb15-10"><a href="#cb15-10"></a>        <span class="kw">$this</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb15-11"><a href="#cb15-11"></a>        <span class="kw">$expectedSellIn</span>--<span class="ot">;</span></span>
-<span id="cb15-12"><a href="#cb15-12"></a>        <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="kw">$expectedSellIn</span><span class="ot">,</span> <span class="kw">$exceptedQuality</span><span class="ot">);</span></span>
-<span id="cb15-13"><a href="#cb15-13"></a>        <span class="kw">$exceptedQuality</span> += <span class="dv">3</span><span class="ot">;</span></span>
-<span id="cb15-14"><a href="#cb15-14"></a>    }</span>
-<span id="cb15-15"><a href="#cb15-15"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testBackstagePassesQualityWhenSellInIsLessThanFiveDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$expectedSellIn</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"Backstage passes to a TAFKAL80ETC concert"</span><span class="token punctuation">,</span> <span class="token variable">$expectedSellIn</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$exceptedQuality</span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$exceptedSellIns</span> <span class="token operator">=</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token variable">$expectedSellIn</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$exceptedSellIns</span> <span class="token keyword">as</span> <span class="token variable">$expectedSellIn</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$expectedSellIn</span><span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token variable">$expectedSellIn</span><span class="token punctuation">,</span> <span class="token variable">$exceptedQuality</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$exceptedQuality</span> <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a href="https://github.com/mpp21x/PHP-GildedRoseRefactoringKata/commit/5d8fccec9f06dc51d6e5f87f704ab8cabd53aea2" target="_blank" rel="noopener">git 測試案例七之二提交記錄</a></p>
-<h4 id="測試案例七之三-當-sellin-為-0-quality-將直接歸零">測試案例七之三 ： 當 <code>sellIn</code> 為 0， <code>quality</code> 將直接歸零</h4>
-<ul>
-<li>新增測試 method <code>testBackstagePassesQualityIsZeroWhenSellInIsZero</code>，可以直接複製上一個 測試 。</li>
+<h4 id="測試案例七之三-：-當-sellIn-為-0，-quality-將直接歸零"><a href="#測試案例七之三-：-當-sellIn-為-0，-quality-將直接歸零" class="headerlink" title="測試案例七之三 ： 當 sellIn 為 0， quality 將直接歸零"></a>測試案例七之三 ： 當 <code>sellIn</code> 為 0， <code>quality</code> 將直接歸零</h4><ul>
+<li>新增測試 method <code>testBackstagePassesQualityIsZeroWhenSellInIsZero</code>，可以直接複製上一個 測試  。</li>
 <li>測試初始化 <code>sellIn</code> 為 1 而 <code>quality</code> 為 30 的時候， <code>updateQuality</code> 之後，預期 <code>quality</code> 為 0</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb16-1"><a href="#cb16-1"></a></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="kw">public</span> <span class="kw">function</span> testBackstagePassesQualityIsZeroWhenSellInIsZero<span class="ot">()</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a>{</span>
-<span id="cb16-4"><a href="#cb16-4"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;Backstage passes to a TAFKAL80ETC concert&quot;</span><span class="ot">,</span> <span class="dv">1</span><span class="ot">,</span> <span class="dv">30</span><span class="ot">);</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a>    <span class="kw">$this</span>-&gt;updateQuality<span class="ot">();</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a>    <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="dv">0</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">);</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testBackstagePassesQualityIsZeroWhenSellInIsZero</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"Backstage passes to a TAFKAL80ETC concert"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>執行測試，紅燈： <code>Failed asserting that 33 is identical to 0.</code></li>
 <li>修改 <code>GildedRose</code> 物件，滿足測試案例</li>
 </ul>
-<p><img src="test_case_7.png" /></p>
+<p><img src="test_case_7.png" alt=""></p>
 <ul>
 <li>執行測試，綠燈</li>
 </ul>
 <p><a href="https://github.com/mpp21x/PHP-GildedRoseRefactoringKata/commit/903edbc48f3f3f755b8387896d3a3d43d045a830" target="_blank" rel="noopener">git 測試案例七之三提交記錄</a></p>
-<h2 id="重構-legacy-code">重構 legacy code</h2>
-<h3 id="重構波動拳程式碼的策略">重構波動拳程式碼的策略</h3>
-<p>我們已經完成了除了測試案例 9 的所有測試案例了，在測試的保護下我們即將對 legacy code 進行重構，也就是清除波動拳的程式碼 <code>updateQuality</code> 。</p>
+<h2 id="重構-legacy-code"><a href="#重構-legacy-code" class="headerlink" title="重構 legacy code"></a>重構 legacy code</h2><h3 id="重構波動拳程式碼的策略"><a href="#重構波動拳程式碼的策略" class="headerlink" title="重構波動拳程式碼的策略"></a>重構波動拳程式碼的策略</h3><p>我們已經完成了除了測試案例 9 的所有測試案例了，在測試的保護下我們即將對 legacy code 進行重構，也就是清除波動拳的程式碼 <code>updateQuality</code> 。</p>
 <p>重構的目的是希望在保留既有的程式碼 <strong>功能</strong> 之下，優化程式碼的架構，我在處理波動拳的程式時(這題先不考慮以物件為單位分離職責的)，有自己常用的套路：</p>
 <ul>
 <li>可以合併的 if / else 或是可 extract 成一個 method 程式便 extract，並給予一個更容易了解的命名方式</li>
 <li>充分確認流程的前因後果後，以 method 的方式分離職責，並調整執行的順序。</li>
 <li>扁平化 if / else 結構，在 clean code 裡面，盡量避免 if / else 裡面有過多的 if / else ，可使用 <code>return</code> &amp; <code>switch</code> 來幫助我們完成這個任務</li>
 <li>調整後不忘進行測試，確保調整是安全無慮的</li>
-<li>專注測試一個測試案例，保持測試案例獨立性的同時，也保留舊有的 legacy code
-<ul>
-<li>例如，將新增的 switch 放在舊有 legacy code 最前方，並專注一個 <code>case</code> 撰寫，執行完之後便 <code>return</code> ，逐步完成所有程式碼，最後即可移除 legacy code。</li>
-</ul></li>
+<li>專注測試一個測試案例，保持測試案例獨立性的同時，也保留舊有的 legacy code<ul>
+<li>例如，將新增的 switch 放在舊有 legacy code 最前方，並專注一個 <code>case</code> 撰寫，執行完之後便 <code>return</code> ，逐步完成所有程式碼，最後即可移除 legacy code。  </li>
+</ul>
+</li>
 </ul>
 <p>其實本來想嘗試描述重構過程，但發現要描述整個流程過於繁瑣冗長，這裡就跳過了描述了，請直接看重構後的程式碼。</p>
 <p><a href="https://github.com/mpp21x/PHP-GildedRoseRefactoringKata/commit/dd9287b1f8666f8916825c821b8ef3783b40b723" target="_blank" rel="noopener">git 重構後的提交記錄</a></p>
-<h2 id="tdd-新增新的需求">TDD 新增新的需求</h2>
-<p>需求：新增一個 Conjured 商品，<code>updateQuality</code> 所下降的值為正常商品的兩倍</p>
+<h2 id="TDD-新增新的需求"><a href="#TDD-新增新的需求" class="headerlink" title="TDD 新增新的需求"></a>TDD 新增新的需求</h2><p>需求：新增一個 Conjured 商品，<code>updateQuality</code> 所下降的值為正常商品的兩倍</p>
 <p>實際撰寫測試的流程：</p>
 <ul>
 <li>TDD 的開發流程為 <strong>紅燈</strong> → <strong>綠燈</strong> → <strong>重構</strong>，所以我們先按照需求寫測試，取得第一個紅燈</li>
-<li>新增一個測試 method <code>testConjuredUpdateQuality</code></li>
+<li>新增一個測試  method <code>testConjuredUpdateQuality</code></li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb17-1"><a href="#cb17-1"></a></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="kw">public</span> <span class="kw">function</span> testConjuredUpdateQuality<span class="ot">()</span></span>
-<span id="cb17-3"><a href="#cb17-3"></a>{</span>
-<span id="cb17-4"><a href="#cb17-4"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;Conjured Mana Cake&quot;</span><span class="ot">,</span> <span class="dv">2</span><span class="ot">,</span> <span class="dv">20</span><span class="ot">);</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a>    <span class="kw">$this</span>-&gt;updateItems<span class="ot">();</span></span>
-<span id="cb17-6"><a href="#cb17-6"></a>    <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="dv">1</span><span class="ot">,</span> <span class="dv">18</span><span class="ot">);</span></span>
-<span id="cb17-7"><a href="#cb17-7"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testConjuredUpdateQuality</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"Conjured Mana Cake"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>測試，紅燈： <code>Failed asserting that 2 is identical to 1.</code></li>
 <li>再來修改 <code>GildedRose</code> 物件的 <code>updateItem</code> method 來滿足需求，首先修改 <code>updateItem</code> Method</li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb18-1"><a href="#cb18-1"></a></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="kw">protected</span> <span class="kw">function</span> updateItem<span class="ot">(</span>Item <span class="kw">$item</span><span class="ot">)</span>: <span class="kw">void</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a>{</span>
-<span id="cb18-4"><a href="#cb18-4"></a>    <span class="kw">switch</span> <span class="ot">(</span><span class="kw">$item</span>-&gt;name<span class="ot">)</span> {</span>
-<span id="cb18-5"><a href="#cb18-5"></a>        <span class="co">// ...省略</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a>        <span class="kw">case </span><span class="st">&quot;Conjured Mana Cake&quot;</span><span class="ot">:</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a>            <span class="kw">$this</span>-&gt;updateConjured<span class="ot">(</span><span class="kw">$item</span><span class="ot">);</span></span>
-<span id="cb18-8"><a href="#cb18-8"></a>            <span class="kw">break</span><span class="ot">;</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a>        <span class="kw">default:</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a>            <span class="kw">$this</span>-&gt;updateNoramlProduct<span class="ot">(</span><span class="kw">$item</span><span class="ot">);</span></span>
-<span id="cb18-11"><a href="#cb18-11"></a>    }</span>
-<span id="cb18-12"><a href="#cb18-12"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php">
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">updateItem</span><span class="token punctuation">(</span>Item <span class="token variable">$item</span><span class="token punctuation">)</span><span class="token punctuation">:</span> void
+<span class="token punctuation">{</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// ...省略</span>
+        <span class="token keyword">case</span> <span class="token string">"Conjured Mana Cake"</span><span class="token punctuation">:</span>
+            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateConjured</span><span class="token punctuation">(</span><span class="token variable">$item</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span>
+            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateNoramlProduct</span><span class="token punctuation">(</span><span class="token variable">$item</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>再來處理細節 <code>updateConjured</code> method</li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">protected</span> <span class="kw">function</span> updateConjured<span class="ot">(</span>Item <span class="kw">$item</span><span class="ot">)</span>: <span class="kw">void</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>{</span>
-<span id="cb19-3"><a href="#cb19-3"></a>    <span class="kw">if</span> <span class="ot">(</span><span class="kw">$item</span>-&gt;sellIn &gt; <span class="dv">0</span><span class="ot">)</span> {</span>
-<span id="cb19-4"><a href="#cb19-4"></a>        <span class="kw">$item</span>-&gt;sellIn--<span class="ot">;</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a>    }</span>
-<span id="cb19-6"><a href="#cb19-6"></a></span>
-<span id="cb19-7"><a href="#cb19-7"></a>    <span class="kw">$decreaseNum</span> = <span class="dv">2</span><span class="ot">;</span></span>
-<span id="cb19-8"><a href="#cb19-8"></a>    <span class="kw">if</span> <span class="ot">((</span><span class="kw">$item</span>-&gt;quality - <span class="kw">$decreaseNum</span><span class="ot">)</span> &lt; <span class="dv">0</span><span class="ot">)</span> {</span>
-<span id="cb19-9"><a href="#cb19-9"></a>        <span class="kw">$item</span>-&gt;quality = <span class="dv">0</span><span class="ot">;</span></span>
-<span id="cb19-10"><a href="#cb19-10"></a>        <span class="kw">return</span><span class="ot">;</span></span>
-<span id="cb19-11"><a href="#cb19-11"></a>    }</span>
-<span id="cb19-12"><a href="#cb19-12"></a>    <span class="kw">$item</span>-&gt;quality = <span class="kw">$item</span>-&gt;quality - <span class="kw">$decreaseNum</span><span class="ot">;</span></span>
-<span id="cb19-13"><a href="#cb19-13"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">updateConjured</span><span class="token punctuation">(</span>Item <span class="token variable">$item</span><span class="token punctuation">)</span><span class="token punctuation">:</span> void
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">sellIn</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">sellIn</span><span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token variable">$decreaseNum</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">quality</span> <span class="token operator">-</span> <span class="token variable">$decreaseNum</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">quality</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">quality</span> <span class="token operator">=</span> <span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">quality</span> <span class="token operator">-</span> <span class="token variable">$decreaseNum</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>執行測試，綠燈</li>
 <li>目前為止，所有的測試案例便算是完成了，在 TDD 的流程，本該是綠燈後進行重構，但程式碼看下來沒有發現需要重構的部分，所以便在此結束</li>
 </ul>
 <p><a href="https://github.com/mpp21x/PHP-GildedRoseRefactoringKata/commit/ca2c117051e3bf497b18d50d39987eacd473dc2e" target="_blank" rel="noopener">git TDD新增的提交記錄</a></p>
-<h2 id="修正測試案例五漏洞">修正測試案例五漏洞</h2>
-<ul>
+<h2 id="修正測試案例五漏洞"><a href="#修正測試案例五漏洞" class="headerlink" title="修正測試案例五漏洞"></a>修正測試案例五漏洞</h2><ul>
 <li>需求： 確保商品劇院後台通行證(Backstage passes) <code>item</code> 的 <code>quality</code> 從來不超過 50</li>
 </ul>
 <p>剛剛在整理整個筆記的時候，意外發現 測試案例五 有一個漏網之魚便是商品劇院後台通行證(Backstage passes)，所以這裡再新增一個測試案例來補足這一部分。</p>
@@ -856,55 +850,56 @@
 <li>新增測試 method <code>testBackstagePassesQualityNeverGreaterThen_51</code></li>
 <li>依照 劇院後台通行證 不同的 3 種情況，新增 quality 數值，來撰寫測試，預期皆不超過 50</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">public</span> <span class="kw">function</span> testBackstagePassesQualityNeverGreaterThen_51<span class="ot">()</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>{</span>
-<span id="cb20-3"><a href="#cb20-3"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;Backstage passes to a TAFKAL80ETC concert&quot;</span><span class="ot">,</span> <span class="dv">15</span><span class="ot">,</span> <span class="dv">50</span><span class="ot">);</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>    <span class="kw">$this</span>-&gt;updateItems<span class="ot">();</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a>    <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="dv">14</span><span class="ot">,</span> <span class="dv">50</span><span class="ot">);</span></span>
-<span id="cb20-6"><a href="#cb20-6"></a></span>
-<span id="cb20-7"><a href="#cb20-7"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;Backstage passes to a TAFKAL80ETC concert&quot;</span><span class="ot">,</span> <span class="dv">9</span><span class="ot">,</span> <span class="dv">49</span><span class="ot">);</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a>    <span class="kw">$this</span>-&gt;updateItems<span class="ot">();</span></span>
-<span id="cb20-9"><a href="#cb20-9"></a>    <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="dv">8</span><span class="ot">,</span> <span class="dv">50</span><span class="ot">);</span></span>
-<span id="cb20-10"><a href="#cb20-10"></a></span>
-<span id="cb20-11"><a href="#cb20-11"></a>    <span class="kw">$this</span>-&gt;createItem<span class="ot">(</span><span class="st">&quot;Backstage passes to a TAFKAL80ETC concert&quot;</span><span class="ot">,</span> <span class="dv">4</span><span class="ot">,</span> <span class="dv">49</span><span class="ot">);</span></span>
-<span id="cb20-12"><a href="#cb20-12"></a>    <span class="kw">$this</span>-&gt;updateItems<span class="ot">();</span></span>
-<span id="cb20-13"><a href="#cb20-13"></a>    <span class="kw">$this</span>-&gt;shouldBe<span class="ot">(</span><span class="dv">3</span><span class="ot">,</span> <span class="dv">50</span><span class="ot">);</span></span>
-<span id="cb20-14"><a href="#cb20-14"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testBackstagePassesQualityNeverGreaterThen_51</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"Backstage passes to a TAFKAL80ETC concert"</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"Backstage passes to a TAFKAL80ETC concert"</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">49</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">createItem</span><span class="token punctuation">(</span><span class="token string">"Backstage passes to a TAFKAL80ETC concert"</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">49</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">shouldBe</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>執行測試，紅燈：<code>Failed asserting that 51 is identical to 50.</code></li>
 <li>基本上寫完第一個是紅燈，再來我們調整物件 <code>GildedRose</code></li>
 <li>這邊調整的部分較多，首先先在 <code>updateItems</code> 的 method 新增一個新的 method</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode php"><code class="sourceCode php"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">public</span> <span class="kw">function</span> updateItems<span class="ot">()</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>{</span>
-<span id="cb21-3"><a href="#cb21-3"></a>    <span class="kw">foreach</span> <span class="ot">(</span><span class="kw">$this</span>-&gt;items <span class="kw">as</span> <span class="kw">$item</span><span class="ot">)</span> {</span>
-<span id="cb21-4"><a href="#cb21-4"></a>        <span class="kw">$this</span>-&gt;updateItem<span class="ot">(</span><span class="kw">$item</span><span class="ot">);</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a>        <span class="kw">$this</span>-&gt;setItmQualityWhenTooMuch<span class="ot">(</span><span class="kw">$item</span><span class="ot">);</span></span>
-<span id="cb21-6"><a href="#cb21-6"></a>    }</span>
-<span id="cb21-7"><a href="#cb21-7"></a>}</span>
-<span id="cb21-8"><a href="#cb21-8"></a></span>
-<span id="cb21-9"><a href="#cb21-9"></a><span class="co">// ... 省略</span></span>
-<span id="cb21-10"><a href="#cb21-10"></a></span>
-<span id="cb21-11"><a href="#cb21-11"></a><span class="kw">protected</span> <span class="kw">function</span> setItmQualityWhenTooMuch<span class="ot">(</span>Item <span class="kw">$item</span><span class="ot">)</span></span>
-<span id="cb21-12"><a href="#cb21-12"></a>{</span>
-<span id="cb21-13"><a href="#cb21-13"></a>    <span class="kw">if</span><span class="ot">(</span><span class="kw">$item</span>-&gt;quality &gt; <span class="dv">50</span><span class="ot">)</span>{</span>
-<span id="cb21-14"><a href="#cb21-14"></a>        <span class="kw">$item</span>-&gt;quality = <span class="dv">50</span><span class="ot">;</span></span>
-<span id="cb21-15"><a href="#cb21-15"></a>    }</span>
-<span id="cb21-16"><a href="#cb21-16"></a>}</span></code></pre></div>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">updateItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">items</span> <span class="token keyword">as</span> <span class="token variable">$item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">updateItem</span><span class="token punctuation">(</span><span class="token variable">$item</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">setItmQualityWhenTooMuch</span><span class="token punctuation">(</span><span class="token variable">$item</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// ... 省略</span>
+
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">setItmQualityWhenTooMuch</span><span class="token punctuation">(</span>Item <span class="token variable">$item</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">quality</span> <span class="token operator">></span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">quality</span> <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>這樣的設計是傾向，無論 <code>quality</code> 怎麼加，只要超過 50 便重設至 50，這樣寫的好處是可以一次適用所有的產品，而且考量到原本的設計還會先用 <code>if</code> 檢查，兩種寫法相較之下，無疑前者的寫法更為簡潔有力。</li>
 <li>所以這裏我們不忘移除掉在 <code>updateAgedBrieQuality</code> 裡面不必要的檢查</li>
 </ul>
-<p><img src="update_check.png" /></p>
+<p><img src="update_check.png" alt=""></p>
 <ul>
 <li>執行測試，綠燈</li>
 </ul>
 <p><a href="https://github.com/mpp21x/PHP-GildedRoseRefactoringKata/commits/master" target="_blank" rel="noopener">git 修正測試案例五漏洞 的提交</a></p>
-<h5 id="其他參考連結">其他參考連結</h5>
-<p>這裏順便附上讀書會其他人分享的解題思路。</p>
+<h5 id="其他參考連結"><a href="#其他參考連結" class="headerlink" title="其他參考連結"></a>其他參考連結</h5><p>這裏順便附上讀書會其他人分享的解題思路。</p>
 <ul>
-<li><p><a href="https://github.com/holyblue/GildedRoseKata" target="_blank" rel="noopener">講者 Blues 的解題思路</a></p></li>
-<li><p><a href="https://gist.github.com/FongX777/fb36c10fb698e69adbf027044cfc88ec" target="_blank" rel="noopener">主辦社群成員 Fong 的解題</a></p></li>
+<li><p><a href="https://github.com/holyblue/GildedRoseKata" target="_blank" rel="noopener">講者 Blues 的解題思路</a></p>
+</li>
+<li><p><a href="https://gist.github.com/FongX777/fb36c10fb698e69adbf027044cfc88ec" target="_blank" rel="noopener">主辦社群成員 Fong 的解題</a></p>
+</li>
 </ul>
 
             </div>
@@ -973,9 +968,9 @@
                 <a href="/2020/05/06/2020/leetcode-1-two-sum/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1-two-sum_js.png" class="responsive-img" alt="LeetCode 訓練(1) - Two Sum (JS/Easy)">
+                        <img src="/medias/page_images/leetcode-1-two-sum_js.png" class="responsive-img" alt="LeetCode - Two Sum (js/medium)">
                         
-                        <span class="card-title">LeetCode 訓練(1) - Two Sum (JS/Easy)</span>
+                        <span class="card-title">LeetCode - Two Sum (js/medium)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -986,9 +981,7 @@ link：Two Sum
 difficulty：easy
 language：javascript
 
-題目講解
-原文
-Given an array of integers, return indices of the two numbers
+題目講解原文Given a binary tree, return the sum of values of its deepest le
                         
                     </div>
                     <div class="publish-info">
@@ -1045,13 +1038,11 @@ Given an array of integers, return indices of the two numbers
                     <div class="summary block-with-text">
                         
                             摘要
-
 Annotation 假註解，真程式碼
 何謂 Annotation &amp; Reflection
 實作 PHP Annotation
 
-Annotation 假註解，真程式碼
-從 Doctrine 開始說起， Symfony 是
+Annotation 假註解，真程式碼從 Doctrine 開始說起， Symfony 是我所
                         
                     </div>
                     <div class="publish-info">
