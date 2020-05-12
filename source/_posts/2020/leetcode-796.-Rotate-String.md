@@ -1,5 +1,5 @@
 ---
-title: LeetCode - Rotate String (js/medium)
+title: LeetCode - Rotate String (js/easy)
 date: 2020-05-11 00:40:02
 tags:
 - leetcode
