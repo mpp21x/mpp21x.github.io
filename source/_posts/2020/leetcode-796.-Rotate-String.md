@@ -1,5 +1,5 @@
 ---
-title: LeetCode - Rotate String (js/easy)
+title: LeetCode(796) - Rotate String (js/easy)
 date: 2020-05-11 00:40:02
 tags:
 - leetcode
@@ -38,7 +38,7 @@ Note:
 
 給予兩個字串，判斷這兩個字串是否為同樣字串，只是起始的位置不同的字串而已，好比 `abc` 等同於 `bca` 或 `cab`。
 
-## 解題思路 & 實作程式碼
+## 解題思路
 
 1. **檢查長度**：首先可以先驗證兩個參數的長度，不一樣就直接返回 `false`。
 2. **比較運算**：這部分目前有兩種方法 **遍歷** 以及 **Repeat**

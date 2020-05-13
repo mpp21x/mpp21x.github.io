@@ -1,5 +1,5 @@
 ---
-title: LeetCode - Deepest Leaves Sum (js/medium)
+title: LeetCode(1302) - Deepest Leaves Sum (js/medium)
 date: 2020-05-13 00:48:22
 tags:
 - leetcode
