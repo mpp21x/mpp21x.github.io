@@ -7,14 +7,13 @@ tags:
 - algorithm
 - latex
 img: /medias/page_images/leetcode-1-two-sum_js.png
+categories: leetcode algorithms
 ---
 * link：[Two Sum](https://leetcode.com/problems/two-sum/)
 * difficulty：`easy`
 * language：`javascript`
 
-## 題目講解
-
-### 原文
+## Question
 
 Given a binary tree, return the sum of values of its deepest leaves.
  
@@ -29,7 +28,7 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 ```
 
-### 題目解釋
+### Question Explanation
 
 給予一個數列 `nums` 以及一個指定的整數 `target`，我們必須找出在這個陣列中的某兩個數，其總和 必然與 `target` 相等，並將此二數的索引值放在一個陣列之後回傳出去。
 
@@ -81,7 +80,7 @@ target - b = a
 
 當然，最後不忘了要回傳的是 `a` 和 `b` 在 `nums` 的索引值。
 
-## 實作程式碼
+## How to implement algorithm in javascript
 
 很明顯的，最好的做法是使用 **暫存 map 搜尋**，接下來要做的，便是將上述過程轉化程式碼便是如下：
 

@@ -3,8 +3,9 @@ title: PHP Reflection
 date: 2020-03-24 20:48:21
 tags: 
 - php
+- aspect-oriented programming
 img: /medias/featureimages/php_sublime.jpg
-
+categories: php
 ---
 ##### 摘要
 

@@ -13,7 +13,7 @@ img: /medias/page_images/leetcode-1302-js.png
 
 ## Question
 
-### Original Description
+
 
 Given a binary tree, return the sum of values of its deepest leaves.
 
@@ -62,7 +62,7 @@ var deepestLeavesSum = function (root: BinaryTreeNodeType, depthSum = [], depth 
 3. **加總數字到 `depthSum[depth]`**： 取得當前節點的 value，然後加總到前面所提的 `depthSum`，記得用 `depth` 作為 Index。
 4. **遍歷節點** 使用 recursive 來迭代進入每一個節點分支，由於每一個節點又有左邊以及右邊，所以至少呼叫兩次，並且再進去時先把 `depth + 1`。 
 
-透過用 recursive 的方式又有兩種，以上這兩種作法我都實作過，就放在以下的實作程式碼了：
+透過用 recursive 的方式又有兩種，以上這兩種作法我都實作過，就放在以下的How to implement algorithm in javascript了：
 
 * 使用 `deepestLeavesSum` 本身做遞迴。
 * 在 `deepestLeavesSum` 內部新增一個 function ，並且用其作為遞迴。

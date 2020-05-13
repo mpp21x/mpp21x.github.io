@@ -6,14 +6,13 @@ tags:
 - javascript
 - algorithm
 img: /medias/page_images/leetcode-1290-js.png
+categories: leetcode algorithms
 ---
 * link：[Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)
-* difficulty：`medium`
+* difficulty：`easy`
 * language：`javascript`
 
 ## Question
-
-### Original Description
 
 Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number.
 
@@ -62,14 +61,16 @@ Constraints:
 * Number of nodes will not exceed `30`.
 * Each node's value is either `0` or `1`.
 
-### Question Explanation
+### Question Explanation & how to solve it
 
 The variable `head` is a singly-linked list, and we just need to traverse the whole list, get each node value to a varable string called `binaryStr`.
 
 And convert the `binaryStr` to Decimal, It's finished. 
 
+Time complexity is `O(n²)`。
 
-## How to Implement algorithm in javascript
+
+## How to implement algorithm in javascript
 
 ```javascript
 var getDecimalValue = function (node, binaryStr = '') {

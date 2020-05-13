@@ -5,13 +5,14 @@ tags:
 - leetcode
 - javascript
 - algorithm
-img: /medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png
+img: /medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg
+categories: leetcode algorithms
 ---
 * link：[Group the People Given the Group Size They Belong To](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/)
 * difficulty：`medium`
 * language：`javascript`
 
-## 題目講解
+## Question
 
 There are n people whose IDs go from 0 to n - 1 and each person belongs exactly to one group. Given the array groupSizes of length n telling the group size each person belongs to, return the groups there are and the people's IDs each group includes.
 
@@ -39,7 +40,7 @@ Constraints:
 * `1 <= n <= 500`
 * `1 <= groupSizes[i] <= n`
 
-### 題目解釋
+### Question Explanation
 
 給予一個充滿整數的陣列 `groupSizes`，這個陣列每一個整數都代表一個人其所屬的群組人數，而我們要做的便是給予每一個人 ID (從 0 到 `n-1`)，以及按任何順序歸類在同一個群組。
 
@@ -55,7 +56,7 @@ Constraints:
  3. **暫存尚未湊滿 groupSize 的 group**：在上述的步驟 2 當中，變數 `tempGroup` 若尚未湊滿其應有的 `groupSize`，便不應該將其放至 `ans`，這時可以先準備一個 `tempGroups` 暫存這些 `tempGroup`，之後每次新增人數時以及將 `tempGroup` 放入 `ans` ，也優先從這裡取出。
  4. **將群組放在最後欲回傳的變數**：確認 `tempGroup` 人數是否湊滿，湊滿的話，便將其集合到一個陣列變數 `ans` 最後將此二維陣列回傳即可。
 
-## 實作程式碼
+## How to implement algorithm in javascript
 
 ```javascript
 /**

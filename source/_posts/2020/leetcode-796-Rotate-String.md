@@ -6,14 +6,13 @@ tags:
 - javascript
 - algorithm
 img: /medias/page_images/leetcode-796-rotate-string.png
+categories: leetcode algorithms
 ---
 * link：[Rotate String](https://leetcode.com/problems/rotate-string/)
 * difficulty：`easy`
 * language：`javascript`
 
-## 題目講解
-
-### 原文
+## Question
 
 We are given two strings, `A` and `B`.
 
@@ -34,7 +33,7 @@ Note:
 
 * `A` and `B` will have length at most 100.
 
-### 題目解釋
+### Question Explanation
 
 給予兩個字串，判斷這兩個字串是否為同樣字串，只是起始的位置不同的字串而已，好比 `abc` 等同於 `bca` 或 `cab`。
 
@@ -52,7 +51,7 @@ Note:
 
 將 `A` 重複組成一遍，再使用 像是 `includes` 或是 `indexOf` 等 method 搜尋，時間複雜度為 `1`，明顯最快。
 
-## 實作程式碼
+## How to implement algorithm in javascript
 
 我們選擇用 `Repeat` 的方式去做 **比較運算**
 

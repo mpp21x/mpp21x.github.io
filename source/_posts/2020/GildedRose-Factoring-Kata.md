@@ -4,8 +4,10 @@ date: 2020-04-05 19:39:24
 tags:
 - php
 - refactoring
+- unit-test
 - kata
 img: /medias/featureimages/working_effectively_with_legacy_code.jpeg
+categories: clean code
 ---
 
 這篇逐步介紹自己練習重構與 TDD 開發 Legacy Code Kata 的解題思路，題目是社群 *Domain Driven Design(DDD Taiwan)* 所舉辦的讀書會 Legacy Code 讀書會 3rd (Ch 8, 9) 所分享的重構練習題目。

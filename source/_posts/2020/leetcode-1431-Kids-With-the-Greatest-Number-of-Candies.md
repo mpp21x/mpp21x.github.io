@@ -5,15 +5,15 @@ tags:
 - leetcode
 - javascript
 - algorithm
-img: /medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg
+img: /medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png
 ---
 * link：[Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)
 * difficulty：`easy`
 * language：`javascript`
 
-## 題目講解
+## Question
 
-### 原文
+
 
 Given the array candies and the integer extraCandies, where candies[i] represents the number of candies that the ith kid has.
 
@@ -53,7 +53,7 @@ Constraints:
 * `1 <= candies[i] <= 100`
 * `1 <= extraCandies <= 50`
 
-### 題目解釋
+### Question Explanation
 
 給予一個充滿整數的陣列 `candies` 以及一個指定的整數 `extraCandies`，我們需要取出 `candies` 中的每一個整數，再加上 `extraCandies` 之後，判斷其是否大於或等於  `candies` 中最大的那個數字，若是則為 `true` 否則為 `false`。
 
@@ -73,7 +73,7 @@ Constraints:
 
 如果先 **步驟 3** -> **步驟 1 & 2**，一開始就找出最大數，時間複雜度為 `2n` 而已。
 
-## 實作程式碼
+## How to implement algorithm in javascript
 
 將上述過程轉化程式碼便是如下：
 
