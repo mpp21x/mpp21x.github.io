@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="LeetCode(1431) - Kids With the Greatest Number of Candies (js/easy), matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="LeetCode(796) - Rotate String (js/easy), matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>LeetCode(1431) - Kids With the Greatest Number of Candies (js/easy) | matt blog</title>
+    <title>LeetCode(796) - Rotate String (js/easy) | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -252,13 +252,13 @@
 
 
 
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png')"> -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/leetcode-796-rotate-string.png')"> -->
 <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/bg.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode(1431) - Kids With the Greatest Number of Candies (js/easy)</h1>
+                    <h1 class="description center-align post-title">LeetCode(796) - Rotate String (js/easy)</h1>
                 </div>
             </div>
         </div>
@@ -392,6 +392,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/leetcode-algorithms/" class="post-category">
+                                leetcode algorithms
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -399,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>發佈日期:&nbsp;&nbsp;
-                    2020-05-06
+                    2020-05-11
                 </div>
                 
 
@@ -413,14 +422,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字數:&nbsp;&nbsp;
-                    711
+                    350
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>閱讀時長:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -437,65 +446,37 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode(1431) - Kids With the Greatest Number of Candies (js/easy)">
+                    <img src="/medias/page_images/leetcode-796-rotate-string.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode(796) - Rotate String (js/easy)">
                 
 
                 <ul>
-<li>link：<a href="https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/" target="_blank" rel="noopener">Kids With the Greatest Number of Candies</a></li>
+<li>link：<a href="https://leetcode.com/problems/rotate-string/" target="_blank" rel="noopener">Rotate String</a></li>
 <li>difficulty：<code>easy</code></li>
 <li>language：<code>javascript</code></li>
 </ul>
-<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Given the array candies and the integer extraCandies, where candies[i] represents the number of candies that the ith kid has.</p>
-<p>For each kid check if there is a way to distribute extraCandies among the kids such that he or she can have the greatest number of candies among them. Notice that multiple kids can have the greatest number of candies.</p>
-<p>Example 1:</p>
-<pre><code>Input: candies = [2,3,5,1,3], extraCandies = 3
-Output: [true,true,true,false,true] 
-Explanation: 
-Kid 1 has 2 candies and if he or she receives all extra candies (3) will have 5 candies --- the greatest number of candies among the kids. 
-Kid 2 has 3 candies and if he or she receives at least 2 extra candies will have the greatest number of candies among the kids. 
-Kid 3 has 5 candies and this is already the greatest number of candies among the kids. 
-Kid 4 has 1 candy and even if he or she receives all extra candies will only have 4 candies. 
-Kid 5 has 3 candies and if he or she receives at least 2 extra candies will have the greatest number of candies among the kids. </code></pre><p>Example 2:</p>
-<pre><code>Input: candies = [4,2,1,1,2], extraCandies = 1
-Output: [true,false,false,false,false] 
-Explanation: There is only 1 extra candy, therefore only kid 1 will have the greatest number of candies among the kids regardless of who takes the extra candy.</code></pre><p>Example 3:</p>
-<pre><code>Input: candies = [12,1,12], extraCandies = 10
-Output: [true,false,true]</code></pre><p>Constraints:</p>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>We are given two strings, <code>A</code> and <code>B</code>.</p>
+<p>A shift on <code>A</code> consists of taking string A and moving the leftmost character to the rightmost position. For example, if <code>A = &#39;abcde</code>‘, then it will be <code>&#39;bcdea&#39;</code> after one shift on <code>A</code>. Return <code>True</code> if and only if <code>A</code> can become <code>B</code> after some number of shifts on <code>A</code>.</p>
+<pre><code>Example 1:
+Input: A = &#39;abcde&#39;, B = &#39;cdeab&#39;
+Output: true
+
+Example 2:
+Input: A = &#39;abcde&#39;, B = &#39;abced&#39;
+Output: false</code></pre><p>Note:</p>
 <ul>
-<li><code>2 &lt;= candies.length &lt;= 100</code></li>
-<li><code>1 &lt;= candies[i] &lt;= 100</code></li>
-<li><code>1 &lt;= extraCandies &lt;= 50</code></li>
+<li><code>A</code> and <code>B</code> will have length at most 100.</li>
 </ul>
-<h3 id="Question-Explanation"><a href="#Question-Explanation" class="headerlink" title="Question Explanation"></a>Question Explanation</h3><p>給予一個充滿整數的陣列 <code>candies</code> 以及一個指定的整數 <code>extraCandies</code>，我們需要取出 <code>candies</code> 中的每一個整數，再加上 <code>extraCandies</code> 之後，判斷其是否大於或等於  <code>candies</code> 中最大的那個數字，若是則為 <code>true</code> 否則為 <code>false</code>。</p>
-<p>再將每一個整數的運算結果放在一個陣列後回傳，也就是說必須回傳一個與 <code>candies</code> 同等長度以及皆為 boolean 值的陣列。</p>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>這題大致可以幾個步驟（數字為代稱，不一定為實際順序）：</p>
-<ol>
-<li><strong>遍歷取出數字</strong>：將 <code>candies</code> 一一取出。這一步驟讓時間複雜度至少會是 <code>O(n)</code>。</li>
-<li><strong>運算及比較</strong>： 加上 <code>extraCandies</code> 之後進行比較。</li>
-<li><strong>找出最大值</strong>： 找出 <code>candies</code> 最大的數值。</li>
+<h3 id="Question-Explanation"><a href="#Question-Explanation" class="headerlink" title="Question Explanation"></a>Question Explanation</h3><p>給予兩個字串，判斷這兩個字串是否為同樣字串，只是起始的位置不同的字串而已，好比 <code>abc</code> 等同於 <code>bca</code> 或 <code>cab</code>。</p>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><ol>
+<li><strong>檢查長度</strong>：首先可以先驗證兩個參數的長度，不一樣就直接返回 <code>false</code>。</li>
+<li><strong>比較運算</strong>：這部分目前有兩種方法 <strong>遍歷</strong> 以及 <strong>Repeat</strong></li>
 </ol>
-<p>這裡的 <strong>步驟 1</strong> 和 <strong>步驟 2</strong> ，在邏輯上必然有先後關聯的，可將步驟 1 和 步驟 2 可視為一體，而接下來則是思考 要先 <strong>步驟 3</strong> 或是 <strong>步驟 1 &amp; 2</strong>：</p>
-<p>若先執行 <strong>步驟 1 &amp; 2</strong> -&gt; <strong>步驟 3</strong>，這樣一邊遍歷取出元素 又得重複尋找出最大值，時間複雜度為 <code>O(n²)</code></p>
-<p>如果先 <strong>步驟 3</strong> -&gt; <strong>步驟 1 &amp; 2</strong>，一開始就找出最大數，時間複雜度為 <code>2n</code> 而已。</p>
-<h2 id="How-to-implement-algorithm-in-javascript"><a href="#How-to-implement-algorithm-in-javascript" class="headerlink" title="How to implement algorithm in javascript"></a>How to implement algorithm in javascript</h2><p>將上述過程轉化程式碼便是如下：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> kidsWithCandies <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>candies<span class="token punctuation">,</span> extraCandies<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// 3. 找出最大值</span>
-    <span class="token keyword">const</span> maxNum <span class="token operator">=</span> candies<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>accumulator<span class="token punctuation">,</span> currentValue<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> currentValue <span class="token operator">></span> accumulator <span class="token operator">?</span> currentValue <span class="token punctuation">:</span> accumulator<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span> candies<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">const</span> answer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">const</span> length <span class="token operator">=</span> candies<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 1. 遍歷取出數字 以及 2. 運算及比較</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        answer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">(</span>candies<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> extraCandies<span class="token punctuation">)</span> <span class="token operator">>=</span> maxNum<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> answer<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="GitHub-紀錄"><a href="#GitHub-紀錄" class="headerlink" title="GitHub 紀錄"></a>GitHub 紀錄</h3><p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/1431.Kids_With_the_Greatest_Number_of_Candies" target="_blank" rel="noopener">點我連結</a>。 </p>
+<h3 id="比較運算：遍歷"><a href="#比較運算：遍歷" class="headerlink" title="比較運算：遍歷"></a>比較運算：遍歷</h3><p>首先取 <code>A</code> 的第一個 字元，然後去搜尋其 在 <code>B</code> 的位置，然後遍歷比較，由於 <code>A</code> 和 <code>B</code> 遍歷的時候， index 不一樣，所以必須另外寫一個算式去將 <code>A</code> 的 index 轉換成 <code>B</code> 的 index，時間複雜度為 <code>O(n²)</code>。</p>
+<h3 id="比較運算：Repeat"><a href="#比較運算：Repeat" class="headerlink" title="比較運算：Repeat"></a>比較運算：Repeat</h3><p>將 <code>A</code> 重複組成一遍，再使用 像是 <code>includes</code> 或是 <code>indexOf</code> 等 method 搜尋，時間複雜度為 <code>1</code>，明顯最快。</p>
+<h2 id="How-to-implement-algorithm-in-javascript"><a href="#How-to-implement-algorithm-in-javascript" class="headerlink" title="How to implement algorithm in javascript"></a>How to implement algorithm in javascript</h2><p>我們選擇用 <code>Repeat</code> 的方式去做 <strong>比較運算</strong></p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> rotateString <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>A<span class="token punctuation">,</span> B<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> A<span class="token punctuation">.</span>length <span class="token operator">===</span> B<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> A<span class="token punctuation">.</span><span class="token function">repeat</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>B<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -560,37 +541,33 @@ Output: [true,false,true]</code></pre><p>Constraints:</p>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/10/2020/leetcode-1282/">
+                <a href="/2020/05/13/2020/leetcode-1302-js/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg" class="responsive-img" alt="LeetCode(1282) - Group the People Given the Group Size They Belong To (js/medium)">
+                        <img src="/medias/page_images/leetcode-1302-js.png" class="responsive-img" alt="LeetCode(1302) - Deepest Leaves Sum (js/medium)">
                         
-                        <span class="card-title">LeetCode(1282) - Group the People Given the Group Size They Belong To (js/medium)</span>
+                        <span class="card-title">LeetCode(1302) - Deepest Leaves Sum (js/medium)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-link：Group the People Given the Group Size They Belong To
+link：Deepest Leaves Sum
 difficulty：medium
 language：javascript
 
-QuestionThere are n pe
+QuestionGiven a binary tree, return the sum of values of
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-13
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/leetcode-algorithms/" class="post-category">
-                                    leetcode algorithms
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Matt lee
                             
                         </span>
                     </div>
@@ -621,28 +598,28 @@ QuestionThere are n pe
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/06/2020/leetcode-1-two-sum/">
+                <a href="/2020/05/10/2020/leetcode-1282/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1-two-sum_js.png" class="responsive-img" alt="LeetCode(1) - Two Sum (js/easy)">
+                        <img src="/medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg" class="responsive-img" alt="LeetCode(1282) - Group the People Given the Group Size They Belong To (js/medium)">
                         
-                        <span class="card-title">LeetCode(1) - Two Sum (js/easy)</span>
+                        <span class="card-title">LeetCode(1282) - Group the People Given the Group Size They Belong To (js/medium)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-link：Two Sum
-difficulty：easy
+link：Group the People Given the Group Size They Belong To
+difficulty：medium
 language：javascript
 
-QuestionGiven a binary tree, return the sum of values of its deepest 
+QuestionThere are n pe
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
                             </span>
                         <span class="publish-author">
                             
@@ -669,10 +646,6 @@ QuestionGiven a binary tree, return the sum of values of its deepest
                     
                     <a href="/tags/algorithm/">
                         <span class="chip bg-color">algorithm</span>
-                    </a>
-                    
-                    <a href="/tags/latex/">
-                        <span class="chip bg-color">latex</span>
                     </a>
                     
                 </div>
