@@ -76,7 +76,7 @@ var hammingDistance = function (x, y) {
 };
 ```
 
-Best answer from other people and more faster!
+One line solution, the best answer from other person and more faster!
 
 ```javascript
 var hammingDistance = function(x, y) {
@@ -84,10 +84,13 @@ var hammingDistance = function(x, y) {
 };
 ```
 
-![](one_line_solution_result.png)
+result
 
 
-`x ^ y`：`^` is Javascript bitwise operator, can get the same length binary string(if not same then add `1`) , can help us to identity the different positions.
+![The result](one.png)
+
+
+`x ^ y`：`^` is Javascript bitwise operator,It can get a number which is binary to deciaml(if not same then add `1`) , can help us to identity the different positions.
 
 * `15 & 9` result is `9` (`1111 & 1001 = 1001`)
 * `15 | 9` result is `15` (`1111 | 1001 = 1111`)
