@@ -422,7 +422,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字數:&nbsp;&nbsp;
-                    415
+                    423
                 </div>
                 
 
@@ -497,12 +497,13 @@ The above arrows point to positions where the corresponding bits are different.<
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> distance<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Best answer from other people and more faster!</p>
+<p>One line solution, the best answer from other person and more faster!</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> hammingDistance <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span>x <span class="token operator">^</span> y<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/0/g</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="one_line_solution_result.png" alt=""></p>
-<p><code>x ^ y</code>：<code>^</code> is Javascript bitwise operator, can get the same length binary string(if not same then add <code>1</code>) , can help us to identity the different positions.</p>
+<p>result</p>
+<p><img src="one.png" alt="The result"></p>
+<p><code>x ^ y</code>：<code>^</code> is Javascript bitwise operator,It can get a number which is binary to deciaml(if not same then add <code>1</code>) , can help us to identity the different positions.</p>
 <ul>
 <li><code>15 &amp; 9</code> result is <code>9</code> (<code>1111 &amp; 1001 = 1001</code>)</li>
 <li><code>15 | 9</code> result is <code>15</code> (<code>1111 | 1001 = 1111</code>)</li>
