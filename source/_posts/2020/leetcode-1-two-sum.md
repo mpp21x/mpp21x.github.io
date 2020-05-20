@@ -175,3 +175,9 @@ em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
 ```	
 em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
 ```
+
+## 其他
+
+### GitHub 紀錄
+
+此次練習被收錄在我的 GitHub [點我連結](https://github.com/mpp21x/algorithm-exercise/tree/master/1.twoSum)。

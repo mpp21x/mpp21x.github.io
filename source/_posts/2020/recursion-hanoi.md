@@ -204,3 +204,4 @@ function hanoiStart(total, from, temp, to) {
 * [How to solve the 'Tower of Hanoi' puzzle (with 4 discs)](https://www.youtube.com/watch?v=5Wn4EboLrMM)
 
 * [［離散數學］河內塔難題再下一塔](https://sites.google.com/a/g2.nctu.edu.tw/unimath/2017-11/Hanoi)
+* [練習連結](https://github.com/mpp21x/algorithm-exercise/tree/master/hanoi)
