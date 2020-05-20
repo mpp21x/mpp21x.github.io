@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="LeetCode(1) - Two Sum (js/easy), matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="LeetCode(771) - Jewels and Stones (js/easy), matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>LeetCode(1) - Two Sum (js/easy) | matt blog</title>
+    <title>LeetCode(771) - Jewels and Stones (js/easy) | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -252,13 +252,13 @@
 
 
 
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/leetcode-1-two-sum_js.png')"> -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/leetcode_771_js.png')"> -->
 <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/bg.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode(1) - Two Sum (js/easy)</h1>
+                    <h1 class="description center-align post-title">LeetCode(771) - Jewels and Stones (js/easy)</h1>
                 </div>
             </div>
         </div>
@@ -387,23 +387,10 @@
                                 <span class="chip bg-color">algorithm</span>
                             </a>
                         
-                            <a href="/tags/latex/">
-                                <span class="chip bg-color">latex</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/leetcode-algorithms/" class="post-category">
-                                leetcode algorithms
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -412,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>發佈日期:&nbsp;&nbsp;
-                    2020-05-06
+                    2020-05-21
                 </div>
                 
 
@@ -426,14 +413,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字數:&nbsp;&nbsp;
-                    1.4k
+                    580
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>閱讀時長:&nbsp;&nbsp;
-                    5 分
+                    2 分
                 </div>
                 
 
@@ -450,96 +437,70 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/leetcode-1-two-sum_js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode(1) - Two Sum (js/easy)">
+                    <img src="/medias/page_images/leetcode_771_js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode(771) - Jewels and Stones (js/easy)">
                 
 
                 <ul>
-<li>link：<a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">Two Sum</a></li>
+<li>link：<a href="https://leetcode.com/problems/jewels-and-stones/" target="_blank" rel="noopener">771. Jewels and Stones</a></li>
 <li>difficulty：<code>easy</code></li>
 <li>language：<code>javascript</code></li>
 </ul>
-<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Given a binary tree, return the sum of values of its deepest leaves.</p>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>You’re given strings <code>J</code> representing the types of stones that are jewels, and <code>S</code> representing the stones you have.  Each character in <code>S</code> is a type of stone you have.  You want to know how many of the stones you have are also jewels.</p>
+<p>The letters in <code>J</code> are guaranteed distinct, and all characters in <code>J</code> and <code>S</code> are letters. Letters are case sensitive, so “a” is considered a different type of stone from “A”.</p>
 <p>Example 1:</p>
-<pre><code>Given nums = [2, 7, 11, 15], target = 9,
-
-Because nums[0] + nums[1] = 2 + 7 = 9,
-return [0, 1].</code></pre><h3 id="Question-Explanation"><a href="#Question-Explanation" class="headerlink" title="Question Explanation"></a>Question Explanation</h3><p>給予一個數列 <code>nums</code> 以及一個指定的整數 <code>target</code>，我們必須找出在這個陣列中的某兩個數，其總和 必然與 <code>target</code> 相等，並將此二數的索引值放在一個陣列之後回傳出去。</p>
-<p>另外，在陣列中，必然只有兩個數的總和跟 <strong>指定的整數</strong> 一樣，同時這兩個數必然是不同的數，不能為同一個數。</p>
-<p>舉例來說：</p>
-<p><code>nums</code> 為 <code>[2, 7, 11, 15]</code>，而 <code>target</code> 為 <code>9</code>，因為 <code>nums[0]</code> 以及 <code>nums[1]</code> 總和為 <code>9</code> 跟 <code>target</code> 一樣，所以答案就是 <code>[0, 1]</code>。</p>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><h3 id="線索-1-Target"><a href="#線索-1-Target" class="headerlink" title="線索 1 Target"></a>線索 1 <code>Target</code></h3><p>首先我們知道，答案的兩個數總和（假設叫做 <code>a</code> 和 <code>b</code>），與 <code>target</code> 同等，透過簡單的推理可得知：</p>
-<pre><code>target = a + b
-traget - a = b 
-target - b = a </code></pre><p>我們可以透過 <code>target</code> 減去 <code>nums</code> 任一的數字，來得到另一個餘數，倘若此二數皆存在於 <code>nums</code> ，那就是我們想要找的答案 <code>a</code> 與 <code>b</code>。</p>
-<p>所以答案必然是透過 <code>target</code> 進行加減的運算可得出。</p>
-<h3 id="線索-2-流程"><a href="#線索-2-流程" class="headerlink" title="線索 2 流程"></a>線索 2 流程</h3><p>由於要得到答案，流程必然經過這幾個步驟（數字為代稱，不一定為實際順序）：</p>
-<ol>
-<li><p><strong>遍歷步驟</strong>：也就是一一取出 nums 的每一個數字，這一步驟讓時間複雜度至少會是 <code>O(n)</code>。</p>
-</li>
-<li><p><strong>取得待確認值步驟</strong>：取出 nums 的一個數字後，使用 <code>target</code> 減去此數的餘數，再來確認是否存在於 <code>nums</code>，即可。</p>
-</li>
-<li><p>*<em>確認餘數是否存在於 nums *</em>： 再來就是使用餘數，來確認是否存在於 <code>nums</code> ，且不能為同一 index，這個是這一題比較重要的環節，目前想到有兩種思路：</p>
-<p> 3.1. <strong>遍歷搜尋</strong>  針對 <code>nums</code> 目前所運算到的位置之後的陣列，使用 <code>indexOf</code> 的方式來找出答案</p>
-<p> 3.2 <strong>暫存 map 搜尋</strong> 將每次運算暫存於自定義的變數 <code>map</code>，搜尋時也一律從 <code>map</code> 當中搜尋。</p>
-</li>
-</ol>
-<p>再來針對我們的 3.1 和 3.2 這兩種搜尋做解釋。</p>
+<pre><code>Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;
+Output: 3</code></pre><p>Example 2:</p>
+<pre><code>Input: J = &quot;z&quot;, S = &quot;ZZ&quot;
+Output: 0</code></pre><p>Note:</p>
 <ul>
-<li><p>3-1. 遍歷搜尋<br>最直覺的作法便是這個了，只要用餘數去搜尋是否存在於當前所遍歷的位置，之後剩餘的數，即可找到答案，但這樣子的做法，時間複雜度會近似於 <code>O(n²)</code> 了。</p>
-</li>
-<li><p>3.2. 暫存 map 搜尋</p>
-</li>
+<li><code>S</code> and <code>J</code> will consist of letters and have length at most 50.</li>
+<li>The characters in <code>J</code> are distinct.</li>
 </ul>
-<p>每一次遍歷運算的時候，把待確認值放在一個變數 <code>map</code>，將待確認值作為 <code>key</code>，而 Index 作為 <code>value</code> ，每次運算完之後，都將運算結果儲存到這個 <code>map</code> 裡面。</p>
-<p>當今天運算到 <code>b</code> 的時候，由於 <code>a</code> 已經被存入到 <code>map</code>，<code>map[target - nums[index]]</code> 就可以輕易找出答案並回傳了，時間複雜度也是 <code>O(n)</code>了。</p>
-<p>當然，最後不忘了要回傳的是 <code>a</code> 和 <code>b</code> 在 <code>nums</code> 的索引值。</p>
-<h2 id="How-to-implement-algorithm-in-javascript"><a href="#How-to-implement-algorithm-in-javascript" class="headerlink" title="How to implement algorithm in javascript"></a>How to implement algorithm in javascript</h2><p>很明顯的，最好的做法是使用 <strong>暫存 map 搜尋</strong>，接下來要做的，便是將上述過程轉化程式碼便是如下：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> twoSum <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> map <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>map<span class="token punctuation">[</span>target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token punctuation">[</span>map<span class="token punctuation">[</span>target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        map<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+<h3 id="Question-Explanation"><a href="#Question-Explanation" class="headerlink" title="Question Explanation"></a>Question Explanation</h3><p>參數 <code>J</code> 的每一個字元代表一種珠寶，我們要的做的便是找出參數 <code>S</code> 當中，有多少珠寶的石頭。</p>
+<p>Each character in <code>J</code>  representing that is jewel, And we need to use these characters to count how many jewels in the strings <code>S</code>. </p>
+<h2 id="How-to-implement-algorithm-in-javascript"><a href="#How-to-implement-algorithm-in-javascript" class="headerlink" title="How to implement algorithm in javascript"></a>How to implement algorithm in javascript</h2><p>基本上這題解題的思路並不困難，主要是由遍歷這兩個字串來找出答案，只是如果想要速度更快的話，則必須熟悉 JavaScript 裡面一些物件如 <code>map</code> 或是 <code>set</code> 。</p>
+<h3 id="第一種方式-array"><a href="#第一種方式-array" class="headerlink" title="第一種方式 array"></a>第一種方式 array</h3><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> numJewelsInStones <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>J<span class="token punctuation">,</span> S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> stone <span class="token keyword">of</span> S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        count <span class="token operator">+</span><span class="token operator">=</span> J<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>stone<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// 驗算</span>
-<span class="token comment" spellcheck="true">// console.log(twoSum([2, 7, 11, 15], 9));</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="GitHub-紀錄"><a href="#GitHub-紀錄" class="headerlink" title="GitHub 紀錄"></a>GitHub 紀錄</h3><p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/1.twoSum" target="_blank" rel="noopener">點我連結</a>。</p>
-<h3 id="nums-的-length"><a href="#nums-的-length" class="headerlink" title="nums 的 length"></a>nums 的 length</h3><p>如果 <code>nums</code> 長度很大，可考慮把 <code>length</code> 塞給一個變數，避免每次都要運算陣列長度</p>
-<h3 id="關於-3-1-遍歷搜尋-的時間複雜度運算的-O-n²-是怎麼算出來的？"><a href="#關於-3-1-遍歷搜尋-的時間複雜度運算的-O-n²-是怎麼算出來的？" class="headerlink" title="關於 3.1 遍歷搜尋 的時間複雜度運算的 O(n²) 是怎麼算出來的？"></a>關於 <strong>3.1 遍歷搜尋</strong> 的時間複雜度運算的 <code>O(n²)</code> 是怎麼算出來的？</h3><p>假設 <code>nums</code> 長度為 3：用此搜尋在需要花到最多時間的情境下，其步驟為：</p>
+    <span class="token keyword">return</span> count<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>這裡的 <code>indexOf</code> 也可以改成 <code>includes</code></p>
+<p>最簡單的版本，然而速度並不快，其速度如下。</p>
+<p><img src="first.png" alt="第一種方式 array"></p>
+<h3 id="第二種方式-Set"><a href="#第二種方式-Set" class="headerlink" title="第二種方式 Set"></a>第二種方式 Set</h3><p>再來我們試試看另一種方法，便是 ES6 <code>Set</code>，之所以用 <code>Set</code> 是因為兩個原因：</p>
 <ul>
-<li>取出第 1 個數字 ，比較第 2 個數字，比較第 3 個數字： 花了 3 次操作。</li>
-<li>取出第 2 個數字 ，比較第 3 個數字： 用了 2 次操作</li>
-<li>總共 5 次操作<pre><code>1:2,3
-2:3</code></pre></li>
+<li>允許使用字串作為參數</li>
+<li>unique value</li>
 </ul>
-<p>不難發現出這 5 次操作與參數 n 的關係可以用一個類似等差數列可以求得，用數學符號表示即為：</p>
-<ul>
-<li><code>n</code> 為項數(也就是 <code>nums</code> 的長度)</li>
-<li>$a\mathop{}\nolimits_{1}$ 為首項：固定為 1。</li>
-<li>$a\mathop{}\nolimits_{n}$ 為末項：代表 <code>nums</code> 長度，如果 <code>nums = [1,2,3]</code> 的話，則為 3。</li>
-<li>$S\mathop{}\nolimits_{n}$ 代表總耗費步驟：以 <code>nums = [1,2,3]</code> 為例的話，則是 5。</li>
-</ul>
-<p>$S\mathop{}\nolimits_{n}=\frac{n \left( a\mathop{}\nolimits_{1}+a\mathop{}\nolimits_{n} \right) }{2} - 1$</p>
-<p>不難發現以上公式當中，次方(或平方)最高的便是 $n \left( a\mathop{}\nolimits_{1}+a\mathop{}\nolimits_{n} \right)$ ，這個函式幾乎等同 <code>O(n²)</code> 了</p>
-<h3 id="關於-LaTex："><a href="#關於-LaTex：" class="headerlink" title="關於 LaTex："></a>關於 LaTex：</h3><p>為了要在 Hexo 用出 LaTex 公式，花了我四個小時多，找了許多篇文章設定…</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/105986034" target="_blank" rel="noopener">在 Hexo 博客中写出好看的Latex 公式</a><ul>
-<li>更換渲染引擎即可完成，但這會導致所有的 prismjs 的程式碼渲染失去對應的語言顏色，只好作罷。</li>
-</ul>
-</li>
-</ul>
-<p>找到另一個方法，<a href="https://blog.yusanshi.com/2020-01-28-enable-latex-for-hexo/" target="_blank" rel="noopener">在此</a>，只需要安裝以下指令：</p>
-<pre><code>npm install hexo-renderer-mathjax --save</code></pre><p>然後再搭配以下兩篇服用即可：</p>
-<ul>
-<li><a href="https://github.com/blinkfox/hexo-theme-matery/issues/23" target="_blank" rel="noopener">关于 hexo-renderer-kramed 插件导致语法高亮失效的问题</a></li>
-<li><a href="http://shomy.top/2016/10/22/hexo-markdown-mathjax/" target="_blank" rel="noopener">Hexo下mathjax的转义问题</a></li>
-</ul>
-<p>總結就是，需要修改 <code>nodes_modules/marked/lib/marked.js</code> 的兩個地方，主要就是把 <code>\\</code> 移除即可：</p>
-<h4 id="escape"><a href="#escape" class="headerlink" title="escape"></a>escape</h4><pre><code>escape: /^\\([\\`*{}\[\]()# +\-.!_&gt;])/,</code></pre><p>改成</p>
-<pre><code>escape: /^\\([`*{}\[\]()# +\-.!_&gt;])/,</code></pre><h4 id="em"><a href="#em" class="headerlink" title="em"></a>em</h4><pre><code>em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code></pre><p>改成</p>
-<pre><code>em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code></pre><h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><h3 id="GitHub-紀錄-1"><a href="#GitHub-紀錄-1" class="headerlink" title="GitHub 紀錄"></a>GitHub 紀錄</h3><p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/1.twoSum" target="_blank" rel="noopener">點我連結</a>。</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">var</span> numJewelsInStones <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>J<span class="token punctuation">,</span> S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// @ts-ignore</span>
+    J <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>J<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> count <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> stone of S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        count <span class="token operator">+</span><span class="token operator">=</span> J<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>stone<span class="token punctuation">)</span>  <span class="token operator">?</span> <span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> count<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="second.png" alt="第二種方式 Set"></p>
+<h3 id="第三種方式-Set-amp-filter"><a href="#第三種方式-Set-amp-filter" class="headerlink" title="第三種方式 Set &amp; filter"></a>第三種方式 Set &amp; filter</h3><p>速度似乎有比較快了，但是 memory 變高了一些，再來我們試試看將 <code>S</code> 轉換成陣列操作好了，使用 <code>split</code> 搭配 <code>filter</code>，可省略 <code>count</code> 變數。</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">var</span> numJewelsInStones <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>J<span class="token punctuation">,</span> S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// @ts-ignore</span>
+    J <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>J<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> S<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span>stone<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> J<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>stone<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="third.png" alt="第三種方式 Set &amp; filter"></p>
+<p>這樣速度反而變更慢了。</p>
+<h3 id="第四種方式-Set-amp-filter-搭配-destructuring"><a href="#第四種方式-Set-amp-filter-搭配-destructuring" class="headerlink" title="第四種方式 Set &amp; filter 搭配 destructuring"></a>第四種方式 Set &amp; filter 搭配 destructuring</h3><p>試試看用 destructuring operator 使 <code>S</code> 轉換成陣列。</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">var</span> numJewelsInStones <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>J<span class="token punctuation">,</span> S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// @ts-ignore</span>
+    J <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>J<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>S<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span>stone<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> J<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>stone<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>這次測試的變化幅度很大，最慢可以到 100ms ，最快可以到 40 ms，似乎不是很穩，這裡就取一個速度較快的作為封面了。</p>
+<p><img src="fourth.png" alt="第四種方式 Set &amp; filter 搭配 destructuring"></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="GitHub-紀錄"><a href="#GitHub-紀錄" class="headerlink" title="GitHub 紀錄"></a>GitHub 紀錄</h3><p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/771.jewelsAndStones" target="_blank" rel="noopener">點我連結</a>。 </p>
 
             </div>
             <hr/>
@@ -563,10 +524,6 @@ target - b = a </code></pre><p>我們可以透過 <code>target</code> 減去 <co
                             
                                 <a href="/tags/algorithm/">
                                     <span class="chip bg-color">algorithm</span>
-                                </a>
-                            
-                                <a href="/tags/latex/">
-                                    <span class="chip bg-color">latex</span>
                                 </a>
                             
                         </div>
@@ -604,33 +561,34 @@ target - b = a </code></pre><p>我們可以透過 <code>target</code> 減去 <co
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/06/2020/leetcode-1431-kids-with-the-greatest-number-of-candies/">
+                <a href="/2020/05/21/2020/leetcode-771-js/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png" class="responsive-img" alt="LeetCode(1431) - Kids With the Greatest Number of Candies (js/easy)">
+                        <img src="/medias/page_images/leetcode_771_js.png" class="responsive-img" alt="LeetCode(771) - Jewels and Stones (js/easy)">
                         
-                        <span class="card-title">LeetCode(1431) - Kids With the Greatest Number of Candies (js/easy)</span>
+                        <span class="card-title">LeetCode(771) - Jewels and Stones (js/easy)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-link：Kids With the Greatest Number of Candies
+link：771. Jewels and Stones
 difficulty：easy
 language：javascript
 
-QuestionGiven the array candies and 
+QuestionYou’re given strings J representing the types 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -639,6 +597,7 @@ QuestionGiven the array candies and
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -665,32 +624,29 @@ QuestionGiven the array candies and
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/05/2020/gildedrose-factoring-kata/">
+                <a href="/2020/05/18/2020/recursion-hanoi/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/working_effectively_with_legacy_code.jpeg" class="responsive-img" alt="重構訓練 'GildedRose Factoring Kata'">
+                        <img src="/medias/page_images/Tower_of_Hanoi.jpeg" class="responsive-img" alt="hanoi recursive algorithm">
                         
-                        <span class="card-title">重構訓練 'GildedRose Factoring Kata'</span>
+                        <span class="card-title">hanoi recursive algorithm</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            這篇逐步介紹自己練習重構與 TDD 開發 Legacy Code Kata 的解題思路，題目是社群 Domain Driven Design(DDD Taiwan) 所舉辦的讀書會 Legacy Code 讀書會 3rd (Ch 8, 9)
+                            Tower of Hanoi ，非常知名的益智遊戲，同時也是很好的一個訓練遞迴思維的演算法，本篇記錄自己學習河內塔的過程。
+題目印出河內塔運算的移動軌跡想像在桌面上有三個柱子，最左邊的柱子掛了三個圓圈，每個圓圈不一，越下面的圓圈半徑越大，現
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/clean-code/" class="post-category">
-                                    clean code
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Matt lee
                             
                         </span>
                     </div>
@@ -698,20 +654,12 @@ QuestionGiven the array candies and
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/php/">
-                        <span class="chip bg-color">php</span>
+                    <a href="/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
                     </a>
                     
-                    <a href="/tags/refactoring/">
-                        <span class="chip bg-color">refactoring</span>
-                    </a>
-                    
-                    <a href="/tags/unit-test/">
-                        <span class="chip bg-color">unit-test</span>
-                    </a>
-                    
-                    <a href="/tags/kata/">
-                        <span class="chip bg-color">kata</span>
+                    <a href="/tags/algorithm/">
+                        <span class="chip bg-color">algorithm</span>
                     </a>
                     
                 </div>
