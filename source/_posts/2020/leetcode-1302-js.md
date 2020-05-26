@@ -5,7 +5,7 @@ tags:
 - leetcode
 - javascript
 - algorithm
-img: /medias/page_images/leetcode-1302-js.png
+img: /medias/page_images/2020/leetcode-1302-js.png
 ---
 * link：[Deepest Leaves Sum](https://leetcode.com/problems/two-sum/)
 * difficulty：`medium`

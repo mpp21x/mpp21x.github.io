@@ -5,7 +5,7 @@ tags:
 - leetcode
 - javascript
 - algorithm
-img: /medias/page_images/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg
+img: /medias/page_images/2020/leetcode-1282-group-the-People-Given-the-Group-Size-They-Belong-To.jpeg
 categories: leetcode algorithms
 ---
 * link：[Group the People Given the Group Size They Belong To](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/)

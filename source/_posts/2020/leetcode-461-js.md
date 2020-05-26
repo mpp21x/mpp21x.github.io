@@ -5,7 +5,7 @@ tags:
 - leetcode
 - javascript
 - algorithm
-img: /medias/page_images/leetcode-461-js.png
+img: /medias/page_images/2020/leetcode-461-js.png
 categories: leetcode algorithms
 ---
 * link：[461. Hamming Distance](https://leetcode.com/problems/hamming-distance/submissions/)

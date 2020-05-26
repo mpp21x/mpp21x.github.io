@@ -5,7 +5,7 @@ tags:
 - leetcode
 - javascript
 - algorithm
-img: /medias/page_images/leetcode-1290-js.png
+img: /medias/page_images/2020/leetcode-1290-js.png
 categories: leetcode algorithms
 ---
 * link：[Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)

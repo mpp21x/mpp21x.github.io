@@ -4,7 +4,7 @@ date: 2020-05-18 21:52:01
 tags:
 - javascript
 - algorithm
-img: /medias/page_images/Tower_of_Hanoi.jpeg
+img: /medias/page_images/2020/Tower_of_Hanoi.jpeg
 ---
 
 Tower of Hanoi ，非常知名的益智遊戲，同時也是很好的一個訓練遞迴思維的演算法，本篇記錄自己學習河內塔的過程。

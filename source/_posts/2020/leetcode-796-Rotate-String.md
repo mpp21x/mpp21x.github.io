@@ -5,7 +5,7 @@ tags:
 - leetcode
 - javascript
 - algorithm
-img: /medias/page_images/leetcode-796-rotate-string.png
+img: /medias/page_images/2020/leetcode-796-rotate-string.png
 categories: leetcode algorithms
 ---
 * link：[Rotate String](https://leetcode.com/problems/rotate-string/)
