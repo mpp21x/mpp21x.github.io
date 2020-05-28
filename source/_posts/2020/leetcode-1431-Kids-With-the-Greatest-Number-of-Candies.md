@@ -7,11 +7,11 @@ tags:
 - algorithm
 img: /medias/page_images/2020/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png
 ---
-* link：[Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)
+* link：[1431. Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)
 * difficulty：`easy`
 * language：`javascript`
 
-## Question
+## 題目原文
 
 
 
@@ -53,7 +53,7 @@ Constraints:
 * `1 <= candies[i] <= 100`
 * `1 <= extraCandies <= 50`
 
-### Question Explanation
+### 題目解釋
 
 給予一個充滿整數的陣列 `candies` 以及一個指定的整數 `extraCandies`，我們需要取出 `candies` 中的每一個整數，再加上 `extraCandies` 之後，判斷其是否大於或等於  `candies` 中最大的那個數字，若是則為 `true` 否則為 `false`。
 
@@ -73,7 +73,7 @@ Constraints:
 
 如果先 **步驟 3** -> **步驟 1 & 2**，一開始就找出最大數，時間複雜度為 `2n` 而已。
 
-## How to implement algorithm in javascript
+## 實作
 
 將上述過程轉化程式碼便是如下：
 

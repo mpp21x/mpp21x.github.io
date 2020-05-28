@@ -5,6 +5,7 @@ tags:
 - leetcode
 - javascript
 - algorithm
+- java
 img: /medias/page_images/2020/leetcode-461-js.png
 categories: leetcode algorithms
 ---
@@ -12,7 +13,7 @@ categories: leetcode algorithms
 * difficulty：`easy`
 * language：`javascript`
 
-## Question
+## 題目原文
 
 The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
 
@@ -37,19 +38,17 @@ Explanation:
 The above arrows point to positions where the corresponding bits are different.
 ```
 
-### how to solve problem
+## 解題思路
 
-We need to convert two variables decimal to binary , and count the different part.
-
-So we can follow these step:
+我們必須將兩個變數轉為二進位，並且取得其不同值的位置。
 
 * 將兩個變數，從十進位轉二進位，而轉十進位至二進位，如果是透過人工計算，便是將整數一直除以 2 直到商數為 0，然後將最後除得商數，再加上每一次的餘數反轉排序後，即可得到二進位：個人記十進位轉二進位的口訣為： **最後商加反轉全餘數**。 
 * 再來統計不同的位數，即可得出答案。
 
 
-## How to implement algorithm in javascript
+## 實作 JavaScript
 
-My Answer
+這是我最一開始用的方法，將 `x`, `y` 轉二進位，然後取得位數差，在每次遍歷時檢查順便遞補。
 
 ```javascript
 var hammingDistance = function (x, y) {
@@ -76,16 +75,18 @@ var hammingDistance = function (x, y) {
 };
 ```
 
-One line solution, the best answer from other person and more faster!
+這是後來看到別人使用 bitwise 的一行寫法（汗顏）
+
 
 ```javascript
 var hammingDistance = function(x, y) {
     return (x ^ y).toString(2).replace(/0/g, '').length;
 };
+
+console.log(hammingDistance(1, 4)); // should be 2
+console.log(hammingDistance(3, 1)); // should be 1
+console.log(hammingDistance(93, 73)); // should be 2
 ```
-
-result
-
 
 ![The result](one.png)
 
@@ -101,13 +102,25 @@ result
 
 `replace(/0/g, '')`：to replace all the same position.
 
-## How to verify algorithm
+## 實作 Java
 
-```javascript
-console.log(hammingDistance(1, 4)); // should be 2
-console.log(hammingDistance(3, 1)); // should be 1
-console.log(hammingDistance(93, 73)); // should be 2
+```java
+public class Solution {
+    public int hammingDistance(int x, int y) {
+        return Integer.bitCount(x ^ y);
+    }
+} 
 ```
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        System.out.println(s.hammingDistance(1, 4));//
+    }
+}
+```
+
 
 ### GitHub 
 

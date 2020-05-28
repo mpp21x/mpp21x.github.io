@@ -7,13 +7,11 @@ tags:
 - algorithm
 img: /medias/page_images/2020/leetcode-1302-js.png
 ---
-* link：[Deepest Leaves Sum](https://leetcode.com/problems/two-sum/)
+* link：[1302. Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum/)
 * difficulty：`medium`
 * language：`javascript`
 
-## Question
-
-
+## 題目原文
 
 Given a binary tree, return the sum of values of its deepest leaves.
 
@@ -28,9 +26,9 @@ Constraints:
 * The number of nodes in the tree is between 1 and 10^4.
 * The value of nodes is between 1 and 100.
 
-### Question Explanation
+### 題目解釋
 
-簡單來說，給我們一個 Binary Tree 的變數 `root`，然後要我們計算出在 Binary Tree 最深的分支中節點，其總數為何。
+給予 Binary Tree 資料結構的變數 `root`，然後要我們計算出在 Binary Tree 最深的分支中節點，其總數為何。
 
 ## 解題思路
 
@@ -71,7 +69,7 @@ var deepestLeavesSum = function (root: BinaryTreeNodeType, depthSum = [], depth 
     1. 在 步驟4 的，呼叫前就先檢查， **分支節點的 value**，若不存在則不呼叫。
     2. 或是在進入當前的 `deepestLeavesSum`，進入後檢查 **節點的 value**，若不存在則不呼叫。
 
-## How to Implement algorithm in javascript
+## 實作
 
 由於這題是使用 binary tree ，要驗算比較麻煩，我另外在下方提供驗算的方法和流程。
 
@@ -91,7 +89,7 @@ var deepestLeavesSum = function (root, depthSum = [], depth = 0) {
 };
 ```
 
-事實上這題我在一開始的寫法才是這個，上述的是參考別人的解答後再修改的，算採用 **recursive 內部新增一個 function** 以及 **5.1 呼叫前就先檢查**。
+事實上這題我在一開始的寫法是下面這個，上述的是參考別人的解答後再修改的，算採用 **recursive 內部新增一個 function** 以及 **步驟 5.1 呼叫前就先檢查**。
 
 ```javascript
 var deepestLeavesSum = function (root) {

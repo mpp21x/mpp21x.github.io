@@ -8,11 +8,11 @@ tags:
 img: /medias/page_images/2020/leetcode-1290-js.png
 categories: leetcode algorithms
 ---
-* link：[Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)
+* link：[1290. Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)
 * difficulty：`easy`
 * language：`javascript`
 
-## Question
+## 題目原文
 
 Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number.
 
@@ -61,7 +61,7 @@ Constraints:
 * Number of nodes will not exceed `30`.
 * Each node's value is either `0` or `1`.
 
-### Question Explanation & how to solve it
+### 題目解釋 & how to solve it
 
 The variable `head` is a singly-linked list, and we just need to traverse the whole list, get each node value to a varable string called `binaryStr`.
 
@@ -70,7 +70,7 @@ And convert the `binaryStr` to Decimal, It's finished.
 Time complexity is `O(n²)`。
 
 
-## How to implement algorithm in javascript
+## 實作
 
 ```javascript
 var getDecimalValue = function (node, binaryStr = '') {

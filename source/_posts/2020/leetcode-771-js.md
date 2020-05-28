@@ -11,7 +11,7 @@ img: /medias/page_images/2020/leetcode_771_js.png
 * difficulty：`easy`
 * language：`javascript`
 
-## Question
+## 題目原文
 
 
 You're given strings `J` representing the types of stones that are jewels, and `S` representing the stones you have.  Each character in `S` is a type of stone you have.  You want to know how many of the stones you have are also jewels.
@@ -38,14 +38,11 @@ Note:
 * The characters in `J` are distinct.
 
 
-### Question Explanation
+### 題目解釋
 
 參數 `J` 的每一個字元代表一種珠寶，我們要的做的便是找出參數 `S` 當中，有多少珠寶的石頭。
 
-
-Each character in `J`  representing that is jewel, And we need to use these characters to count how many jewels in the strings `S`. 
-
-## How to implement algorithm in javascript
+## 實作
 
 基本上這題解題的思路並不困難，主要是由遍歷這兩個字串來找出答案，只是如果想要速度更快的話，則必須熟悉 JavaScript 裡面一些物件如 `map` 或是 `set` 。
 
