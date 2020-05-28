@@ -1,5 +1,5 @@
 ---
-title: LeetCode(461) - Hamming Distance(js/easy)
+title: LeetCode(461) - Hamming Distance
 date: 2020-05-14 01:17:20
 tags:
 - leetcode
