@@ -292,6 +292,64 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2020/04/05/2020/gildedrose-factoring-kata/">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/working_effectively_with_legacy_code.jpeg" class="responsive-img" alt="重構訓練 'GildedRose Factoring Kata'">
+                            
+                            <span class="card-title">重構訓練 'GildedRose Factoring Kata'</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                這篇逐步介紹自己練習重構與 TDD 開發 Legacy Code Kata 的解題思路，題目是社群 Domain Driven Design(DDD Taiwan) 所舉辦的讀書會 Legacy Code 讀書會 3rd (Ch 8, 9)
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/clean-code/" class="post-category">
+                                    clean code
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/php/">
+                            <span class="chip bg-color">php</span>
+                        </a>
+                        
+                        <a href="/tags/refactoring/">
+                            <span class="chip bg-color">refactoring</span>
+                        </a>
+                        
+                        <a href="/tags/unit-test/">
+                            <span class="chip bg-color">unit-test</span>
+                        </a>
+                        
+                        <a href="/tags/kata/">
+                            <span class="chip bg-color">kata</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2020/03/24/2020/php-reflection/">
                         <div class="card-image">
                             
@@ -389,7 +447,7 @@ Annotation 假註解，真程式碼從 Doctrine 開始說起， Symfony 是我�
            <!--  <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;本站總字數:&nbsp;<span
-                class="white-color">12k</span>&nbsp;字
+                class="white-color">13.1k</span>&nbsp;字
             
             
             
@@ -499,7 +557,24 @@ $(function () {
     
     
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -517,8 +592,6 @@ $(function () {
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-    
-
 </body>
 
 </html>

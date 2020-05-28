@@ -252,7 +252,7 @@
 
 
 
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/leetcode-1-two-sum_js.png')"> -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/2020/leetcode-1-two-sum_js.png')"> -->
 <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/bg.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
@@ -419,7 +419,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-21
+                    2020-05-27
                 </div>
                 
 
@@ -450,20 +450,20 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/leetcode-1-two-sum_js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode(1) - Two Sum (js/easy)">
+                    <img src="/medias/page_images/2020/leetcode-1-two-sum_js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode(1) - Two Sum (js/easy)">
                 
 
                 <ul>
-<li>link：<a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">Two Sum</a></li>
+<li>link：<a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">1. Two Sum</a></li>
 <li>difficulty：<code>easy</code></li>
 <li>language：<code>javascript</code></li>
 </ul>
-<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Given a binary tree, return the sum of values of its deepest leaves.</p>
+<h2 id="題目原文"><a href="#題目原文" class="headerlink" title="題目原文"></a>題目原文</h2><p>Given a binary tree, return the sum of values of its deepest leaves.</p>
 <p>Example 1:</p>
 <pre><code>Given nums = [2, 7, 11, 15], target = 9,
 
 Because nums[0] + nums[1] = 2 + 7 = 9,
-return [0, 1].</code></pre><h3 id="Question-Explanation"><a href="#Question-Explanation" class="headerlink" title="Question Explanation"></a>Question Explanation</h3><p>給予一個數列 <code>nums</code> 以及一個指定的整數 <code>target</code>，我們必須找出在這個陣列中的某兩個數，其總和 必然與 <code>target</code> 相等，並將此二數的索引值放在一個陣列之後回傳出去。</p>
+return [0, 1].</code></pre><h3 id="題目解釋"><a href="#題目解釋" class="headerlink" title="題目解釋"></a>題目解釋</h3><p>給予一個數列 <code>nums</code> 以及一個指定的整數 <code>target</code>，我們必須找出在這個陣列中的某兩個數，其總和 必然與 <code>target</code> 相等，並將此二數的索引值放在一個陣列之後回傳出去。</p>
 <p>另外，在陣列中，必然只有兩個數的總和跟 <strong>指定的整數</strong> 一樣，同時這兩個數必然是不同的數，不能為同一個數。</p>
 <p>舉例來說：</p>
 <p><code>nums</code> 為 <code>[2, 7, 11, 15]</code>，而 <code>target</code> 為 <code>9</code>，因為 <code>nums[0]</code> 以及 <code>nums[1]</code> 總和為 <code>9</code> 跟 <code>target</code> 一樣，所以答案就是 <code>[0, 1]</code>。</p>
@@ -493,7 +493,7 @@ target - b = a </code></pre><p>我們可以透過 <code>target</code> 減去 <co
 <p>每一次遍歷運算的時候，把待確認值放在一個變數 <code>map</code>，將待確認值作為 <code>key</code>，而 Index 作為 <code>value</code> ，每次運算完之後，都將運算結果儲存到這個 <code>map</code> 裡面。</p>
 <p>當今天運算到 <code>b</code> 的時候，由於 <code>a</code> 已經被存入到 <code>map</code>，<code>map[target - nums[index]]</code> 就可以輕易找出答案並回傳了，時間複雜度也是 <code>O(n)</code>了。</p>
 <p>當然，最後不忘了要回傳的是 <code>a</code> 和 <code>b</code> 在 <code>nums</code> 的索引值。</p>
-<h2 id="How-to-implement-algorithm-in-javascript"><a href="#How-to-implement-algorithm-in-javascript" class="headerlink" title="How to implement algorithm in javascript"></a>How to implement algorithm in javascript</h2><p>很明顯的，最好的做法是使用 <strong>暫存 map 搜尋</strong>，接下來要做的，便是將上述過程轉化程式碼便是如下：</p>
+<h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><p>很明顯的，最好的做法是使用 <strong>暫存 map 搜尋</strong>，接下來要做的，便是將上述過程轉化程式碼便是如下：</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> twoSum <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">let</span> map <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -611,7 +611,7 @@ target - b = a </code></pre><p>我們可以透過 <code>target</code> 減去 <co
                 <a href="/2020/05/06/2020/leetcode-1431-kids-with-the-greatest-number-of-candies/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png" class="responsive-img" alt="LeetCode(1431) - Kids With the Greatest Number of Candies (js/easy)">
+                        <img src="/medias/page_images/2020/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png" class="responsive-img" alt="LeetCode(1431) - Kids With the Greatest Number of Candies (js/easy)">
                         
                         <span class="card-title">LeetCode(1431) - Kids With the Greatest Number of Candies (js/easy)</span>
                     </div>
@@ -620,11 +620,11 @@ target - b = a </code></pre><p>我們可以透過 <code>target</code> 減去 <co
                     <div class="summary block-with-text">
                         
                             
-link：Kids With the Greatest Number of Candies
+link：1431. Kids With the Greatest Number of Candies
 difficulty：easy
 language：javascript
 
-QuestionGiven the array candies and 
+題目原文Given the array candies an
                         
                     </div>
                     <div class="publish-info">
@@ -633,8 +633,12 @@ QuestionGiven the array candies and
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Matt lee
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/leetcode-algorithms/" class="post-category">
+                                    leetcode algorithms
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -863,7 +867,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
            <!--  <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;本站總字數:&nbsp;<span
-                class="white-color">12k</span>&nbsp;字
+                class="white-color">13.1k</span>&nbsp;字
             
             
             
@@ -973,7 +977,24 @@ $(function () {
     
     
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -991,8 +1012,6 @@ $(function () {
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-    
-
 </body>
 
 </html>

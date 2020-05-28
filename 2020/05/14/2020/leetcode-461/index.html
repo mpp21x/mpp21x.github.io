@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="LeetCode(461) - Hamming Distance(js/easy), matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="LeetCode(461) - Hamming Distance, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>LeetCode(461) - Hamming Distance(js/easy) | matt blog</title>
+    <title>LeetCode(461) - Hamming Distance | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -252,13 +252,13 @@
 
 
 
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/leetcode-461-js.png')"> -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/2020/leetcode-461-js.png')"> -->
 <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/bg.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode(461) - Hamming Distance(js/easy)</h1>
+                    <h1 class="description center-align post-title">LeetCode(461) - Hamming Distance</h1>
                 </div>
             </div>
         </div>
@@ -387,6 +387,10 @@
                                 <span class="chip bg-color">algorithm</span>
                             </a>
                         
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -415,14 +419,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-14
+                    2020-05-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字數:&nbsp;&nbsp;
-                    423
+                    505
                 </div>
                 
 
@@ -446,7 +450,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/leetcode-461-js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode(461) - Hamming Distance(js/easy)">
+                    <img src="/medias/page_images/2020/leetcode-461-js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode(461) - Hamming Distance">
                 
 
                 <ul>
@@ -454,7 +458,7 @@
 <li>difficulty：<code>easy</code></li>
 <li>language：<code>javascript</code></li>
 </ul>
-<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>The Hamming distance between two integers is the number of positions at which the corresponding bits are different.</p>
+<h2 id="題目原文"><a href="#題目原文" class="headerlink" title="題目原文"></a>題目原文</h2><p>The Hamming distance between two integers is the number of positions at which the corresponding bits are different.</p>
 <p>Given two integers x and y, calculate the Hamming distance.</p>
 <p>Note:</p>
 <p>0 ≤ <code>x</code>, <code>y</code> &lt; 2³¹.</p>
@@ -468,13 +472,12 @@ Explanation:
 4   (0 1 0 0)
        ↑   ↑
 
-The above arrows point to positions where the corresponding bits are different.</code></pre><h3 id="how-to-solve-problem"><a href="#how-to-solve-problem" class="headerlink" title="how to solve problem"></a>how to solve problem</h3><p>We need to convert two variables decimal to binary , and count the different part.</p>
-<p>So we can follow these step:</p>
+The above arrows point to positions where the corresponding bits are different.</code></pre><h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>我們必須將兩個變數轉為二進位，並且取得其不同值的位置。</p>
 <ul>
 <li>將兩個變數，從十進位轉二進位，而轉十進位至二進位，如果是透過人工計算，便是將整數一直除以 2 直到商數為 0，然後將最後除得商數，再加上每一次的餘數反轉排序後，即可得到二進位：個人記十進位轉二進位的口訣為： <strong>最後商加反轉全餘數</strong>。 </li>
 <li>再來統計不同的位數，即可得出答案。</li>
 </ul>
-<h2 id="How-to-implement-algorithm-in-javascript"><a href="#How-to-implement-algorithm-in-javascript" class="headerlink" title="How to implement algorithm in javascript"></a>How to implement algorithm in javascript</h2><p>My Answer</p>
+<h2 id="實作-JavaScript"><a href="#實作-JavaScript" class="headerlink" title="實作 JavaScript"></a>實作 JavaScript</h2><p>這是我最一開始用的方法，將 <code>x</code>, <code>y</code> 轉二進位，然後取得位數差，在每次遍歷時檢查順便遞補。</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> hammingDistance <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">var</span> big <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">var</span> small <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -497,11 +500,14 @@ The above arrows point to positions where the corresponding bits are different.<
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> distance<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>One line solution, the best answer from other person and more faster!</p>
+<p>這是後來看到別人使用 bitwise 的一行寫法（汗顏）</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> hammingDistance <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span>x <span class="token operator">^</span> y<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/0/g</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>result</p>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">hammingDistance</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// should be 2</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">hammingDistance</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// should be 1</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">hammingDistance</span><span class="token punctuation">(</span><span class="token number">93</span><span class="token punctuation">,</span> <span class="token number">73</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// should be 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="one.png" alt="The result"></p>
 <p><code>x ^ y</code>：<code>^</code> is Javascript bitwise operator,It can get a number which is binary to deciaml(if not same then add <code>1</code>) , can help us to identity the different positions.</p>
 <ul>
@@ -511,9 +517,17 @@ The above arrows point to positions where the corresponding bits are different.<
 </ul>
 <p><code>toString(2)</code>：decimal to number.</p>
 <p><code>replace(/0/g, &#39;&#39;)</code>：to replace all the same position.</p>
-<h2 id="How-to-verify-algorithm"><a href="#How-to-verify-algorithm" class="headerlink" title="How to verify algorithm"></a>How to verify algorithm</h2><pre class="line-numbers language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">hammingDistance</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// should be 2</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">hammingDistance</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// should be 1</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">hammingDistance</span><span class="token punctuation">(</span><span class="token number">93</span><span class="token punctuation">,</span> <span class="token number">73</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// should be 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="實作-Java"><a href="#實作-Java" class="headerlink" title="實作 Java"></a>實作 Java</h2><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hammingDistance</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Integer<span class="token punctuation">.</span><span class="token function">bitCount</span><span class="token punctuation">(</span>x <span class="token operator">^</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Solution s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Solution</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">hammingDistance</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><p><a href="https://github.com/mpp21x/algorithm-exercise/tree/master/461.hammingDistance" target="_blank" rel="noopener">This is my code of practice link.</a></p>
 
             </div>
@@ -538,6 +552,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
                             
                                 <a href="/tags/algorithm/">
                                     <span class="chip bg-color">algorithm</span>
+                                </a>
+                            
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
                                 </a>
                             
                         </div>
@@ -582,7 +600,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <a href="/2020/05/18/2020/recursion-hanoi/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/Tower_of_Hanoi.jpeg" class="responsive-img" alt="hanoi recursive algorithm">
+                        <img src="/medias/page_images/2020/Tower_of_Hanoi.jpeg" class="responsive-img" alt="hanoi recursive algorithm">
                         
                         <span class="card-title">hanoi recursive algorithm</span>
                     </div>
@@ -600,8 +618,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Matt lee
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/algorithm/" class="post-category">
+                                    algorithm
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -631,7 +653,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <a href="/2020/05/13/2020/leetcode-1290-js/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1290-js.png" class="responsive-img" alt="LeetCode(1290) - Convert Binary Number in a Linked List to Integer(js/easy)">
+                        <img src="/medias/page_images/2020/leetcode-1290-js.png" class="responsive-img" alt="LeetCode(1290) - Convert Binary Number in a Linked List to Integer(js/easy)">
                         
                         <span class="card-title">LeetCode(1290) - Convert Binary Number in a Linked List to Integer(js/easy)</span>
                     </div>
@@ -640,11 +662,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     <div class="summary block-with-text">
                         
                             
-link：Convert Binary Number in a Linked List to Integer
+link：1290. Convert Binary Number in a Linked List to Integer
 difficulty：easy
 language：javascript
 
-QuestionGiven head which is
+題目原文Given head which 
                         
                     </div>
                     <div class="publish-info">
@@ -827,7 +849,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
            <!--  <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;本站總字數:&nbsp;<span
-                class="white-color">12k</span>&nbsp;字
+                class="white-color">13.1k</span>&nbsp;字
             
             
             
@@ -937,7 +959,24 @@ $(function () {
     
     
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -955,8 +994,6 @@ $(function () {
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-    
-
 </body>
 
 </html>

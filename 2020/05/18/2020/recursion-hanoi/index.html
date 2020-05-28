@@ -252,7 +252,7 @@
 
 
 
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/Tower_of_Hanoi.jpeg')"> -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/2020/Tower_of_Hanoi.jpeg')"> -->
 <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/bg.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
@@ -388,6 +388,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/algorithm/" class="post-category">
+                                algorithm
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -402,7 +411,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-21
+                    2020-05-28
                 </div>
                 
 
@@ -433,7 +442,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/Tower_of_Hanoi.jpeg" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="hanoi recursive algorithm">
+                    <img src="/medias/page_images/2020/Tower_of_Hanoi.jpeg" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="hanoi recursive algorithm">
                 
 
                 <p>Tower of Hanoi ，非常知名的益智遊戲，同時也是很好的一個訓練遞迴思維的演算法，本篇記錄自己學習河內塔的過程。</p>
@@ -629,7 +638,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <a href="/2020/05/21/2020/leetcode-771-js/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode_771_js.png" class="responsive-img" alt="LeetCode(771) - Jewels and Stones (js/easy)">
+                        <img src="/medias/page_images/2020/leetcode_771_js.png" class="responsive-img" alt="LeetCode(771) - Jewels and Stones (js/easy)">
                         
                         <span class="card-title">LeetCode(771) - Jewels and Stones (js/easy)</span>
                     </div>
@@ -642,7 +651,7 @@ link：771. Jewels and Stones
 difficulty：easy
 language：javascript
 
-QuestionYou’re given strings J representing the types 
+題目原文You’re given strings J representing the types of s
                         
                     </div>
                     <div class="publish-info">
@@ -651,8 +660,12 @@ QuestionYou’re given strings J representing the types
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Matt lee
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/leetcode-algorithms/" class="post-category">
+                                    leetcode algorithms
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -683,12 +696,12 @@ QuestionYou’re given strings J representing the types
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/14/2020/leetcode-461-js/">
+                <a href="/2020/05/14/2020/leetcode-461/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-461-js.png" class="responsive-img" alt="LeetCode(461) - Hamming Distance(js/easy)">
+                        <img src="/medias/page_images/2020/leetcode-461-js.png" class="responsive-img" alt="LeetCode(461) - Hamming Distance">
                         
-                        <span class="card-title">LeetCode(461) - Hamming Distance(js/easy)</span>
+                        <span class="card-title">LeetCode(461) - Hamming Distance</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -699,7 +712,7 @@ link：461. Hamming Distance
 difficulty：easy
 language：javascript
 
-QuestionThe Hamming distance between two integers is th
+題目原文The Hamming distance between two integers is the nu
                         
                     </div>
                     <div class="publish-info">
@@ -731,6 +744,10 @@ QuestionThe Hamming distance between two integers is th
                     
                     <a href="/tags/algorithm/">
                         <span class="chip bg-color">algorithm</span>
+                    </a>
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
                 </div>
@@ -882,7 +899,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
            <!--  <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;本站總字數:&nbsp;<span
-                class="white-color">12k</span>&nbsp;字
+                class="white-color">13.1k</span>&nbsp;字
             
             
             
@@ -992,7 +1009,24 @@ $(function () {
     
     
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1010,8 +1044,6 @@ $(function () {
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-    
-
 </body>
 
 </html>

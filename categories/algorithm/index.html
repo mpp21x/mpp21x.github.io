@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="分類, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="分類: algorithm, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>分類 | matt blog</title>
+    <title>分類: algorithm | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -321,7 +321,7 @@
                 
                 <a href="/categories/algorithm/" title="algorithm: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
+                             chip-active "
                             style="background-color: #E8F8F5;">algorithm
                         <span class="tag-length">1</span>
                     </span>
@@ -334,64 +334,65 @@
 </div>
 
     
-    <style type="text/css">
-    #category-radar {
-        width: 100%;
-        height: 360px;
-    }
-</style>
 
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="category-radar" class="card-content"></div>
-    </div>
-</div>
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/05/18/2020/recursion-hanoi/">
+                        <div class="card-image tag-image">
+                            
+                            <img src="/medias/page_images/2020/Tower_of_Hanoi.jpeg" class="responsive-img" alt="hanoi recursive algorithm">
+                            
+                            <span class="card-title">hanoi recursive algorithm</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Tower of Hanoi ，非常知名的益智遊戲，同時也是很好的一個訓練遞迴思維的演算法，本篇記錄自己學習河內塔的過程。
+題目印出河內塔運算的移動軌跡想像在桌面上有三個柱子，最左邊的柱子掛了三個圓圈，每個圓圈不一，越下面的圓圈半徑越大，現
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/algorithm/" class="post-category">
+                                    algorithm
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let radarChart = echarts.init(document.getElementById('category-radar'));
-
-    
-
-    let option = {
-        title: {
-            left: 'center',
-            text: '文章分類雷達圖',
-            textStyle: {
-                fontWeight: 500,
-                fontSize: 22
-            }
-        },
-        tooltip: {},
-        radar: {
-            name: {
-                textStyle: {
-                    color: '#3C4858'
-                }
-            },
-            indicator: [{"name":"leetcode algorithms","max":10},{"name":"php","max":10},{"name":"clean code","max":10},{"name":"algorithm","max":10}],
-            nameGap: 5,
-            center: ['50%','55%'],
-            radius: '66%'
-        },
-        series: [{
-            type: 'radar',
-            color: ['#3ecf8e'],
-            itemStyle: {normal: {areaStyle: {type: 'default'}}},
-            data : [
-                {
-                    value : [9,1,1,1],
-                    name : '文章分類數量'
-                }
-            ]
-        }]
-    };
-
-    radarChart.setOption(option);
-</script>
-    
-
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/javascript/">
+                            <span class="chip bg-color">javascript</span>
+                        </a>
+                        
+                        <a href="/tags/algorithm/">
+                            <span class="chip bg-color">algorithm</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
+
+
 
 
     <footer class="page-footer bg-color">

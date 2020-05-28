@@ -252,7 +252,7 @@
 
 
 
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/leetcode-1290-js.png')"> -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/2020/leetcode-1290-js.png')"> -->
 <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/bg.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
@@ -415,14 +415,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-13
+                    2020-05-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字數:&nbsp;&nbsp;
-                    378
+                    382
                 </div>
                 
 
@@ -446,15 +446,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/leetcode-1290-js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode(1290) - Convert Binary Number in a Linked List to Integer(js/easy)">
+                    <img src="/medias/page_images/2020/leetcode-1290-js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode(1290) - Convert Binary Number in a Linked List to Integer(js/easy)">
                 
 
                 <ul>
-<li>link：<a href="https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/" target="_blank" rel="noopener">Convert Binary Number in a Linked List to Integer</a></li>
+<li>link：<a href="https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/" target="_blank" rel="noopener">1290. Convert Binary Number in a Linked List to Integer</a></li>
 <li>difficulty：<code>easy</code></li>
 <li>language：<code>javascript</code></li>
 </ul>
-<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number.</p>
+<h2 id="題目原文"><a href="#題目原文" class="headerlink" title="題目原文"></a>題目原文</h2><p>Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number.</p>
 <p>Return the decimal value of the number in the linked list.</p>
 <p>Example 1:</p>
 <pre><code>Input: head = [1,0,1]
@@ -473,10 +473,10 @@ Output: 0</code></pre><p>Constraints:</p>
 <li>Number of nodes will not exceed <code>30</code>.</li>
 <li>Each node’s value is either <code>0</code> or <code>1</code>.</li>
 </ul>
-<h3 id="Question-Explanation-amp-how-to-solve-it"><a href="#Question-Explanation-amp-how-to-solve-it" class="headerlink" title="Question Explanation &amp; how to solve it"></a>Question Explanation &amp; how to solve it</h3><p>The variable <code>head</code> is a singly-linked list, and we just need to traverse the whole list, get each node value to a varable string called <code>binaryStr</code>.</p>
+<h3 id="題目解釋-amp-how-to-solve-it"><a href="#題目解釋-amp-how-to-solve-it" class="headerlink" title="題目解釋 &amp; how to solve it"></a>題目解釋 &amp; how to solve it</h3><p>The variable <code>head</code> is a singly-linked list, and we just need to traverse the whole list, get each node value to a varable string called <code>binaryStr</code>.</p>
 <p>And convert the <code>binaryStr</code> to Decimal, It’s finished. </p>
 <p>Time complexity is <code>O(n²)</code>。</p>
-<h2 id="How-to-implement-algorithm-in-javascript"><a href="#How-to-implement-algorithm-in-javascript" class="headerlink" title="How to implement algorithm in javascript"></a>How to implement algorithm in javascript</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> getDecimalValue <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>node<span class="token punctuation">,</span> binaryStr <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> getDecimalValue <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>node<span class="token punctuation">,</span> binaryStr <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span>node <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>val <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         binaryStr <span class="token operator">+</span><span class="token operator">=</span> node<span class="token punctuation">.</span>val<span class="token punctuation">;</span>
         node <span class="token operator">=</span> node<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
@@ -603,12 +603,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/14/2020/leetcode-461-js/">
+                <a href="/2020/05/14/2020/leetcode-461/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-461-js.png" class="responsive-img" alt="LeetCode(461) - Hamming Distance(js/easy)">
+                        <img src="/medias/page_images/2020/leetcode-461-js.png" class="responsive-img" alt="LeetCode(461) - Hamming Distance">
                         
-                        <span class="card-title">LeetCode(461) - Hamming Distance(js/easy)</span>
+                        <span class="card-title">LeetCode(461) - Hamming Distance</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -619,7 +619,7 @@ link：461. Hamming Distance
 difficulty：easy
 language：javascript
 
-QuestionThe Hamming distance between two integers is th
+題目原文The Hamming distance between two integers is the nu
                         
                     </div>
                     <div class="publish-info">
@@ -653,6 +653,10 @@ QuestionThe Hamming distance between two integers is th
                         <span class="chip bg-color">algorithm</span>
                     </a>
                     
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -667,7 +671,7 @@ QuestionThe Hamming distance between two integers is th
                 <a href="/2020/05/13/2020/leetcode-1302-js/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/leetcode-1302-js.png" class="responsive-img" alt="LeetCode(1302) - Deepest Leaves Sum (js/medium)">
+                        <img src="/medias/page_images/2020/leetcode-1302-js.png" class="responsive-img" alt="LeetCode(1302) - Deepest Leaves Sum (js/medium)">
                         
                         <span class="card-title">LeetCode(1302) - Deepest Leaves Sum (js/medium)</span>
                     </div>
@@ -676,11 +680,11 @@ QuestionThe Hamming distance between two integers is th
                     <div class="summary block-with-text">
                         
                             
-link：Deepest Leaves Sum
+link：1302. Deepest Leaves Sum
 difficulty：medium
 language：javascript
 
-QuestionGiven a binary tree, return the sum of values of
+題目原文Given a binary tree, return the sum of values 
                         
                     </div>
                     <div class="publish-info">
@@ -689,8 +693,12 @@ QuestionGiven a binary tree, return the sum of values of
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Matt lee
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/leetcode-algorithms/" class="post-category">
+                                    leetcode algorithms
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -859,7 +867,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
            <!--  <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;本站總字數:&nbsp;<span
-                class="white-color">12k</span>&nbsp;字
+                class="white-color">13.1k</span>&nbsp;字
             
             
             
@@ -969,7 +977,24 @@ $(function () {
     
     
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -987,8 +1012,6 @@ $(function () {
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-    
-
 </body>
 
 </html>
