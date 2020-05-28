@@ -6,6 +6,7 @@ tags:
 - javascript
 - algorithm
 img: /medias/page_images/2020/leetcode_771_js.png
+categories: leetcode algorithms
 ---
 * link：[771. Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)
 * difficulty：`easy`

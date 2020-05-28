@@ -6,6 +6,7 @@ tags:
 - javascript
 - algorithm
 img: /medias/page_images/2020/leetcode-1431-Kids_With_the_Greatest_Number_of_Candies_js.png
+categories: leetcode algorithms
 ---
 * link：[1431. Kids With the Greatest Number of Candies](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)
 * difficulty：`easy`

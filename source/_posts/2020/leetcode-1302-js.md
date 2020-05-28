@@ -6,6 +6,7 @@ tags:
 - javascript
 - algorithm
 img: /medias/page_images/2020/leetcode-1302-js.png
+categories: leetcode algorithms
 ---
 * link：[1302. Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum/)
 * difficulty：`medium`
