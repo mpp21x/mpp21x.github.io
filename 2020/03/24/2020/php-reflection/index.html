@@ -411,21 +411,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-13
+                    2020-05-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字數:&nbsp;&nbsp;
-                    981
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>閱讀時長:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -500,7 +500,14 @@
 <pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">/**
 * @MyAnnotation(myProperty="value")
 */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>再來是要解析這一段註解，這裏我們為方便，直接使用 Doctrine 的 Library <code>AnnotationReader</code> 來協助我們解析。</p>
+<p>再來是要解析這一段註解，這裏我們為方便使用 Doctrine 的 Library <code>AnnotationReader</code> 來協助我們解析而後將 <code>MyAnnotation</code> 作為物件實體化，從而得到此物件了。</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$reader</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AnnotationReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$myAnnotation</span> <span class="token operator">=</span> <span class="token variable">$reader</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getPropertyAnnotation</span><span class="token punctuation">(</span>
+    <span class="token variable">$property</span><span class="token punctuation">,</span>
+    MyAnnotation<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>以下為此段實驗的程式碼。</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?</span>
 <span class="token keyword">require</span> <span class="token constant">__DIR__</span> <span class="token punctuation">.</span> <span class="token string">'/vendor/autoload.php'</span><span class="token punctuation">;</span>
 
@@ -869,7 +876,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
            <!--  <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;本站總字數:&nbsp;<span
-                class="white-color">13.1k</span>&nbsp;字
+                class="white-color">14.9k</span>&nbsp;字
             
             
             

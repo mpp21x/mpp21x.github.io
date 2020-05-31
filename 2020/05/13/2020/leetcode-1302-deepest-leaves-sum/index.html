@@ -387,6 +387,10 @@
                                 <span class="chip bg-color">algorithm</span>
                             </a>
                         
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -429,7 +433,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>閱讀時長:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -532,7 +536,7 @@ Output: 15</code></pre><p>Constraints:</p>
     <span class="token function">traverse</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> depthSum<span class="token punctuation">[</span>max<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="How-to-verify-algorithm"><a href="#How-to-verify-algorithm" class="headerlink" title="How to verify algorithm"></a>How to verify algorithm</h2><p>首先我自己先設計一個 Binary Tree 如下：</p>
+<h2 id="實作-JavaScript"><a href="#實作-JavaScript" class="headerlink" title="實作 JavaScript"></a>實作 JavaScript</h2><p>首先我自己先設計一個 Binary Tree 如下：</p>
 <p><img src="verify.jpg" alt=""></p>
 <p>合計為 <code>6 + 9 + 13 + 15 = 43</code>，所以最後答案必然一定要為 <code>43</code>。</p>
 <p>再來就是設計一個 Binary Tree，剛好前一陣子在拜讀 <em>Loiane Groner</em> 的 <code>learning javascript data structures and algorithms</code>，學到 ES5 如何實作 Binary Tree。</p>
@@ -577,6 +581,27 @@ Output: 15</code></pre><p>Constraints:</p>
 <span class="token keyword">const</span> values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 values<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">deepestLeavesSum</span><span class="token punctuation">(</span>tree<span class="token punctuation">.</span><span class="token function">getRoot</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="實作-Java"><a href="#實作-Java" class="headerlink" title="實作 Java"></a>實作 Java</h2><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">deepestLeavesSum</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> Integer<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">dfs</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">,</span> HashMap<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> Integer<span class="token operator">></span> depthSum<span class="token punctuation">,</span> <span class="token keyword">int</span> depth<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>depthSum<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>depth<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            depthSum<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>depth<span class="token punctuation">,</span> depthSum<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>depth<span class="token punctuation">)</span> <span class="token operator">+</span> root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            depthSum<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>depth<span class="token punctuation">,</span> root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> depthSum<span class="token punctuation">,</span> depth <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span> depthSum<span class="token punctuation">,</span> depth <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> depthSum<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>depthSum<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="GitHub-紀錄"><a href="#GitHub-紀錄" class="headerlink" title="GitHub 紀錄"></a>GitHub 紀錄</h3><p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/1302.Deepest-Leaves-Sum" target="_blank" rel="noopener">點我連結</a>。</p>
 
             </div>
@@ -601,6 +626,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
                             
                                 <a href="/tags/algorithm/">
                                     <span class="chip bg-color">algorithm</span>
+                                </a>
+                            
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
                                 </a>
                             
                         </div>
@@ -903,7 +932,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
            <!--  <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;本站總字數:&nbsp;<span
-                class="white-color">13.1k</span>&nbsp;字
+                class="white-color">14.9k</span>&nbsp;字
             
             
             
