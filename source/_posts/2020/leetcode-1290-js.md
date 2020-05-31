@@ -82,7 +82,7 @@ var getDecimalValue = function (node, binaryStr = '') {
 };
 ```
 
-## How to verify algorithm
+## 實作 javascript
 
 I write the code to simulate the leetcode input and verify the algorithm is fine.
 

@@ -5,6 +5,7 @@ tags:
 - leetcode
 - javascript
 - algorithm
+- java
 img: /medias/page_images/2020/leetcode-1302-js.png
 categories: leetcode algorithms
 ---
@@ -112,7 +113,7 @@ var deepestLeavesSum = function (root) {
 };
 ```
 
-## How to verify algorithm
+## 實作 JavaScript
 
 首先我自己先設計一個 Binary Tree 如下：
 
@@ -169,6 +170,32 @@ const tree = new BinarySearchTree();
 const values = [10, 8, 6, 9, 14, 13, 15];
 values.forEach((val) => tree.insert(val));
 console.log(deepestLeavesSum(tree.getRoot()));
+```
+
+## 實作 Java
+
+```java
+public class Solution {
+    public int deepestLeavesSum(TreeNode root) {
+        return dfs(root, new HashMap<Integer, Integer>(), 0);
+    }
+
+    public int dfs(TreeNode root, HashMap<Integer, Integer> depthSum, int depth) {
+
+        if (root == null) {
+            return 0;
+        }
+        if (depthSum.containsKey(depth)) {
+            depthSum.put(depth, depthSum.get(depth) + root.val);
+        } else {
+            depthSum.put(depth, root.val);
+        }
+        dfs(root.left, depthSum, depth + 1);
+        dfs(root.right, depthSum, depth + 1);
+
+        return depthSum.get(depthSum.size() - 1);
+    }
+}
 ```
 
 ### GitHub 紀錄

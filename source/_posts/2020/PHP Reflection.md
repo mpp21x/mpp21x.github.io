@@ -85,7 +85,18 @@ var_dump($property->getDocComment());
 */
 ```
 
-再來是要解析這一段註解，這裏我們為方便，直接使用 Doctrine 的 Library `AnnotationReader` 來協助我們解析。
+再來是要解析這一段註解，這裏我們為方便使用 Doctrine 的 Library `AnnotationReader` 來協助我們解析而後將 `MyAnnotation` 作為物件實體化，從而得到此物件了。
+
+```php
+$reader = new AnnotationReader();
+
+$myAnnotation = $reader->getPropertyAnnotation(
+    $property,
+    MyAnnotation::class
+);
+```
+
+以下為此段實驗的程式碼。
 
 ```php
 <?

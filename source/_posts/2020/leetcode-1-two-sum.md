@@ -1,5 +1,5 @@
 ---
-title: LeetCode(1) - Two Sum (js/easy)
+title: LeetCode(1) - Two Sum (easy)
 date: 2020-05-06 01:18:47
 tags:
 - leetcode
