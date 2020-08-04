@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="LeetCode(240) - Search a 2D Matrix II, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="2020/leetcode-145.Binary-Tree-Postorder-Traversal, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>LeetCode(240) - Search a 2D Matrix II | matt blog</title>
+    <title>2020/leetcode-145.Binary-Tree-Postorder-Traversal | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -252,13 +252,13 @@
 
 
 
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/2020/leetcode-240-js.png')"> -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/0.jpg')"> -->
 <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/bg.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode(240) - Search a 2D Matrix II</h1>
+                    <h1 class="description center-align post-title">2020/leetcode-145.Binary-Tree-Postorder-Traversal</h1>
                 </div>
             </div>
         </div>
@@ -396,15 +396,6 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/leetcode-algorithms/" class="post-category">
-                                leetcode algorithms
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
@@ -412,28 +403,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>發佈日期:&nbsp;&nbsp;
-                    2020-05-26
+                    2020-06-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-31
+                    2020-06-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字數:&nbsp;&nbsp;
-                    1k
+                    32
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>閱讀時長:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -450,117 +441,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/2020/leetcode-240-js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode(240) - Search a 2D Matrix II">
-                
 
                 <ul>
-<li>link：<a href="https://leetcode.com/problems/search-a-2d-matrix-ii/submissions/" target="_blank" rel="noopener">240. Search a 2D Matrix II</a></li>
-<li>difficulty：<code>medium</code></li>
-<li>language：<code>javascript</code></li>
+<li>link：<a href="">240. Search a 2D Matrix II</a></li>
+<li>difficulty：``</li>
+<li>language：``</li>
 </ul>
-<h2 id="題目原文"><a href="#題目原文" class="headerlink" title="題目原文"></a>題目原文</h2><p>Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:</p>
-<p>Integers in each row are sorted in ascending from left to right.<br>Integers in each column are sorted in ascending from top to bottom.<br>Example:</p>
-<p>Consider the following matrix:</p>
-<pre><code>[
-  [1,   4,  7, 11, 15],
-  [2,   5,  8, 12, 19],
-  [3,   6,  9, 16, 22],
-  [10, 13, 14, 17, 24],
-  [18, 21, 23, 26, 30]
-]</code></pre><p>Given target = 5, return true.</p>
-<p>Given target = 20, return false.</p>
-<h3 id="題目解釋"><a href="#題目解釋" class="headerlink" title="題目解釋"></a>題目解釋</h3><p>參數有兩個，一個充滿數字的二維陣列的矩陣 <code>matrix</code>，一個是要找尋的數字 <code>target</code>，用最快的方式找出 <code>target</code> 是否存在於 <code>matrix</code>。</p>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p><code>matrix</code> 是一個二維陣列，有兩個規律：</p>
-<ul>
-<li>陣列由上而下按照其值從小到大排序。</li>
-<li>陣列由左至右按照其值從小到大排序。</li>
-</ul>
-<p>這個規律帶出一個很重要的原則便是，如果當我們檢查其中一個數值的時候：</p>
-<ul>
-<li>如果這個數值比 <code>target</code> 還小，那麼這一列左邊的所有數值都不用檢查了，因為肯定也比 <code>target</code> 小。</li>
-<li>如果這個數值比 <code>target</code> 還大，那麼這一列右邊的數值也不用檢查了，因為肯定也比 <code>target</code> 大。</li>
-</ul>
-<p>這兩個是同一個的原則，只是逆向思考而已，透過這個原則，可以幫助我們快速篩選二維陣列的一維陣列是否要遍歷。</p>
-<p>再來便是實際遍歷的方法，首先一樣是遍歷陣列，但由於陣列是排序過的，根據上述的原則來看，為了用最快速的方法篩選，我們可以選擇從矩陣當中的兩個方向開始遍歷，但其思路是一樣的：</p>
-<h3 id="由最右上方的數值，往左下開始遍歷"><a href="#由最右上方的數值，往左下開始遍歷" class="headerlink" title="由最右上方的數值，往左下開始遍歷"></a>由最右上方的數值，往左下開始遍歷</h3><p>從最右上方的數值，往左下方的方向開始遍歷檢查，為什麼是右上？因為我們希望以最快的方式檢查這個陣列是否存在 <code>target</code>，而經過排序的規律可以幫助我們如此思考</p>
-<ul>
-<li>陣列元素由上而下按照小到大排序，所以先從小的陣列開始檢查，最後還要遍歷回來檢查，所以是上方。</li>
-<li>陣列由左而右排序，代表最右邊的一定是此列最大的數值，如果連此列最大的數值都比 <code>target</code> 小，代表此列一定不存在 <code>target</code>。</li>
-</ul>
-<p>於是之後遍歷的方向就會變成，由右上往左下檢查，如果遇到比 <code>target</code> 小的數值，直接往下方移動遍歷，如果遇到比 <code>target</code> 大的數值，則往左邊遍歷。</p>
-<h3 id="由最左下的數值，往右上開始遍歷"><a href="#由最左下的數值，往右上開始遍歷" class="headerlink" title="由最左下的數值，往右上開始遍歷"></a>由最左下的數值，往右上開始遍歷</h3><p>這一思路跟上面是一樣的，差別只是反過來，上面是以最大的數值篩選，這裡是以用最小的數值篩選，所以從最左下角的數值開始檢查，如果數值比 <code>target</code> 還大，那麼就往上移動，繼續檢查，如果遇到數值比 <code>target</code> 小的，則往右邊檢查。</p>
-<h2 id="實作-JavaScript"><a href="#實作-JavaScript" class="headerlink" title="實作 JavaScript"></a>實作 JavaScript</h2><p>將以上的思路轉為程式碼，基本上便是如此</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">/**
- * @param {number[][]} matrix
- * @param {number} target
- * @return {boolean}
- */</span>
-<span class="token keyword">var</span> searchMatrix <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>matrix<span class="token punctuation">,</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>matrix<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">//start with top-right element</span>
-    <span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> j <span class="token operator">=</span> matrix<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">//loop till row and column number are within bounds</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> matrix<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> j <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-
-        <span class="token keyword">if</span><span class="token punctuation">(</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//current element is greater than target</span>
-            <span class="token comment" spellcheck="true">//means this row might have the target element</span>
-            <span class="token comment" spellcheck="true">//change column</span>
-            j<span class="token operator">--</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">===</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//element found</span>
-            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//current element is lesser than target</span>
-            <span class="token comment" spellcheck="true">//means this column might have the target element</span>
-            <span class="token comment" spellcheck="true">//change rows</span>
-            i<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="實作-Java"><a href="#實作-Java" class="headerlink" title="實作 Java"></a>實作 Java</h2><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">searchMatrix</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> matrix<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>matrix <span class="token operator">==</span> null <span class="token operator">||</span> matrix<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">1</span> <span class="token operator">||</span> matrix<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>length <span class="token operator">&lt;</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">int</span> firstIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> secondIndex <span class="token operator">=</span> matrix<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>firstIndex <span class="token operator">&lt;</span> matrix<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> secondIndex <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>matrix<span class="token punctuation">[</span>firstIndex<span class="token punctuation">]</span><span class="token punctuation">[</span>secondIndex<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>matrix<span class="token punctuation">[</span>firstIndex<span class="token punctuation">]</span><span class="token punctuation">[</span>secondIndex<span class="token punctuation">]</span> <span class="token operator">&lt;</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                firstIndex<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                secondIndex<span class="token operator">--</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        Solution soultion <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Solution</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> matrix <span class="token operator">=</span> <span class="token punctuation">{</span>
-                <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-                <span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-                <span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-                <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-                <span class="token punctuation">{</span><span class="token number">18</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">26</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>soultion<span class="token punctuation">.</span><span class="token function">searchMatrix</span><span class="token punctuation">(</span>matrix<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>soultion<span class="token punctuation">.</span><span class="token function">searchMatrix</span><span class="token punctuation">(</span>matrix<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="GitHub-紀錄"><a href="#GitHub-紀錄" class="headerlink" title="GitHub 紀錄"></a>GitHub 紀錄</h3><p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/240.Search_a_2D_Matrix_II" target="_blank" rel="noopener">點我連結</a>。</p>
-
+<h2 id="題目原文"><a href="#題目原文" class="headerlink" title="題目原文"></a>題目原文</h2><h3 id="題目解釋"><a href="#題目解釋" class="headerlink" title="題目解釋"></a>題目解釋</h3><h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><h3 id="流程1"><a href="#流程1" class="headerlink" title="流程1"></a>流程1</h3><h2 id="實作-JavaScript"><a href="#實作-JavaScript" class="headerlink" title="實作 JavaScript"></a>實作 JavaScript</h2><h2 id="實作-Java"><a href="#實作-Java" class="headerlink" title="實作 Java"></a>實作 Java</h2><h3 id="GitHub-紀錄"><a href="#GitHub-紀錄" class="headerlink" title="GitHub 紀錄"></a>GitHub 紀錄</h3>
             </div>
             <hr/>
 
@@ -628,6 +515,43 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2020/06/05/2020/590.n-ary-tree-postorder-traversal/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/banner/0.jpg" class="responsive-img" alt="2020/590.N-ary-Tree-Postorder-Traversal">
+                        
+                        <span class="card-title">2020/590.N-ary-Tree-Postorder-Traversal</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Matt lee
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2020/05/28/2020/leetcode-6-zigzag-conversion/">
                     <div class="card-image">
                         
@@ -648,9 +572,9 @@ language：javascript , java
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -680,67 +604,6 @@ language：javascript , java
                     
                     <a href="/tags/java/">
                         <span class="chip bg-color">java</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/05/21/2020/leetcode-771-js/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/page_images/2020/leetcode_771_js.png" class="responsive-img" alt="LeetCode(771) - Jewels and Stones (js/easy)">
-                        
-                        <span class="card-title">LeetCode(771) - Jewels and Stones (js/easy)</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-link：771. Jewels and Stones
-difficulty：easy
-language：javascript
-
-題目原文You’re given strings J representing the types of s
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-21
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/leetcode-algorithms/" class="post-category">
-                                    leetcode algorithms
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
-                    </a>
-                    
-                    <a href="/tags/javascript/">
-                        <span class="chip bg-color">javascript</span>
-                    </a>
-                    
-                    <a href="/tags/algorithm/">
-                        <span class="chip bg-color">algorithm</span>
                     </a>
                     
                 </div>
