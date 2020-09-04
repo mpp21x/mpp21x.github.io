@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="LeetCode 771. Jewels and Stones, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="keywords" content="Leetcode 655. Print Binary Tree, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
     <meta name="description" content="matt lee blog about web development">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>LeetCode 771. Jewels and Stones | matt blog</title>
+    <title>Leetcode 655. Print Binary Tree | matt blog</title>
     <link rel="icon" type="image/png" href="/medias/m.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -253,13 +253,13 @@
 
 
 
-<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/2020/leetcode_771_js.png')"> -->
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/2020/leetcode-655-print-binary-tree.png')"> -->
 <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/bg.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode 771. Jewels and Stones</h1>
+                    <h1 class="description center-align post-title">Leetcode 655. Print Binary Tree</h1>
                 </div>
             </div>
         </div>
@@ -388,6 +388,10 @@
                                 <span class="chip bg-color">algorithm</span>
                             </a>
                         
+                            <a href="/tags/data-structure-binary-tree/">
+                                <span class="chip bg-color">data-structure-binary-tree</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -409,7 +413,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>發佈日期:&nbsp;&nbsp;
-                    2020-05-21
+                    2020-09-04
                 </div>
                 
 
@@ -423,14 +427,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字數:&nbsp;&nbsp;
-                    558
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>閱讀時長:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -447,69 +451,135 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 
-                    <img src="/medias/page_images/2020/leetcode_771_js.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="LeetCode 771. Jewels and Stones">
+                    <img src="/medias/page_images/2020/leetcode-655-print-binary-tree.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="Leetcode 655. Print Binary Tree">
                 
 
                 <ul>
-<li>link：<a href="https://leetcode.com/problems/jewels-and-stones/" target="_blank" rel="noopener">771. Jewels and Stones</a></li>
-<li>difficulty：<code>easy</code></li>
+<li>link：<a href="https://leetcode.com/problems/print-binary-tree//" target="_blank" rel="noopener">655. Print Binary Tree</a></li>
+<li>difficulty：<code>medium</code></li>
 <li>language：<code>javascript</code></li>
 </ul>
-<h2 id="題目原文"><a href="#題目原文" class="headerlink" title="題目原文"></a>題目原文</h2><p>You’re given strings <code>J</code> representing the types of stones that are jewels, and <code>S</code> representing the stones you have.  Each character in <code>S</code> is a type of stone you have.  You want to know how many of the stones you have are also jewels.</p>
-<p>The letters in <code>J</code> are guaranteed distinct, and all characters in <code>J</code> and <code>S</code> are letters. Letters are case sensitive, so “a” is considered a different type of stone from “A”.</p>
-<p>Example 1:</p>
-<pre><code>Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;
-Output: 3</code></pre><p>Example 2:</p>
-<pre><code>Input: J = &quot;z&quot;, S = &quot;ZZ&quot;
-Output: 0</code></pre><p>Note:</p>
-<ul>
-<li><code>S</code> and <code>J</code> will consist of letters and have length at most 50.</li>
-<li>The characters in <code>J</code> are distinct.</li>
+<h2 id="題目原文"><a href="#題目原文" class="headerlink" title="題目原文"></a>題目原文</h2><p>Print a binary tree in an <code>m*n</code> 2D string array following these rules:</p>
+<ol>
+<li>The row number <code>m</code> should be equal to the height of the given binary tree.</li>
+<li>The column number n should always be an odd number.</li>
+<li>The root node’s value (in string format) should be put in the exactly middle of the first row it can be put. The column and the row where the root node belongs will separate the rest space into two parts (<strong>left-bottom part and right-bottom part</strong>). You should print the left subtree in the left-bottom part and print the right subtree in the right-bottom part. The left-bottom part and the right-bottom part should have the same size. Even if one subtree is none while the other is not, you don’t need to print anything for the none subtree but still need to leave the space as large as that for the other subtree. However, if two subtrees are none, then you don’t need to leave space for both of them.</li>
+<li>Each unused space should contain an empty string “”.</li>
+<li>Print the subtrees following the same rules.</li>
+</ol>
+<p>** Example 1</p>
+<pre><code>Input:
+     1
+    /
+   2
+Output:
+[[&quot;&quot;, &quot;1&quot;, &quot;&quot;],
+ [&quot;2&quot;, &quot;&quot;, &quot;&quot;]]</code></pre><p>** Example 2:</p>
+<pre><code>Input:
+     1
+    / \
+   2   3
+    \
+     4
+Output:
+[[&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;1&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;],
+ [&quot;&quot;, &quot;2&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;3&quot;, &quot;&quot;],
+ [&quot;&quot;, &quot;&quot;, &quot;4&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;]]</code></pre><p>** Example 3:</p>
+<pre><code>Input:
+      1
+     / \
+    2   5
+   / 
+  3 
+ / 
+4 
+Output:
+
+[[&quot;&quot;,  &quot;&quot;,  &quot;&quot;, &quot;&quot;,  &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;1&quot;, &quot;&quot;,  &quot;&quot;,  &quot;&quot;,  &quot;&quot;,  &quot;&quot;, &quot;&quot;, &quot;&quot;]
+ [&quot;&quot;,  &quot;&quot;,  &quot;&quot;, &quot;2&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,  &quot;&quot;,  &quot;&quot;,  &quot;&quot;,  &quot;5&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;]
+ [&quot;&quot;,  &quot;3&quot;, &quot;&quot;, &quot;&quot;,  &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,  &quot;&quot;,  &quot;&quot;,  &quot;&quot;,  &quot;&quot;,  &quot;&quot;, &quot;&quot;, &quot;&quot;]
+ [&quot;4&quot;, &quot;&quot;,  &quot;&quot;, &quot;&quot;,  &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,  &quot;&quot;,  &quot;&quot;,  &quot;&quot;,  &quot;&quot;,  &quot;&quot;, &quot;&quot;, &quot;&quot;]]</code></pre><ul>
+<li>本文所提到的 <strong>行</strong> 代表直的由上往下， <strong>列</strong> 代表橫的由左往右。</li>
 </ul>
-<h3 id="題目解釋"><a href="#題目解釋" class="headerlink" title="題目解釋"></a>題目解釋</h3><p>參數 <code>J</code> 的每一個字元代表一種珠寶，我們要的做的便是找出參數 <code>S</code> 當中，有多少珠寶的石頭。</p>
-<h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><p>基本上這題解題的思路並不困難，主要是由遍歷這兩個字串來找出答案，只是如果想要速度更快的話，則必須熟悉 JavaScript 裡面一些物件如 <code>map</code> 或是 <code>set</code> 。</p>
-<h3 id="第一種方式-array"><a href="#第一種方式-array" class="headerlink" title="第一種方式 array"></a>第一種方式 array</h3><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> numJewelsInStones <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>J<span class="token punctuation">,</span> S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> stone <span class="token keyword">of</span> S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        count <span class="token operator">+</span><span class="token operator">=</span> J<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>stone<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> count<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>這裡的 <code>indexOf</code> 也可以改成 <code>includes</code></p>
-<p>最簡單的版本，然而速度並不快，其速度如下。</p>
-<p><img src="first.png" alt="第一種方式 array"></p>
-<h3 id="第二種方式-Set"><a href="#第二種方式-Set" class="headerlink" title="第二種方式 Set"></a>第二種方式 Set</h3><p>再來我們試試看另一種方法，便是 ES6 <code>Set</code>，之所以用 <code>Set</code> 是因為兩個原因：</p>
+<pre><code>  *    *
+  *    *
+  *    *
+第1行 第2行  ...</code></pre><pre><code>* * * 第1列
+* * * 第2列
+...</code></pre><h3 id="題目解釋"><a href="#題目解釋" class="headerlink" title="題目解釋"></a>題目解釋</h3><p>給予一個 Binary Tree 資料結構的參數 <code>root</code>，，並要求回傳一個矩陣，其為充滿字串的二維陣列，規則如下：</p>
+<ol>
+<li>矩陣高度 <code>m</code> 為二元樹的高度</li>
+<li>寬必然為奇數</li>
+<li>二元樹上的數值，對應到矩陣中先將左右兩邊分一半，然後再放於中間，左右兩邊二元樹互相對稱</li>
+<li>空白的值使用 “” 來表示。</li>
+</ol>
+<blockquote>
+<p>此二元樹不具備左邊節點必然大於根節點的特性</p>
+</blockquote>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>根據題目描述，答案本身可以拆分為三個部分來看，只要算出這三個部分就可完成此題目：</p>
+<ol>
+<li><p>如何算出矩陣高度？</p>
+</li>
+<li><p>如何算出矩陣寬度？</p>
+</li>
+<li><p>如何算出在二元樹的節點數值，對應到陣列中的哪一個位置？</p>
+</li>
+</ol>
+<h3 id="如何算出矩陣高度？"><a href="#如何算出矩陣高度？" class="headerlink" title="如何算出矩陣高度？"></a>如何算出矩陣高度？</h3><p>題目規則表示矩陣高度 <code>m</code> 代表二元樹高度，換句話說只要透過深度優先搜尋即可求出 <code>m</code>。 </p>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">const</span> getHeight <span class="token operator">=</span> <span class="token punctuation">(</span>root<span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>root<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token number">1</span> <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">getHeight</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">getHeight</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="如何算出矩陣寬度？"><a href="#如何算出矩陣寬度？" class="headerlink" title="如何算出矩陣寬度？"></a>如何算出矩陣寬度？</h3><p>矩陣寬度 <code>n</code> ，跟矩陣高度 <code>m</code> 符合一定規律，透過計算可得出公式 <code>n = (2ᵐ - 1)</code></p>
+<p>至此便可算出一個高度寬度皆符合答案的二維陣列了</p>
+<h3 id="如何算出在二元樹的節點數值，對應到陣列中的哪一個位置？"><a href="#如何算出在二元樹的節點數值，對應到陣列中的哪一個位置？" class="headerlink" title="如何算出在二元樹的節點數值，對應到陣列中的哪一個位置？"></a>如何算出在二元樹的節點數值，對應到陣列中的哪一個位置？</h3><p>首先觀察，每一個 Binary Tree 節點都可以對應到矩陣的某一個位置，而這個位置又符合一個特性是：</p>
 <ul>
-<li>允許使用字串作為參數</li>
-<li>unique value</li>
+<li>位於相對的 <strong>起始 index</strong> 與 <strong>結尾 index</strong> 的中間。</li>
 </ul>
-<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">var</span> numJewelsInStones <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>J<span class="token punctuation">,</span> S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// @ts-ignore</span>
-    J <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>J<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span> count <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> stone of S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        count <span class="token operator">+</span><span class="token operator">=</span> J<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>stone<span class="token punctuation">)</span>  <span class="token operator">?</span> <span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<p>這是什麼意思？以題目提供的 Example 2 為例，最上方的節點必然在矩陣列的中間，這個中間是怎麼算的？便是因為一開始的節點，其所擁有的 <strong>起始 index</strong> 在陣列中為 <code>0</code>  ，<strong>結尾 index</strong> 在陣列中的 index 為 <code>6</code> ， 這兩個數中間值為 <code>3</code>。</p>
+<p>而只要往下一個節點，往左時 <strong>起始 index</strong> 為 <code>0</code> 不變， <strong>結尾 index</strong> 則變 <code>3</code>，往右時 <strong>起始 index</strong> 變為 <code>3</code> ， <strong>結尾 index</strong> 為 <code>6</code> 不變，後面都按照這個規律計算，即可完成此題。</p>
+<hr>
+<h2 id="實作-JavaScript"><a href="#實作-JavaScript" class="headerlink" title="實作 JavaScript"></a>實作 JavaScript</h2><p>以下提供 TypeScript 範例。</p>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">TreeNode</span> <span class="token punctuation">{</span>
+    val<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span>
+    left<span class="token punctuation">:</span> TreeNode<span class="token punctuation">;</span>
+    right<span class="token punctuation">:</span> TreeNode<span class="token punctuation">;</span>
+
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span>val<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>val <span class="token operator">=</span> val<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> count<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="second.png" alt="第二種方式 Set"></p>
-<h3 id="第三種方式-Set-amp-filter"><a href="#第三種方式-Set-amp-filter" class="headerlink" title="第三種方式 Set &amp; filter"></a>第三種方式 Set &amp; filter</h3><p>速度似乎有比較快了，但是 memory 變高了一些，再來我們試試看將 <code>S</code> 轉換成陣列操作好了，使用 <code>split</code> 搭配 <code>filter</code>，可省略 <code>count</code> 變數。</p>
-<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">var</span> numJewelsInStones <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>J<span class="token punctuation">,</span> S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// @ts-ignore</span>
-    J <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>J<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> S<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span>stone<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> J<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>stone<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="third.png" alt="第三種方式 Set &amp; filter"></p>
-<p>這樣速度反而變更慢了。</p>
-<h3 id="第四種方式-Set-amp-filter-搭配-destructuring"><a href="#第四種方式-Set-amp-filter-搭配-destructuring" class="headerlink" title="第四種方式 Set &amp; filter 搭配 destructuring"></a>第四種方式 Set &amp; filter 搭配 destructuring</h3><p>試試看用 destructuring operator 使 <code>S</code> 轉換成陣列。</p>
-<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">var</span> numJewelsInStones <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>J<span class="token punctuation">,</span> S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// @ts-ignore</span>
-    J <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>J<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>S<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span>stone<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> J<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>stone<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>這次測試的變化幅度很大，最慢可以到 100ms ，最快可以到 40 ms，似乎不是很穩，這裡就取一個速度較快的作為封面了。</p>
-<p><img src="fourth.png" alt="第四種方式 Set &amp; filter 搭配 destructuring"></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="GitHub-紀錄"><a href="#GitHub-紀錄" class="headerlink" title="GitHub 紀錄"></a>GitHub 紀錄</h3><p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/771.jewelsAndStones" target="_blank" rel="noopener">點我連結</a>。 </p>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> printTree <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> getHeight <span class="token operator">=</span> <span class="token punctuation">(</span>root<span class="token punctuation">:</span> TreeNode <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>root<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token number">1</span> <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">getHeight</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">getHeight</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> createMartix <span class="token operator">=</span> <span class="token punctuation">(</span>height<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> width <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">**</span> height<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span>height<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>row <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span>width<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> put <span class="token operator">=</span> <span class="token punctuation">(</span>node<span class="token punctuation">:</span> TreeNode<span class="token punctuation">,</span> matrix<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> currentHeight<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">,</span> L<span class="token punctuation">,</span> R<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">const</span> middle <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>R <span class="token operator">-</span> L<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> L<span class="token punctuation">;</span>
+        matrix<span class="token punctuation">[</span>currentHeight<span class="token punctuation">]</span><span class="token punctuation">[</span>middle<span class="token punctuation">]</span> <span class="token operator">=</span> node<span class="token punctuation">.</span>val<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">put</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> matrix<span class="token punctuation">,</span> currentHeight <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> L<span class="token punctuation">,</span> middle <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">put</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> matrix<span class="token punctuation">,</span> currentHeight <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> middle <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> R<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> height <span class="token operator">=</span> <span class="token function">getHeight</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> matrix <span class="token operator">=</span> <span class="token function">createMartix</span><span class="token punctuation">(</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">put</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> matrix<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> matrix<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> matrix<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="GitHub-紀錄"><a href="#GitHub-紀錄" class="headerlink" title="GitHub 紀錄"></a>GitHub 紀錄</h3><p>此次練習被收錄在我的 GitHub <a href="https://github.com/mpp21x/algorithm-exercise/tree/master/655.%20Print%20Binary%20Tree" target="_blank" rel="noopener">點我連結</a>。</p>
 
             </div>
             <hr/>
@@ -533,6 +603,10 @@ Output: 0</code></pre><p>Note:</p>
                             
                                 <a href="/tags/algorithm/">
                                     <span class="chip bg-color">algorithm</span>
+                                </a>
+                            
+                                <a href="/tags/data-structure-binary-tree/">
+                                    <span class="chip bg-color">data-structure-binary-tree</span>
                                 </a>
                             
                         </div>
@@ -570,33 +644,100 @@ Output: 0</code></pre><p>Note:</p>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/26/2020/leetcode-240/">
+                <a href="/2020/09/04/2020/leetcode-655-print-binary-tree/">
                     <div class="card-image">
                         
-                        <img src="/medias/page_images/2020/leetcode-240-js.png" class="responsive-img" alt="Leetcode 240. Search a 2D Matrix II">
+                        <img src="/medias/page_images/2020/leetcode-655-print-binary-tree.png" class="responsive-img" alt="Leetcode 655. Print Binary Tree">
                         
-                        <span class="card-title">Leetcode 240. Search a 2D Matrix II</span>
+                        <span class="card-title">Leetcode 655. Print Binary Tree</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-link：240. Search a 2D Matrix II
+link：655. Print Binary Tree
 difficulty：medium
 language：javascript
 
-題目原文Write an efficient algorithm that searches f
+題目原文Print a binary tree in an m*n 2D string array fo
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-26
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/leetcode-algorithms/" class="post-category">
+                                    leetcode algorithms
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
+                    </a>
+                    
+                    <a href="/tags/algorithm/">
+                        <span class="chip bg-color">algorithm</span>
+                    </a>
+                    
+                    <a href="/tags/data-structure-binary-tree/">
+                        <span class="chip bg-color">data-structure-binary-tree</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/28/2020/leetcode-6-zigzag-conversion/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/page_images/2020/leetcode-6-ZigZag-Conversion.png" class="responsive-img" alt="Leetcode 6. ZigZag Conversion">
+                        
+                        <span class="card-title">Leetcode 6. ZigZag Conversion</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+link：6. ZigZag Conversion
+difficulty：medium
+language：javascript , java
+
+題目原文The string &quot;PAYPALISHIRING&quot; is wr
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -626,59 +767,6 @@ language：javascript
                     
                     <a href="/tags/java/">
                         <span class="chip bg-color">java</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/05/18/2020/recursion-hanoi/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/page_images/2020/Tower_of_Hanoi.jpeg" class="responsive-img" alt="hanoi recursive algorithm">
-                        
-                        <span class="card-title">hanoi recursive algorithm</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Tower of Hanoi ，非常知名的益智遊戲，同時也是很好的一個訓練遞迴思維的演算法，本篇記錄自己學習河內塔的過程。
-題目印出河內塔運算的移動軌跡想像在桌面上有三個柱子，最左邊的柱子掛了三個圓圈，每個圓圈不一，越下面的圓圈半徑越大，現
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/algorithm/" class="post-category">
-                                    algorithm
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/javascript/">
-                        <span class="chip bg-color">javascript</span>
-                    </a>
-                    
-                    <a href="/tags/algorithm/">
-                        <span class="chip bg-color">algorithm</span>
                     </a>
                     
                 </div>
