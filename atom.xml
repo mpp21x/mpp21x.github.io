@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mattlee-blog.com/"/>
-  <updated>2020-09-04T14:36:47.369Z</updated>
+  <updated>2020-10-02T16:00:41.615Z</updated>
   <id>http://mattlee-blog.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搭配 PHPStorm 建立一個 PHP Unit Test 練習專案</title>
+    <link href="http://mattlee-blog.com/2020/10/02/2020/set-up-phpunit-from-scratch/"/>
+    <id>http://mattlee-blog.com/2020/10/02/2020/set-up-phpunit-from-scratch/</id>
+    <published>2020-10-02T13:39:02.000Z</published>
+    <updated>2020-10-02T16:00:41.615Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本篇介紹搭配 PHPStorm 逐步建立一個基本簡單的 PHP 單元測試練習專案，在使用之前請先安裝 &lt;a href=&quot;https://getcomposer.org/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="unit-test" scheme="http://mattlee-blog.com/categories/unit-test/"/>
+    
+    
+      <category term="php" scheme="http://mattlee-blog.com/tags/php/"/>
+    
+      <category term="unit-test" scheme="http://mattlee-blog.com/tags/unit-test/"/>
+    
+      <category term="composer" scheme="http://mattlee-blog.com/tags/composer/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode 655. Print Binary Tree</title>
@@ -415,7 +446,7 @@
     <link href="http://mattlee-blog.com/2020/04/05/2020/gildedrose-factoring-kata/"/>
     <id>http://mattlee-blog.com/2020/04/05/2020/gildedrose-factoring-kata/</id>
     <published>2020-04-05T11:39:24.000Z</published>
-    <updated>2020-05-13T15:35:19.173Z</updated>
+    <updated>2020-10-02T13:42:23.644Z</updated>
     
     <summary type="html">
     
@@ -430,7 +461,7 @@
     </summary>
     
     
-      <category term="clean code" scheme="http://mattlee-blog.com/categories/clean-code/"/>
+      <category term="refactoring" scheme="http://mattlee-blog.com/categories/refactoring/"/>
     
     
       <category term="php" scheme="http://mattlee-blog.com/tags/php/"/>

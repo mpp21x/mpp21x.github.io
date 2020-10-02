@@ -1,0 +1,1093 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="搭配 PHPStorm 建立一個 PHP Unit Test 練習專案, matt,web,development,oop,coding,code,php,javascript,typescript,backend">
+    <meta name="description" content="matt lee blog about web development">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-103640098-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-103640098-1');
+</script>
+
+
+    <title>搭配 PHPStorm 建立一個 PHP Unit Test 練習專案 | matt blog</title>
+    <link rel="icon" type="image/png" href="/medias/m.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="matt blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <!-- <img src="/medias/m.png" class="logo-img" alt="LOGO"> -->
+                    
+                    <span class="logo-span">matt blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/m.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">matt blog</div>
+        <div class="logo-desc">
+            
+            matt lee blog about web development
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<!-- <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/page_images/2020/set-up-phpunit-from-scratch.png')"> -->
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/bg.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">搭配 PHPStorm 建立一個 PHP Unit Test 練習專案</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/php/">
+                                <span class="chip bg-color">php</span>
+                            </a>
+                        
+                            <a href="/tags/unit-test/">
+                                <span class="chip bg-color">unit-test</span>
+                            </a>
+                        
+                            <a href="/tags/composer/">
+                                <span class="chip bg-color">composer</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/unit-test/" class="post-category">
+                                unit-test
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>發佈日期:&nbsp;&nbsp;
+                    2020-10-02
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-10-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字數:&nbsp;&nbsp;
+                    1.2k
+                </div>
+                
+
+                
+
+                
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                
+                    <img src="/medias/page_images/2020/set-up-phpunit-from-scratch.png" class="responsive-img" style="max-height: 640px;margin-bottom: 20px" alt="搭配 PHPStorm 建立一個 PHP Unit Test 練習專案">
+                
+
+                <p>本篇介紹搭配 PHPStorm 逐步建立一個基本簡單的 PHP 單元測試練習專案，在使用之前請先安裝 <a href="https://getcomposer.org/" target="_blank" rel="noopener">Composer</a>。</p>
+<ul>
+<li>如果想看已經建立好的練習專案，可以<a href="https://github.com/mpp21x/phpunit-empty" target="_blank" rel="noopener">點此連結下載</a>。</li>
+<li><a href="https://phpunit.de/getting-started/phpunit-9.html" target="_blank" rel="noopener">官網教學</a></li>
+</ul>
+<h2 id="建立-PHP-空白專案"><a href="#建立-PHP-空白專案" class="headerlink" title="建立 PHP 空白專案"></a>建立 PHP 空白專案</h2><p>首先建立一個空白目錄，使用 Composer 建立一個空白專案。 </p>
+<pre><code>$ mkdir phpunit-empty
+$ cd phpunit-empty
+$ composer init</code></pre><p>接下來出現 composer interaction 介面，一直按下 Enter 即可，完成後出現一個  <code>composer.json</code> 檔案。</p>
+<p><img src="create-empty-project.png" alt=""></p>
+<blockquote>
+<p>PHPUnit 可以選擇在 <code>Would you like to define your dev dependencies (require-dev) interactively</code> 問題出現時，選擇輸入並安裝，但這裡我們先跳過。</p>
+</blockquote>
+<h2 id="安裝-PHPUnit-套件"><a href="#安裝-PHPUnit-套件" class="headerlink" title="安裝 PHPUnit 套件"></a>安裝 PHPUnit 套件</h2><p>接下來輸入以下指令安裝 PHPUnit 套件。</p>
+<pre><code>$ composer require --dev phpunit/phpunit ^8</code></pre><p>這裏並沒有選擇安裝最新版本的 PHPUnit ，是因為筆者的 PHPStorm 在最新版本的 PHPUnit 中，有不相容而導致部分相關的快捷鍵無法使用，所以先裝 <code>8</code> 的版本。 </p>
+<p><img src="install_phpunit.png" alt=""></p>
+<p>安裝好之後，就會出現一個 <code>vendor</code> 資料夾，也就是我們熟悉的 PHP 函式庫。</p>
+<h2 id="設置-PHPStorm"><a href="#設置-PHPStorm" class="headerlink" title="設置 PHPStorm"></a>設置 PHPStorm</h2><p>有了 <code>vendor</code> 之後，再來使用 PHPStorm 打開目錄，來設置基本的配置，首先設置 PHP 版本，筆者使用 PHP 的版本是 PHP <code>7.3</code>，所以這裏設置 <code>7.3</code>。</p>
+<p><img src="set-phpstorm-version.png" alt=""></p>
+<h2 id="調整專案結構與-PSR-4"><a href="#調整專案結構與-PSR-4" class="headerlink" title="調整專案結構與 PSR-4"></a>調整專案結構與 PSR-4</h2><p>有了 <code>vendor</code> 之後，再來是依據 PSR-4 規範，在 <code>composer.json</code> 來設置專案結構。</p>
+<p>首先在專案目錄新增兩個資料夾。</p>
+<ul>
+<li><code>src</code>：放置專案中主要邏輯的程式碼。</li>
+<li><code>tests</code>：放置專案的測試程式碼。</li>
+</ul>
+<p>並在 <code>composer.json</code> 輸入以下的配置來設定 <code>PSR-4</code> 載入路徑，倘若不設置的話，將導致 PHPUnit 執行時，因無法建立測試目標物件 SUT(System Under Test) 而執行失敗。</p>
+<pre><code>{
+    ...
+    &quot;autoload&quot;: {
+        &quot;psr-4&quot;: {
+            &quot;App\\&quot;: &quot;src/&quot;
+        }
+    },
+    &quot;autoload-dev&quot;: {
+        &quot;psr-4&quot;: {
+            &quot;Test\\&quot;: &quot;tests/&quot;
+        }
+    },
+    ...
+}</code></pre><p>最後設定如下所示：</p>
+<p><img src="composer-config.png" alt=""></p>
+<p>這時候使用 PHPStorm 打開目錄，會看到 <code>src</code> 以及 <code>tests</code> 有不同的顏色。</p>
+<p><img src="directory-color.png" alt=""></p>
+<p>如果沒變的話，可以使用 PHPStorm 手動設定如下：</p>
+<p><img src="set-directories.png" alt=""></p>
+<p>這個設置有助於 PHPStorm 正確解析到各個資料夾的定位，建立 PHP 檔案時也能自動載入對應的 namespace。</p>
+<p>設置好之後，使用終端機在專案目錄輸入 <code>composer dump</code> 更新 <code>autoload.php</code> 載入程式碼的路徑，否則待會執行 PHPUnit 時，會找不到程式碼。</p>
+<h2 id="撰寫測試程式碼"><a href="#撰寫測試程式碼" class="headerlink" title="撰寫測試程式碼"></a>撰寫測試程式碼</h2><p>接下來開始撰寫測試相關的程式碼，使用 PHPStorm 在 <code>src</code> 建立一個 <code>Math</code> 物件。</p>
+<p><img src="create-math-class.png" alt=""></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Math</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">addOne</span><span class="token punctuation">(</span>int <span class="token variable">$num</span><span class="token punctuation">)</span><span class="token punctuation">:</span> int
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$num</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>建立好之後，使用 PHPStorm 的 <code>Create New Test</code> 快捷鍵，建立單元測試的程式碼，這裡有兩項要注意：</p>
+<ul>
+<li><code>Test file template</code> 必須設置成 <code>PHPUnit 6+</code>。</li>
+<li><code>Namespace</code> 使用 <code>Test</code>，底下的 <code>Directory</code> 也會隨之變成綠色的。</li>
+</ul>
+<p>這裏的配置，設置過一次往後建立時就不用再設置了。</p>
+<p><img src="create-unit-test.png" alt=""></p>
+<p>程式碼自動產生如下：</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">Test</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Math</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">PHPUnit<span class="token punctuation">\</span>Framework<span class="token punctuation">\</span>TestCase</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MathTest</span> <span class="token keyword">extends</span> <span class="token class-name">TestCase</span>
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testAddOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>之後在 <code>testAddOne</code> 加上以下兩行程式碼。</p>
+<pre class="line-numbers language-php"><code class="language-php"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>如果在左側看到綠色箭頭，則代表 PHPStorm 成功識別到這是一個 可執行測試的程式碼，便可以嘗試執行 phpunit 確認結果，如此一來，測試的程式碼都寫好了。</p>
+<p>最後輸入以下指令，初始化單元測試專案必備的 <code>phpunit.xml</code> ，這裏一樣是一直按下 Enter 即可。</p>
+<pre><code>$ ./vendor/bin/phpunit --generate-configuration</code></pre><p>最後會看到一個 <code>phpunit.xml</code> 產生，內容如下：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;phpunit xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:noNamespaceSchemaLocation=&quot;https://schema.phpunit.de/8.5/phpunit.xsd&quot;
+         bootstrap=&quot;vendor/autoload.php&quot;
+         executionOrder=&quot;depends,defects&quot;
+         forceCoversAnnotation=&quot;true&quot;
+         beStrictAboutCoversAnnotation=&quot;true&quot;
+         beStrictAboutOutputDuringTests=&quot;true&quot;
+         beStrictAboutTodoAnnotatedTests=&quot;true&quot;
+         verbose=&quot;true&quot;&gt;
+    &lt;testsuites&gt;
+        &lt;testsuite name=&quot;default&quot;&gt;
+            &lt;directory suffix=&quot;Test.php&quot;&gt;tests&lt;/directory&gt;
+        &lt;/testsuite&gt;
+    &lt;/testsuites&gt;
+
+    &lt;filter&gt;
+        &lt;whitelist processUncoveredFilesFromWhitelist=&quot;true&quot;&gt;
+            &lt;directory suffix=&quot;.php&quot;&gt;src&lt;/directory&gt;
+        &lt;/whitelist&gt;
+    &lt;/filter&gt;
+&lt;/phpunit&gt;</code></pre><h2 id="執行測試"><a href="#執行測試" class="headerlink" title="執行測試"></a>執行測試</h2><p>接下來就可以開始執行測試了，執行測試的方法有 2 種：</p>
+<ul>
+<li>透過 PHPStorm 快捷鍵執行（只針對當前的 method 或是 class 測試）</li>
+<li>透過指令執行（根據 <code>phpunit.xml</code> 配置進行測試）</li>
+</ul>
+<h3 id="透過-PHPStorm-快捷鍵執行"><a href="#透過-PHPStorm-快捷鍵執行" class="headerlink" title="透過 PHPStorm 快捷鍵執行"></a>透過 PHPStorm 快捷鍵執行</h3><p>透過 PHPStorm 執行很簡單，點選旁邊的綠色箭頭即可。</p>
+<p><img src="run_test.png" alt=""></p>
+<p>執行結果如下，看到這畫面就代表成功了：</p>
+<p><img src="result.png" alt=""></p>
+<h3 id="透過指令執行測試"><a href="#透過指令執行測試" class="headerlink" title="透過指令執行測試"></a>透過指令執行測試</h3><p>透過指令執行，只要輸入 <code>./vendor/bin/phpunit</code>，即可看到以下執行結果（必須先建立前面所述的 <code>phpunit.xml</code>）：</p>
+<p><img src="result_2.png" alt=""></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="GitHub-紀錄"><a href="#GitHub-紀錄" class="headerlink" title="GitHub 紀錄"></a>GitHub 紀錄</h3><p>此專案程式收錄在我的 GitHub <a href="https://github.com/mpp21x/phpunit-empty" target="_blank" rel="noopener">點我連結</a></p>
+
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/php/">
+                                    <span class="chip bg-color">php</span>
+                                </a>
+                            
+                                <a href="/tags/unit-test/">
+                                    <span class="chip bg-color">unit-test</span>
+                                </a>
+                            
+                                <a href="/tags/composer/">
+                                    <span class="chip bg-color">composer</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/10/02/2020/set-up-phpunit-from-scratch/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/page_images/2020/set-up-phpunit-from-scratch.png" class="responsive-img" alt="搭配 PHPStorm 建立一個 PHP Unit Test 練習專案">
+                        
+                        <span class="card-title">搭配 PHPStorm 建立一個 PHP Unit Test 練習專案</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本篇介紹搭配 PHPStorm 逐步建立一個基本簡單的 PHP 單元測試練習專案，在使用之前請先安裝 Composer。
+
+如果想看已經建立好的練習專案，可以點此連結下載。
+官網教學
+
+建立 PHP 空白專案首先建立一個空白目錄，使用 Co
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/unit-test/" class="post-category">
+                                    unit-test
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/php/">
+                        <span class="chip bg-color">php</span>
+                    </a>
+                    
+                    <a href="/tags/unit-test/">
+                        <span class="chip bg-color">unit-test</span>
+                    </a>
+                    
+                    <a href="/tags/composer/">
+                        <span class="chip bg-color">composer</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/09/04/2020/leetcode-655-print-binary-tree/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/page_images/2020/leetcode-655-print-binary-tree.png" class="responsive-img" alt="Leetcode 655. Print Binary Tree">
+                        
+                        <span class="card-title">Leetcode 655. Print Binary Tree</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+link：655. Print Binary Tree
+difficulty：medium
+language：javascript
+
+題目原文Print a binary tree in an m*n 2D string array fo
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/leetcode-algorithms/" class="post-category">
+                                    leetcode algorithms
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
+                    </a>
+                    
+                    <a href="/tags/algorithm/">
+                        <span class="chip bg-color">algorithm</span>
+                    </a>
+                    
+                    <a href="/tags/data-structure-binary-tree/">
+                        <span class="chip bg-color">data-structure-binary-tree</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目錄</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="http://mattlee-blog.com" target="_blank">Matt lee</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+           <!--  <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;本站總字數:&nbsp;<span
+                class="white-color">17.2k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;總瀏覽數:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;總瀏覽人數:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+             -->
+            <br>
+            
+            <!--<span id="sitetime">載入時間...</span>-->
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+/* matt 修改
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+*/
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+/* matt 修改
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+*/
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/mpp21x" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:mpp21x@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="請輸入搜索的關鍵字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light bg-color" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+
+</html>
