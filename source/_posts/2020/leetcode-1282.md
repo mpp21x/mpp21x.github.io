@@ -1,5 +1,5 @@
 ---
-title: LeetCode(1282) - Group the People Given the Group Size They Belong To (js/medium)
+title: LeetCode 1282. Group the People Given the Group Size They Belong To
 date: 2020-05-10 14:37:44
 tags:
 - leetcode

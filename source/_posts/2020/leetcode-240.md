@@ -1,5 +1,5 @@
 ---
-title: LeetCode(240) - Search a 2D Matrix II
+title: Leetcode 240. Search a 2D Matrix II
 date: 2020-05-26 21:30:07
 tags:
 - leetcode

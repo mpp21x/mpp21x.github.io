@@ -1,5 +1,5 @@
 ---
-title: LeetCode(796) - Rotate String (js/easy)
+title: LeetCode 796. Rotate String
 date: 2020-05-11 00:40:02
 tags:
 - leetcode

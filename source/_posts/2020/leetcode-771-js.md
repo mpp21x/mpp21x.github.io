@@ -1,5 +1,5 @@
 ---
-title: LeetCode(771) - Jewels and Stones (js/easy)
+title: LeetCode 771. Jewels and Stones
 date: 2020-05-21 01:40:42
 tags: 
 - leetcode

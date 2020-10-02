@@ -1,5 +1,5 @@
 ---
-title: LeetCode(1431) - Kids With the Greatest Number of Candies (js/easy)
+title: LeetCode 1431. Kids With the Greatest Number of Candies
 date: 2020-05-06 09:46:42
 tags: 
 - leetcode

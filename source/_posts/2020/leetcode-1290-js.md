@@ -1,5 +1,5 @@
 ---
-title: LeetCode(1290) - Convert Binary Number in a Linked List to Integer(js/easy)
+title: LeetCode 1290. Convert Binary Number in a Linked List to Integer(js/easy)
 date: 2020-05-13 10:13:02
 tags:
 - leetcode
