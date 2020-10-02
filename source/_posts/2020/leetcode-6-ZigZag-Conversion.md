@@ -16,7 +16,7 @@ categories: leetcode algorithms
 
 ## 題目原文
 
-The string `"PAYPALISHIRING"` is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+The string `PAYPALISHIRING` is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
 
 
 ```
@@ -25,7 +25,7 @@ A P L S I I G
 Y   I   R
 ```
 
-And then read line by line: `"PAHNAPLSIIGYIR"`
+And then read line by line: `PAHNAPLSIIGYIR`
 
 Write the code that will take a string and make this conversion given a number of rows:
 
@@ -57,7 +57,7 @@ P     I
 
 給予兩個參數：字串 `s` 以及整數 `numRows`，按照 `numRowss` 的數字，從字串每個字元開始進行一個蜿蜒的排序，以下舉例：
 
-當 `s` 為 `abcdefgh'`，`numRowss` 為 `3` 時，排序如下：
+當 `s` 為 `abcdefgh`，`numRowss` 為 `3` 時，排序如下：
 
 ```
 a   e
@@ -65,7 +65,7 @@ b d f
 c   g
 ```
 
-當 `s` 為 `abcdefg'`，`numRowss` 為 `4` 時，排序如下：
+當 `s` 為 `abcdefg`，`numRowss` 為 `4` 時，排序如下：
 
 ```
 a     g
